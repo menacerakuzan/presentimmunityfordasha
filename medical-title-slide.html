@@ -1,0 +1,2010 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Імунітет — Slides</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+    @font-face { font-family: "Nyght Serif"; src: url("./fonts/NyghtSerif-Bold.ttf") format("truetype"); font-weight: 700; }
+    @font-face { font-family: "Nyght Serif"; src: url("./fonts/NyghtSerif-Medium.ttf") format("truetype"); font-weight: 500; }
+    @font-face { font-family: "Felidae"; src: url("./fonts/Felidae.ttf") format("truetype"); font-weight: 400; }
+
+    :root {
+      --bg: #e9ecf2;
+      --accent: #2a49c7;
+      --grid: rgba(74,101,170,0.085);
+      --ink: #0e1d58;
+    }
+
+    html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: var(--bg); }
+    .viewport { position: fixed; inset: 0; overflow: hidden; }
+    .track { position: absolute; inset: 0; will-change: transform; }
+
+    /* ── Загальний слайд ── */
+    .slide {
+      position: relative; width: 100vw; height: 100vh; overflow: hidden;
+      background:
+        repeating-linear-gradient(to right,  transparent 0, transparent 112px, var(--grid) 112px, var(--grid) 113px),
+        repeating-linear-gradient(to bottom, transparent 0, transparent 112px, var(--grid) 112px, var(--grid) 113px),
+        var(--bg);
+    }
+    .slide::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+      background:
+        radial-gradient(circle at 50% 60%, rgba(165,183,255,0.23), transparent 42%),
+        radial-gradient(circle at 50% 38%, rgba(255,255,255,0.45), transparent 58%);
+    }
+
+    /* ══════════════ СЛАЙД 1 ══════════════ */
+    .title {
+      position: absolute; top: 41%; left: 50%; transform: translate(-50%,-50%);
+      margin: 0; color: var(--accent); font-family: "Nyght Serif", serif;
+      font-size: clamp(120px,11vw,250px); font-weight: 700; line-height: 1; z-index: 2;
+    }
+    .subtitle {
+      position: absolute; top: 56%; left: 50%; transform: translate(-50%,-50%);
+      margin: 0; color: var(--accent); font-family: "Nyght Serif", serif;
+      font-size: clamp(26px,2vw,38px); z-index: 2; white-space: nowrap;
+    }
+    .subtitle .name { font-family: "Felidae","Nyght Serif",serif; }
+    model-viewer {
+      position: absolute; left: 96%; top: 52%; width: min(78vw,1360px); height: 100vh;
+      transform: translate(-50%,-50%); --poster-color: transparent; background: transparent; z-index: 1;
+    }
+    .status {
+      position: absolute; left: 50%; top: 52%; transform: translateX(-50%);
+      color: #2463ae; font-family: "Nyght Serif",serif; font-size: 16px; opacity: 0.7; z-index: 2;
+    }
+
+    .s2-wrap { position: absolute; inset: 0; z-index: 2; overflow: hidden; }
+
+    /* заголовок */
+    .s2-title {
+      position: absolute; left: 50%; top: 1.8%;
+      transform: translateX(-50%); white-space: nowrap; margin: 0;
+      font-family: "Nyght Serif", serif; font-weight: 700;
+      font-size: clamp(32px, 3.2vw, 62px); color: var(--ink);
+      opacity: 1; z-index: 4;
+    }
+
+    /* SVG ліній поверх всього */
+    .s2-svg {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      pointer-events: none; z-index: 3; overflow: visible;
+    }
+    .ln {
+      fill: none; stroke: var(--ink); stroke-width: 3;
+      stroke-linecap: round; opacity: 1;
+    }
+    .arr {
+      fill: var(--ink); opacity: 1;
+    }
+
+    /* картки */
+    .card {
+      position: absolute; box-sizing: border-box;
+      background: rgba(255,255,255,0.78);
+      border: 1.8px solid rgba(42,73,199,0.22);
+      border-radius: 14px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 2px 20px rgba(42,73,199,0.07);
+      padding: 16px 20px 14px;
+      font-family: "Nyght Serif", serif; color: var(--ink);
+      opacity: 1; z-index: 2;
+    }
+    .card-dash {
+      border-style: dashed;
+      border-color: rgba(42,73,199,0.28);
+      background: rgba(255,255,255,0.5);
+      box-shadow: none;
+    }
+    .card h3 {
+      margin: 0 0 3px; font-weight: 700;
+      font-size: clamp(19px,1.7vw,34px); color: var(--ink);
+    }
+    .card .sub {
+      font-style: italic; font-weight: 500;
+      font-size: clamp(11px,0.9vw,17px); color: #4a5ba0;
+      margin: 0 0 8px;
+    }
+    .card ul {
+      margin: 0; padding-left: 1.1em;
+      font-size: clamp(11px,0.9vw,17px); line-height: 1.45; color: #1b2865;
+    }
+    .card ul li::marker { color: var(--accent); }
+    .card .note {
+      margin-top: 8px; font-weight: 700;
+      color: #8b2250; font-size: clamp(11px,0.85vw,16px);
+    }
+    .card .desc {
+      font-size: clamp(11px,0.9vw,17px); color: #1b2865; line-height: 1.35; margin: 0;
+    }
+    .card .ico { font-size: clamp(18px,1.5vw,28px); display: block; margin: 6px 0 4px; text-align: center; }
+    .card h3.center { text-align: center; font-size: clamp(18px,1.6vw,30px); }
+    .card h3.leaf { text-align: center; font-size: clamp(16px,1.4vw,26px); margin-bottom: 0; }
+    .card.leaf .desc {
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      margin-top: 0;
+      transition: opacity 220ms ease, max-height 260ms ease, margin-top 220ms ease;
+    }
+    .card.leaf.open .desc {
+      opacity: 1;
+      max-height: 180px;
+      margin-top: 8px;
+    }
+
+    /* позиції карток */
+    .c-inn  { top: 16%; left: 2%;  width: 47%; height: 43%; }
+    .c-ada  { top: 16%; left: 52%; width: 46%; height: 43%; }
+    .c-nat  { top: 52%; left: 36%; width: 27%; height: 11%; display:flex; align-items:center; justify-content:center; }
+    .c-art  { top: 52%; left: 66%; width: 27%; height: 11%; display:flex; align-items:center; justify-content:center; }
+    .c-na   { top: 69%; left: 2%;  width: 23%; }
+    .c-np   { top: 69%; left: 27%; width: 23%; }
+    .c-aa   { top: 69%; left: 52%; width: 23%; }
+    .c-ap   { top: 69%; left: 77%; width: 21%; }
+
+    /* ══════════════ СЛАЙД 3 ══════════════ */
+    .s3 {
+      position: absolute; inset: 0; z-index: 2; overflow: hidden;
+      font-family: "Nyght Serif", serif; color: var(--ink);
+    }
+    .s3-svg {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      pointer-events: none; z-index: 1;
+    }
+    .s3-ln {
+      fill: none; stroke: var(--ink); stroke-width: 2.4;
+      stroke-linecap: round; stroke-linejoin: round;
+    }
+    .s3-card {
+      position: absolute; box-sizing: border-box;
+      border-radius: 16px; padding: 14px 18px;
+      background: rgba(255,255,255,0.86);
+      border: 1.8px solid rgba(42,73,199,0.22);
+      box-shadow: 0 3px 16px rgba(42,73,199,0.08);
+      text-align: center;
+      font-size: clamp(20px, 1.5vw, 30px);
+      line-height: 1.15;
+      z-index: 2;
+    }
+    .s3-h1 { left: 20%; top: 6%; width: 60%; background: linear-gradient(180deg, #4468df, #2a49c7); color: #f5f8ff; }
+    .s3-central { left: 8%; top: 22%; width: 20%; background: linear-gradient(180deg, #5f7ee8, #3f62db); color: #f5f8ff; }
+    .s3-periph { left: 43%; top: 22%; width: 22%; background: linear-gradient(180deg, #3f62db, #2a49c7); color: #f5f8ff; }
+
+    .s3-leaf-a { left: 2.5%; top: 36%; width: 12%; background: rgba(255,255,255,0.78); }
+    .s3-leaf-b { left: 16%; top: 36%; width: 14%; background: rgba(255,255,255,0.78); }
+
+    .s3-mid-1 { left: 37%; top: 36%; width: 14%; }
+    .s3-mid-2 { left: 53%; top: 36%; width: 12%; }
+    .s3-mid-3 { left: 66%; top: 36%; width: 14%; }
+    .s3-mid-4 { left: 81%; top: 36%; width: 16%; }
+
+    .s3-bottom-1 { left: 39%; top: 63%; width: 16%; background: rgba(255,255,255,0.74); border-style: dashed; }
+    .s3-bottom-2 { left: 57%; top: 63%; width: 16%; background: rgba(255,255,255,0.74); border-style: dashed; }
+    .s3-bottom-3 { left: 75%; top: 63%; width: 16%; background: rgba(255,255,255,0.74); border-style: dashed; }
+
+    /* interactive overlay for slide 3 */
+    .s3-ui {
+      position: absolute; inset: 0; z-index: 5;
+      padding: 5vh 2vw 3vh;
+      display: grid;
+      grid-template-rows: auto auto auto;
+      gap: 1.4vh;
+      pointer-events: auto;
+    }
+    .s3-title {
+      text-align: center;
+      margin: 0;
+      font-family: "Nyght Serif", serif;
+      font-size: clamp(36px, 3.4vw, 62px);
+      color: var(--ink);
+    }
+    .s3-head {
+      margin: 0 auto;
+      width: min(34vw, 620px);
+      text-align: center;
+      color: #f5f8ff;
+      border-radius: 12px;
+      padding: 6px 12px;
+      font-family: "Nyght Serif", serif;
+      font-size: clamp(28px, 2.4vw, 42px);
+      background: linear-gradient(180deg, #4468df, #2a49c7);
+    }
+    .s3-head.central { background: linear-gradient(180deg, #f39a35, #e17a16); }
+    /* ══════════════ СЛАЙД 3 — схема органів ══════════════ */
+    .s3-wrap {
+      position: absolute; inset: 0; z-index: 2; overflow: hidden;
+      font-family: "Nyght Serif", serif;
+    }
+    .s3-title {
+      position: absolute; left: 50%; top: 3.5%;
+      transform: translateX(-50%);
+      margin: 0; white-space: nowrap;
+      font-weight: 700; font-size: clamp(28px,2.8vw,54px);
+      color: var(--ink); z-index: 4;
+    }
+
+    /* SVG ліній */
+    .s3-svg {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      pointer-events: none; z-index: 3; overflow: visible;
+    }
+    .s3-ln {
+      fill: none; stroke: var(--ink); stroke-width: 2px;
+      stroke-linecap: square;
+    }
+
+    /* блок-нода */
+    .s3-node {
+      position: absolute; box-sizing: border-box;
+      font-family: "Nyght Serif", serif;
+      font-weight: 700; text-align: center;
+      border-radius: 12px; z-index: 2;
+      display: flex; align-items: center; justify-content: center;
+      padding: 8px 12px;
+      font-size: clamp(13px,1.1vw,20px);
+      line-height: 1.25;
+      border: 2px solid transparent;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+    /* ── кольори: всі в гамі --accent/#0e1d58 ── */
+    .s3-root {
+      background: linear-gradient(160deg,#2a49c7,#1a35a8);
+      color: #fff; border-color: #1a35a8;
+      font-size: clamp(14px,1.3vw,24px);
+    }
+    .s3-central {
+      background: linear-gradient(160deg,#3d5fdd,#2a49c7);
+      color: #fff; border-color: #2240b0;
+    }
+    .s3-periph {
+      background: linear-gradient(160deg,#3d5fdd,#2a49c7);
+      color: #fff; border-color: #2240b0;
+    }
+    .s3-c-leaf {
+      background: rgba(255,255,255,0.82);
+      color: var(--ink); border-color: rgba(42,73,199,0.35);
+    }
+    .s3-p-leaf {
+      background: rgba(255,255,255,0.82);
+      color: var(--ink); border-color: rgba(42,73,199,0.35);
+    }
+    .s3-p-sub {
+      background: rgba(233,236,242,0.9);
+      color: var(--ink); border: 1.5px dashed rgba(42,73,199,0.35);
+      font-size: clamp(11px,0.9vw,16px);
+    }
+
+    /* кліковані ноди */
+    .s3-node.clickable {
+      cursor: pointer;
+    }
+    .s3-node.clickable:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(42,73,199,0.18);
+    }
+
+    /* попап при кліку */
+    .s3-popup {
+      position: absolute; z-index: 10;
+      background: rgba(255,255,255,0.97);
+      border: 2px solid rgba(42,73,199,0.28);
+      border-radius: 14px;
+      box-shadow: 0 8px 32px rgba(42,73,199,0.16);
+      padding: 16px 20px 14px;
+      font-family: "Nyght Serif", serif;
+      font-size: clamp(12px,0.95vw,18px);
+      color: #1b2865; line-height: 1.5;
+      max-width: 320px; min-width: 200px;
+      pointer-events: none;
+      opacity: 0; transform: translateY(-6px) scale(0.97);
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+    .s3-popup.central { border-color: rgba(210,130,40,0.5); }
+    .s3-popup.show { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+    .s3-popup-title { font-weight: 700; font-size: clamp(14px,1.1vw,20px); margin: 0 0 8px; color: var(--ink); }
+    .s3-popup-close {
+      position: absolute; top: 8px; right: 10px;
+      font-size: 18px; line-height: 1; cursor: pointer;
+      color: #aaa; background: none; border: none; padding: 0;
+      font-family: sans-serif;
+    }
+    .s3-popup-close:hover { color: var(--ink); }
+
+    /* ══════════════ СЛАЙДИ 4-5 — Тести ══════════════ */
+    .quiz-wrap {
+      position: absolute; inset: 0; z-index: 2;
+      font-family: "Nyght Serif", serif; color: var(--ink);
+      display: flex; flex-direction: column;
+      padding: 2.2vh 2.8vw; box-sizing: border-box;
+    }
+    .quiz-heading, .quiz-title { display: none; }
+    .quiz-cols, .quiz-grid {
+      flex: 1; display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(12px, 1.6vw, 24px); min-height: 0;
+    }
+    .quiz-card {
+      background: rgba(255,255,255,0.78);
+      border: 1.8px solid rgba(42,73,199,0.2);
+      border-radius: 16px;
+      box-shadow: 0 2px 16px rgba(42,73,199,0.07);
+      padding: clamp(14px,1.4vw,22px) clamp(16px,1.5vw,24px);
+      display: flex; flex-direction: column; gap: clamp(8px,0.9vh,14px);
+      backdrop-filter: blur(6px); overflow: hidden;
+    }
+    .quiz-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 1.6em; height: 1.6em; border-radius: 50%;
+      background: var(--accent); color: #fff;
+      font-size: 0.9em; font-weight: 700;
+      margin-right: 6px; flex-shrink: 0;
+      vertical-align: middle;
+    }
+    .quiz-q {
+      margin: 0; font-size: clamp(13px,1.05vw,17px);
+      line-height: 1.45; color: var(--ink);
+    }
+    .quiz-q u { text-decoration-color: var(--accent); text-underline-offset: 2px; }
+    .quiz-opts {
+      display: flex; flex-direction: column; gap: clamp(5px,0.6vh,9px);
+    }
+    .qopt {
+      background: rgba(233,236,242,0.85);
+      border: 1.5px solid rgba(42,73,199,0.18);
+      border-radius: 10px; padding: clamp(7px,0.7vh,11px) 14px;
+      font-family: "Nyght Serif", serif;
+      font-size: clamp(12px,0.95vw,16px); color: var(--ink);
+      cursor: pointer; text-align: left;
+      transition: background 160ms, border-color 160ms, transform 100ms;
+    }
+    .qopt:hover:not(:disabled) {
+      background: rgba(200,212,255,0.7);
+      border-color: rgba(42,73,199,0.4);
+      transform: translateX(3px);
+    }
+    .qopt.correct {
+      background: rgba(180,240,190,0.9);
+      border-color: #3aad5a; color: #134f28; cursor: default;
+    }
+    .qopt.correct::before { content: "✓  "; font-weight: 700; }
+    .qopt.wrong {
+      background: rgba(255,200,200,0.85);
+      border-color: #d94444; color: #6e1010; cursor: default;
+    }
+    .qopt.wrong::before { content: "✗  "; font-weight: 700; }
+    .qopt:disabled { cursor: default; transform: none; }
+    .quiz-result {
+      margin: 0; font-size: clamp(12px,0.9vw,15px);
+      font-weight: 700; min-height: 1em;
+      color: #3aad5a;
+    }
+    .quiz-result.wrong-res { color: #d94444; }
+
+    /* ══════════════ СЛАЙД 6 (колишній 4) — Лімфоцити ══════════════ */
+    .s4-wrap {
+      position: absolute; inset: 0; z-index: 2;
+      font-family: "Nyght Serif", serif; color: var(--ink);
+      display: grid;
+      grid-template-columns: 55% 45%;
+      grid-template-rows: auto 1fr;
+      padding: 3vh 2.5vw 2.5vh;
+      gap: 0 1.5vw;
+      box-sizing: border-box;
+    }
+    .s4-heading {
+      grid-column: 1 / -1;
+      text-align: center;
+      font-weight: 700; font-size: clamp(26px,2.4vw,46px);
+      color: var(--ink); margin: 0 0 2vh;
+    }
+
+    /* ліва колонка */
+    .s4-left {
+      display: flex; flex-direction: column; gap: 1.2vh;
+      overflow: hidden;
+    }
+    .s4-block {
+      background: rgba(255,255,255,0.78);
+      border: 1.8px solid rgba(42,73,199,0.22);
+      border-radius: 16px;
+      padding: 14px 18px;
+      box-shadow: 0 2px 14px rgba(42,73,199,0.07);
+      flex: 1; overflow: hidden;
+    }
+    .s4-block-title {
+      font-weight: 700; font-size: clamp(14px,1.25vw,22px);
+      color: var(--accent); margin: 0 0 6px;
+    }
+    .s4-block-sub {
+      font-size: clamp(11px,0.9vw,16px); color: #1b2865;
+      margin: 0 0 6px; font-style: italic;
+    }
+    .s4-block ul {
+      margin: 0; padding-left: 1.1em;
+      font-size: clamp(11px,0.88vw,15px); line-height: 1.45; color: #1b2865;
+    }
+    .s4-block ul li { margin: 2px 0; }
+    .s4-block ul li::marker { color: var(--accent); }
+    .s4-block strong { color: var(--ink); }
+
+    /* права колонка — SVG дерево */
+    .s4-right {
+      position: relative;
+      overflow: hidden;
+    }
+    .s4-svg {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      pointer-events: none;
+    }
+    .s4-tree-ln {
+      fill: none; stroke: var(--ink); stroke-width: 1.8px;
+      stroke-linecap: round; stroke-linejoin: round;
+    }
+    /* кружечки клітин */
+    .s4-cell {
+      position: absolute; transform: translate(-50%, -50%);
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; gap: 4px;
+      font-size: clamp(10px,0.78vw,13px); color: var(--ink);
+      line-height: 1.2; white-space: nowrap;
+    }
+    .s4-circle {
+      border-radius: 50%; border: 2.5px solid rgba(42,73,199,0.5);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; flex-shrink: 0;
+    }
+    /* розміри кружечків */
+    .sz-lg { width: clamp(44px,4vw,68px); height: clamp(44px,4vw,68px); }
+    .sz-md { width: clamp(36px,3.2vw,54px); height: clamp(36px,3.2vw,54px); }
+    .sz-sm { width: clamp(28px,2.5vw,42px); height: clamp(28px,2.5vw,42px); }
+    /* кольори */
+    .cl-pred  { background: radial-gradient(circle at 38% 35%, #c8b8e8, #8060b8); border-color: #6040a0; }
+    .cl-nk    { background: radial-gradient(circle at 38% 35%, #d0b8f0, #9070cc); border-color: #7050b0; }
+    .cl-t     { background: radial-gradient(circle at 38% 35%, #b8a0dc, #6845a8); border-color: #5535a0; }
+    .cl-b     { background: radial-gradient(circle at 38% 35%, #c0a8e0, #7855b8); border-color: #6045a8; }
+    .cl-plazm { background: radial-gradient(circle at 38% 35%, #9070cc, #4020a0); border-color: #3010a0; }
+    /* ядро всередині кружечка */
+    .s4-circle::after {
+      content: ""; border-radius: 50%;
+      background: rgba(40,20,100,0.55);
+    }
+    .sz-lg::after { width: 42%; height: 42%; }
+    .sz-md::after { width: 44%; height: 44%; }
+    .sz-sm::after { width: 46%; height: 46%; }
+    /* плазмоцит — ядро зі "спицями" */
+    .cl-plazm::after {
+      background: none;
+      border-radius: 50%;
+      width: 44%; height: 44%;
+      box-shadow: inset 0 0 0 2px rgba(180,140,255,0.8),
+                  0 0 0 1px rgba(180,140,255,0.4);
+      background: radial-gradient(circle, rgba(60,20,120,0.9) 30%, transparent 31%),
+        repeating-conic-gradient(rgba(180,140,255,0.7) 0deg 4deg, transparent 4deg 45deg);
+    }
+    .s4-cell-label { font-weight: 700; font-size: clamp(10px,0.8vw,14px); }
+    .s4-cell-sub   { font-weight: 400; font-size: clamp(9px,0.65vw,11px); color: #4a5ba0; }
+
+    /* ══════════════ СЛАЙД 7 — АГ / АТ ══════════════ */
+    .ag-wrap {
+      position: absolute; inset: 0; z-index: 2;
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; gap: clamp(16px,2.2vh,32px); padding: 3vh 4vw;
+    }
+    .ag-title {
+      margin: 0; font-family: "Nyght Serif", serif; font-weight: 700;
+      font-size: clamp(28px, 3vw, 54px); color: var(--ink); text-align: center;
+    }
+    .ag-row {
+      display: flex; align-items: center; justify-content: center;
+      gap: clamp(16px, 2.5vw, 48px); width: 100%; max-width: 1100px;
+    }
+    .ag-card {
+      flex: 1; max-width: 380px; background: white; border-radius: 20px;
+      box-shadow: 0 4px 32px rgba(42,73,199,0.10); padding: clamp(18px,2.2vw,36px);
+      display: flex; flex-direction: column; gap: 12px; border: 1.5px solid rgba(42,73,199,0.12);
+    }
+    .ag-card-icon { display: flex; justify-content: center; }
+    .ag-card-icon svg { width: clamp(52px, 5vw, 72px); height: clamp(52px, 5vw, 72px); }
+    .ag-card-title {
+      margin: 0; font-family: "Nyght Serif", serif; font-weight: 700;
+      font-size: clamp(20px, 1.8vw, 28px); color: var(--accent); text-align: center;
+    }
+    .ag-card-def {
+      margin: 0; font-family: "Nyght Serif", serif; font-size: clamp(13px, 1.1vw, 17px);
+      color: var(--ink); line-height: 1.55; text-align: center;
+    }
+    .ag-examples { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+    .ag-tag {
+      background: rgba(42,73,199,0.09); color: var(--accent); border-radius: 20px;
+      padding: 3px 12px; font-family: "Nyght Serif", serif; font-size: clamp(11px, 0.85vw, 14px);
+      font-weight: 500; border: 1px solid rgba(42,73,199,0.18);
+    }
+    .ag-arrow-block { flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+    .ag-react-svg { width: clamp(100px, 10vw, 160px); height: auto; }
+    .ag-ig-bar {
+      display: flex; align-items: center; gap: 18px;
+      background: rgba(42,73,199,0.07); border-radius: 16px;
+      padding: clamp(12px, 1.4vw, 22px) clamp(18px, 2vw, 36px);
+      max-width: 820px; width: 100%; border: 1.5px solid rgba(42,73,199,0.14);
+    }
+    .ag-ig-icon {
+      flex-shrink: 0; width: clamp(44px,4.5vw,64px); height: clamp(44px,4.5vw,64px);
+      background: var(--accent); color: white; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: "Nyght Serif", serif; font-weight: 700; font-size: clamp(18px, 1.8vw, 26px);
+    }
+    .ag-ig-text {
+      margin: 0; font-family: "Nyght Serif", serif; font-size: clamp(13px, 1.05vw, 16px);
+      color: var(--ink); line-height: 1.5;
+    }
+
+    /* ══════════════ СЛАЙД 8 — Імуноглобуліни ══════════════ */
+    .ig-wrap {
+      position: absolute; inset: 0; z-index: 2;
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; gap: clamp(14px, 2vh, 28px); padding: 3vh 4vw;
+    }
+    .ig-title {
+      margin: 0; font-family: "Nyght Serif", serif; font-weight: 700;
+      font-size: clamp(28px, 3vw, 54px); color: var(--ink); text-align: center;
+    }
+    .ig-grid {
+      display: flex; gap: clamp(10px, 1.2vw, 20px); width: 100%; max-width: 1200px;
+      align-items: stretch;
+    }
+    .ig-card {
+      flex: 1; background: white; border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(42,73,199,0.09); padding: clamp(14px, 1.6vw, 24px);
+      display: flex; flex-direction: column; gap: 10px;
+      border: 1.5px solid rgba(42,73,199,0.10);
+      transition: box-shadow 0.2s, transform 0.2s;
+      cursor: default;
+    }
+    .ig-card:hover {
+      box-shadow: 0 8px 36px rgba(42,73,199,0.18);
+      transform: translateY(-3px);
+    }
+    .ig-card-head {
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+    }
+    .ig-label {
+      font-family: "Nyght Serif", serif; font-weight: 700;
+      font-size: clamp(22px, 2vw, 32px); color: var(--accent); line-height: 1;
+    }
+    .ig-badge {
+      background: rgba(42,73,199,0.1); color: var(--accent); border-radius: 12px;
+      padding: 2px 10px; font-family: "Nyght Serif", serif;
+      font-size: clamp(10px, 0.75vw, 13px); font-weight: 500; white-space: nowrap;
+    }
+    .ig-facts {
+      margin: 0; padding: 0 0 0 16px;
+      font-family: "Nyght Serif", serif; font-size: clamp(11px, 0.85vw, 14px);
+      color: var(--ink); line-height: 1.55; display: flex; flex-direction: column; gap: 4px;
+    }
+    .ig-facts li { margin: 0; }
+
+    /* ══════════════ СЛАЙД 9 — Імунодефіцити ══════════════ */
+    .id-wrap {
+      position: absolute; inset: 0; z-index: 2;
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; gap: clamp(12px, 1.8vh, 24px); padding: 3vh 3.5vw;
+    }
+    .id-title {
+      margin: 0; font-family: "Nyght Serif", serif; font-weight: 700;
+      font-size: clamp(26px, 2.8vw, 50px); color: var(--ink); text-align: center;
+    }
+    .id-cols {
+      display: flex; gap: clamp(10px, 1.2vw, 20px); width: 100%; max-width: 1260px;
+      align-items: flex-start;
+    }
+    .id-col {
+      flex: 1; display: flex; flex-direction: column; gap: 10px;
+    }
+    .id-col-head {
+      font-family: "Nyght Serif", serif; font-weight: 700;
+      font-size: clamp(15px, 1.3vw, 20px); color: white;
+      background: var(--accent); border-radius: 12px;
+      padding: 8px 16px; text-align: center;
+    }
+    .id-item {
+      background: white; border-radius: 14px;
+      box-shadow: 0 3px 18px rgba(42,73,199,0.08);
+      border: 1.5px solid rgba(42,73,199,0.10);
+      overflow: hidden;
+    }
+    .id-item-name {
+      font-family: "Nyght Serif", serif; font-weight: 700;
+      font-size: clamp(12px, 1vw, 15px); color: var(--accent);
+      padding: 10px 14px 6px; border-bottom: 1px solid rgba(42,73,199,0.08);
+      line-height: 1.3;
+    }
+    .id-item-name small { font-weight: 500; font-size: 0.82em; color: #6070a0; }
+    .id-item-body {
+      font-family: "Nyght Serif", serif; font-size: clamp(11px, 0.82vw, 13px);
+      color: var(--ink); padding: 8px 14px 10px; line-height: 1.55;
+    }
+
+    /* ══════════════ СЛАЙД 12 — Алергія: визначення + алергени ══════════════ */
+    .al-wrap {
+      position: absolute; inset: 0; z-index: 2;
+      display: grid; grid-template-rows: auto 1fr;
+      padding: 2.8vh 3.5vw 2.5vh; gap: clamp(10px,1.4vh,22px); box-sizing: border-box;
+    }
+    .al-title {
+      margin: 0; font-family: "Nyght Serif", serif; font-weight: 700;
+      font-size: clamp(26px,2.8vw,50px); color: var(--ink);
+    }
+    .al-body {
+      display: grid; grid-template-columns: 1fr 1fr; gap: clamp(12px,1.6vw,28px); min-height: 0;
+    }
+    /* Ліва колонка: визначення + гаптени */
+    .al-left { display: flex; flex-direction: column; gap: clamp(8px,1vh,16px); }
+    .al-def-box {
+      background: var(--accent); color: white; border-radius: 16px;
+      padding: clamp(12px,1.4vw,22px); font-family: "Nyght Serif", serif;
+      font-size: clamp(12px,0.95vw,16px); line-height: 1.55;
+    }
+    .al-def-box strong { font-size: 1.12em; display: block; margin-bottom: 6px; }
+    .al-hapten-box {
+      background: white; border-radius: 14px; border: 1.5px solid rgba(42,73,199,0.14);
+      box-shadow: 0 3px 18px rgba(42,73,199,0.08);
+      padding: clamp(10px,1.2vw,18px); font-family: "Nyght Serif", serif;
+      font-size: clamp(11px,0.85vw,14px); color: var(--ink); line-height: 1.5;
+      flex: 1;
+    }
+    .al-hapten-box h4 { margin: 0 0 6px; font-size: clamp(13px,1vw,17px); color: var(--accent); }
+    /* Права колонка: алергени */
+    .al-right { display: flex; flex-direction: column; gap: 8px; }
+    .al-section-title {
+      font-family: "Nyght Serif", serif; font-weight: 700;
+      font-size: clamp(13px,1.05vw,17px); color: var(--accent);
+      border-bottom: 2px solid rgba(42,73,199,0.18); padding-bottom: 4px; margin: 0;
+    }
+    .al-tags-block { display: flex; flex-direction: column; gap: 6px; flex: 1; }
+    .al-group {
+      background: white; border-radius: 12px; border: 1.5px solid rgba(42,73,199,0.10);
+      padding: 7px 12px; display: flex; align-items: flex-start; gap: 10px;
+      box-shadow: 0 2px 10px rgba(42,73,199,0.06);
+    }
+    .al-group-num {
+      flex-shrink: 0; width: 1.4em; height: 1.4em; border-radius: 50%;
+      background: rgba(42,73,199,0.12); color: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-family: "Nyght Serif", serif; font-weight: 700;
+      font-size: clamp(10px,0.78vw,13px);
+    }
+    .al-group-text {
+      font-family: "Nyght Serif", serif; font-size: clamp(10px,0.78vw,13px);
+      color: var(--ink); line-height: 1.45;
+    }
+    .al-group-text b { color: var(--accent); }
+    .al-inf-grid {
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px;
+    }
+    .al-inf-chip {
+      background: rgba(42,73,199,0.08); border-radius: 10px;
+      padding: 6px 10px; font-family: "Nyght Serif", serif;
+      font-size: clamp(10px,0.75vw,12px); color: var(--ink);
+      border: 1px solid rgba(42,73,199,0.14); text-align: center; line-height: 1.3;
+    }
+    .al-inf-chip b { display: block; color: var(--accent); font-size: 1.05em; margin-bottom: 2px; }
+
+    /* ══════════════ СЛАЙД 13 — Типи АР ══════════════ */
+    .ar-wrap {
+      position: absolute; inset: 0; z-index: 2;
+      display: grid;
+      grid-template-areas:
+        "t1 center t3"
+        "t2 center t4";
+      grid-template-columns: 1fr auto 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: clamp(8px,1vw,18px);
+      padding: 2.5vh 2.8vw; box-sizing: border-box;
+    }
+    .ar-center {
+      grid-area: center; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 10px;
+      width: clamp(160px,16vw,240px); padding: 0 10px;
+    }
+    .ar-center-title {
+      font-family: "Nyght Serif", serif; font-weight: 700;
+      font-size: clamp(16px,1.5vw,26px); color: var(--ink);
+      text-align: center; line-height: 1.25; margin: 0;
+    }
+    .ar-center-circle {
+      width: clamp(90px,9vw,130px); height: clamp(90px,9vw,130px);
+      border-radius: 50%; border: 3px solid var(--accent);
+      background: rgba(42,73,199,0.07);
+      display: flex; align-items: center; justify-content: center;
+      font-family: "Nyght Serif", serif; font-weight: 700;
+      font-size: clamp(22px,2.2vw,36px); color: var(--accent);
+    }
+    .ar-block {
+      background: white; border-radius: 16px;
+      border: 1.8px solid rgba(42,73,199,0.15);
+      box-shadow: 0 3px 20px rgba(42,73,199,0.09);
+      padding: clamp(12px,1.3vw,20px); display: flex; flex-direction: column; gap: 8px;
+      cursor: pointer; transition: box-shadow 0.2s, transform 0.18s;
+      overflow: hidden;
+    }
+    .ar-block:hover { box-shadow: 0 6px 32px rgba(42,73,199,0.18); transform: translateY(-2px); }
+    .ar-block.t1 { grid-area: t1; }
+    .ar-block.t2 { grid-area: t2; }
+    .ar-block.t3 { grid-area: t3; }
+    .ar-block.t4 { grid-area: t4; }
+    .ar-block-head {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .ar-type-badge {
+      flex-shrink: 0; background: var(--accent); color: white;
+      border-radius: 10px; padding: 4px 12px;
+      font-family: "Nyght Serif", serif; font-weight: 700;
+      font-size: clamp(12px,1vw,16px);
+    }
+    .ar-type-name {
+      font-family: "Nyght Serif", serif; font-weight: 700;
+      font-size: clamp(12px,1vw,16px); color: var(--ink); line-height: 1.25;
+    }
+    .ar-mech {
+      font-family: "Nyght Serif", serif; font-size: clamp(10px,0.8vw,13px);
+      color: #4a5ba0; line-height: 1.4; border-left: 3px solid rgba(42,73,199,0.25);
+      padding-left: 8px;
+    }
+    .ar-diseases {
+      font-family: "Nyght Serif", serif; font-size: clamp(10px,0.8vw,13px);
+      color: var(--ink); line-height: 1.5;
+      display: flex; flex-wrap: wrap; gap: 4px;
+    }
+    .ar-dis-tag {
+      background: rgba(42,73,199,0.07); border-radius: 8px;
+      padding: 2px 8px; font-size: clamp(9px,0.72vw,12px);
+      color: var(--ink); border: 1px solid rgba(42,73,199,0.12);
+    }
+
+    /* ══════════════ СЛАЙД 14 — V тип + таблиця ══════════════ */
+    .v-wrap {
+      position: absolute; inset: 0; z-index: 2;
+      display: grid; grid-template-rows: auto 1fr;
+      padding: 2.5vh 3vw 2.5vh; gap: clamp(10px,1.4vh,20px); box-sizing: border-box;
+    }
+    .v-title {
+      margin: 0; font-family: "Nyght Serif", serif; font-weight: 700;
+      font-size: clamp(22px,2.4vw,42px); color: var(--ink);
+    }
+    .v-body { display: grid; grid-template-columns: 1fr 2fr; gap: clamp(12px,1.5vw,24px); min-height: 0; }
+    .v-type5 {
+      background: var(--accent); color: white; border-radius: 18px;
+      padding: clamp(14px,1.6vw,26px); display: flex; flex-direction: column; gap: 10px;
+    }
+    .v-type5-label {
+      font-family: "Nyght Serif", serif; font-weight: 700;
+      font-size: clamp(18px,1.8vw,30px);
+    }
+    .v-type5-sub {
+      font-family: "Nyght Serif", serif; font-size: clamp(12px,0.95vw,16px);
+      opacity: 0.88; line-height: 1.5;
+    }
+    .v-type5-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+    .v-type5-tag {
+      background: rgba(255,255,255,0.18); border-radius: 10px;
+      padding: 3px 10px; font-family: "Nyght Serif", serif;
+      font-size: clamp(10px,0.76vw,13px); border: 1px solid rgba(255,255,255,0.3);
+    }
+    /* Таблиця */
+    .v-table {
+      background: white; border-radius: 16px;
+      border: 1.5px solid rgba(42,73,199,0.12);
+      box-shadow: 0 3px 20px rgba(42,73,199,0.08);
+      overflow: hidden; display: flex; flex-direction: column; min-height: 0;
+    }
+    .v-table-head {
+      display: grid; grid-template-columns: 0.6fr 1.2fr 0.8fr 1.4fr;
+      background: rgba(42,73,199,0.07); border-bottom: 2px solid rgba(42,73,199,0.15);
+    }
+    .v-th {
+      padding: 8px 12px; font-family: "Nyght Serif", serif; font-weight: 700;
+      font-size: clamp(10px,0.8vw,13px); color: var(--accent);
+    }
+    .v-table-body { flex: 1; overflow-y: auto; display: flex; flex-direction: column; }
+    .v-tr {
+      display: grid; grid-template-columns: 0.6fr 1.2fr 0.8fr 1.4fr;
+      border-bottom: 1px solid rgba(42,73,199,0.07);
+      transition: background 0.15s;
+    }
+    .v-tr:last-child { border-bottom: none; }
+    .v-tr:hover { background: rgba(42,73,199,0.04); }
+    .v-td {
+      padding: 7px 12px; font-family: "Nyght Serif", serif;
+      font-size: clamp(10px,0.76vw,13px); color: var(--ink); line-height: 1.4;
+      display: flex; align-items: center;
+    }
+    .v-td:first-child { font-weight: 700; color: var(--accent); }
+  </style>
+</head>
+<body>
+<div class="viewport">
+  <div class="track" id="track">
+
+    <!-- ══ СЛАЙД 1 ══ -->
+    <section class="slide">
+      <h1 class="title">Імунітет</h1>
+      <model-viewer id="mv"
+        src="./lynphocyte.glb"
+        camera-controls auto-rotate rotation-per-second="14deg"
+        camera-orbit="-18deg 80deg 98%"
+        min-camera-orbit="auto 64deg 92%"
+        max-camera-orbit="auto 92deg 150%"
+        exposure="0.9" environment-image="neutral"
+        shadow-softness="0.65" shadow-intensity="0"
+        interaction-prompt="none"
+      ></model-viewer>
+      <p class="subtitle">Підготувала : <span class="name">Богаченко Дарина</span></p>
+      <p class="status" id="status">Завантаження 3D моделі…</p>
+    </section>
+
+    <!-- ══ СЛАЙД 2 ══ -->
+    <section class="slide">
+      <div class="s2-wrap" id="s2">
+
+        <h2 class="s2-title" id="s2h">Класифікація імунітету</h2>
+
+        <!--
+          SVG viewBox 1920×1080. Центри карток:
+            заголовок низ:  960, 92
+            Вроджений cx:   470, top=184 bot=573
+            Набутий cx:    1440, top=184 bot=443
+            Природний cx:   950, top=594 bot=734
+            Штучний cx:    1527, top=594 bot=734
+            н-акт cx:   259, top=810
+            н-пас cx:   739, top=810
+            ш-акт cx:  1219, top=810
+            ш-пас cx:  1680, top=810
+        -->
+        <!-- SVG ліній поверх всього -->
+        <!-- SVG ліній поверх всього -->
+        <svg class="s2-svg" viewBox="0 0 1920 1080" preserveAspectRatio="none" aria-hidden="true">
+
+          <!-- заголовок → Вроджений -->
+          <path class="ln" id="l-rl" d="M 960,92 C 820,180 620,190 470,172"/>
+          <polygon class="arr" id="a-rl" points="470,172 488,160 484,178"/>
+
+          <!-- заголовок → Набутий -->
+          <path class="ln" id="l-rr" d="M 960,92 C 1100,180 1290,190 1440,172"/>
+          <polygon class="arr" id="a-rr" points="1440,172 1422,160 1426,178"/>
+
+          <!-- Природний → н-акт (поднято до Y=745) -->
+          <path class="ln" id="l-na" d="M 950,680 C 860,710 520,730 259,745"/>
+          <polygon class="arr" id="a-na" points="259,745 278,733 275,751"/>
+
+          <!-- Природний → н-пас (поднято до Y=745) -->
+          <path class="ln" id="l-np" d="M 950,680 C 930,710 840,730 739,745"/>
+          <polygon class="arr" id="a-np" points="739,745 758,733 755,751"/>
+
+          <!-- Штучний → ш-акт (поднято до Y=745) -->
+          <path class="ln" id="l-sa" d="M 1527,680 C 1485,710 1360,730 1219,745"/>
+          <polygon class="arr" id="a-sa" points="1219,745 1238,733 1235,751"/>
+
+          <!-- Штучний → ш-пас (поднято до Y=745) -->
+          <path class="ln" id="l-sp" d="M 1527,680 C 1570,710 1640,730 1680,745"/>
+          <polygon class="arr" id="a-sp" points="1680,745 1661,733 1664,751"/>
+
+        </svg>
+
+        <!-- Рівень 1: Вроджений -->
+        <div class="card c-inn" id="c-inn">
+          <h3>Вроджений</h3>
+          <p class="sub">«неспецифічний»</p>
+          <ul>
+            <li>фагоцити</li>
+            <li>NK-клітини</li>
+            <li>бар'єри шкіри та слизових</li>
+            <li>лізоцим</li>
+            <li>система комплементу</li>
+            <li>запалення</li>
+          </ul>
+          <p class="note">✕ немає імунологічної пам'яті</p>
+        </div>
+
+        <!-- Рівень 1: Набутий -->
+        <div class="card c-ada" id="c-ada">
+          <h3>Набутий</h3>
+          <p class="sub">«специфічний»</p>
+          <p class="desc">Розвивається після контакту з антигеном. Має імунологічну пам'ять та високу специфічність.</p>
+        </div>
+
+        <!-- Рівень 2 -->
+        <div class="card c-nat" id="c-nat">
+          <h3 class="center" style="margin:0">Природний</h3>
+        </div>
+        <div class="card c-art" id="c-art">
+          <h3 class="center" style="margin:0">Штучний</h3>
+        </div>
+
+        <!-- Рівень 3: листові картки -->
+        <!-- Рівень 3: листові картки (с двумя типами описания) -->
+        <div class="card card-dash c-na leaf" id="c-na">
+          <h3 class="leaf">активний</h3>
+          <span class="ico">💪</span>
+          <!-- Этот текст виден ДО нажатия -->
+          <p class="short-desc">після перенесеної хвороби</p>
+          <!-- Этот текст виден ПОСЛЕ нажатия -->
+          <p class="desc" style="text-align:center">• природний активний - у наслідок хвороби (зустрічі з антигеном та продукція антитіл)</p>
+        </div>
+
+        <div class="card card-dash c-np leaf" id="c-np">
+          <h3 class="leaf">пасивний</h3>
+          <span class="ico">🤱</span>
+          <p class="short-desc">антитіла матері дитині</p>
+          <p class="desc" style="text-align:center">• природний пасивний - готові антитіла матері через молоко/плаценту передаються дитині</p>
+        </div>
+
+        <div class="card card-dash c-aa leaf" id="c-aa">
+          <h3 class="leaf">активний</h3>
+          <span class="ico">💉</span>
+          <p class="short-desc">вакцини та анатоксини</p>
+          <p class="desc" style="text-align:center">• штучний активний — у наслідок уведення вакцин та анатоксинів (спеціально ввели антиген для стимуляції продукції антитіл)</p>
+        </div>
+
+        <div class="card card-dash c-ap leaf" id="c-ap">
+          <h3 class="leaf">пасивний</h3>
+          <span class="ico">🧪</span>
+          <p class="short-desc">готові антитіла (сироватки)</p>
+          <p class="desc" style="text-align:center">• штучний пасивний — уведення «готових» антитіл за допомогою сироваток</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══ СЛАЙД 3 ══ -->
+    <section class="slide">
+      <div class="s3-wrap">
+        <!--
+          Схема (% від 100vw × 100vh):
+          Корінь:       cx=50%  top=12%  w=28%  h=8%     → 960,130  ..  960,216
+          Центральні:   cx=22%  top=26%  w=22%  h=8%     → 422,281  bot=368
+          Периферійні:  cx=68%  top=26%  w=28%  h=8%     → 1306,281 bot=368
+          Тимус:        cx=11%  top=40%  w=14%  h=9%     → 211,432  bot=529
+          КМ:           cx=27%  top=40%  w=18%  h=9%     → 518,432  bot=529
+          ЛВузли:       cx=50%  top=40%  w=16%  h=9%     → 960,432  bot=529
+          Селезінка:    cx=64%  top=40%  w=14%  h=9%     → 1229,432 bot=529
+          Мигдалики:    cx=78%  top=40%  w=16%  h=9%     → 1498,432 bot=529
+          Лімфтканина:  cx=91%  top=40%  w=13%  h=9%     → 1747,432 bot=529
+          Підрядки ЛТ:  cy=60%  по 3 блоки під Лімфтканиною та ЛВузлами
+            sub1: cx=50%  top=57%  w=15%  → 960,616
+            sub2: cx=65%  top=57%  w=15%  → 1248,616
+            sub3: cx=80%  top=57%  w=15%  → 1536,616
+        -->
+        <!--
+          Сітка (viewBox 1920×1080, всі % від цих розмірів):
+          Рядок 0 (top 13%=140):  Корінь cx=960  w=320 h=80  → x=800..1120  y=140..220
+          Рядок 1 (top 30%=324):  Центр cx=300 w=260 h=80 y=324..404
+                                   Периф cx=1200 w=400 h=80 y=324..404
+          Рядок 2 (top 48%=518):  Тимус cx=130 w=180 h=86
+                                   КМ    cx=370 w=240 h=86
+                                   ЛВ    cx=740 w=220 h=86
+                                   Сел   cx=1000 w=200 h=86
+                                   Мигд  cx=1260 w=240 h=86
+                                   ЛТ    cx=1520 w=220 h=86   (→ 1410..1630)
+          Рядок 3 (top 68%=734):  3 підпункти під ЛТ cx=740,1000,1260 w=220 h=86
+        -->
+        <!--
+          Нова симетрична сітка. Вся схема займає 88vw, відступ по 6% з кожного боку.
+          viewBox 1920×1080. Зсув +6% = +115px по X.
+
+          Рядок 0  top=14%=151:  Корінь cx=960 w=22%=422 h=8%=86  x=749..1171  y=151..237
+          Рядок 1  top=31%=335:  Центр  cx=345 w=18%=346 h=8%=86  x=172..518   y=335..421
+                                  Периф  cx=1430 w=28%=538 h=8%=86 x=1161..1699 y=335..421
+          Рядок 2  top=50%=540:  6 блоків рівномірно w=13%=250 h=8%=86, gap=1.4%=27
+            Тимус    cx=192  x=67..317
+            КМ       cx=472  x=347..597
+            ЛВ       cx=770  x=645..895
+            Сел      cx=1020 x=895..1145
+            Мигд     cx=1270 x=1145..1395 (w=14%=269)
+            ЛТ       cx=1565 x=1440..1690 (w=13%=250)
+          Рядок 3  top=67%=724:  3 підпункти під ЛВ/Сел/Мигд, w=14%=269 h=10%=108
+            sub1 cx=770   x=636..905
+            sub2 cx=1020  x=886..1155
+            sub3 cx=1270  x=1136..1405
+        -->
+        <svg class="s3-svg" viewBox="0 0 1920 1080" preserveAspectRatio="none" aria-hidden="true">
+          <!-- cx нових блоків (×1920):
+               Корінь:    55%=1056
+               Центральні: 22%=422   Периферійні: 79%=1517
+               Тимус:14.5%=278  КМ:29%=557  ЛВ:44.5%=854  Сел:58.8%=1129  Мигд:73%=1402  ЛТ:87%=1670
+               sub1:44.5=854  sub2:58.8=1129  sub3:73=1402
+          -->
+          <!-- корінь → Центральні -->
+          <polyline class="s3-ln" points="1056,237  422,286  422,335"/>
+          <!-- корінь → Периферійні -->
+          <polyline class="s3-ln" points="1056,237  1517,286  1517,335"/>
+
+          <!-- Центральні → Тимус -->
+          <polyline class="s3-ln" points="422,421  278,480  278,540"/>
+          <!-- Центральні → КМ -->
+          <polyline class="s3-ln" points="422,421  557,480  557,540"/>
+
+          <!-- Периферійні → ЛВ -->
+          <polyline class="s3-ln" points="1517,421  854,480  854,540"/>
+          <!-- Периферійні → Сел -->
+          <polyline class="s3-ln" points="1517,421  1129,480  1129,540"/>
+          <!-- Периферійні → Мигд -->
+          <polyline class="s3-ln" points="1517,421  1402,480  1402,540"/>
+          <!-- Периферійні → ЛТ -->
+          <polyline class="s3-ln" points="1517,421  1670,480  1670,540"/>
+
+          <!-- ЛТ → шина → підпункти -->
+          <polyline class="s3-ln" points="1670,626  1670,664  854,664"/>
+          <line class="s3-ln" x1="854"  y1="664" x2="854"  y2="724"/>
+          <line class="s3-ln" x1="1129" y1="664" x2="1129" y2="724"/>
+          <line class="s3-ln" x1="1402" y1="664" x2="1402" y2="724"/>
+        </svg>
+
+        <!-- Корінь -->
+        <div class="s3-node s3-root" style="left:44%;top:14%;width:22%;height:8%">
+          Органи імунної системи
+        </div>
+
+        <!-- Рівень 1 -->
+        <div class="s3-node s3-central" style="left:13%;top:31%;width:18%;height:8%">
+          Центральні
+        </div>
+        <div class="s3-node s3-periph" style="left:65%;top:31%;width:28%;height:8%">
+          Периферійні
+        </div>
+
+        <!-- Рівень 2 -->
+        <div class="s3-node s3-c-leaf clickable" style="left:8%;top:50%;width:13%;height:8%"   data-popup="pop-thymus">Тимус</div>
+        <div class="s3-node s3-c-leaf clickable" style="left:22.5%;top:50%;width:13%;height:8%" data-popup="pop-bm">Червоний<br>кістковий мозок</div>
+        <div class="s3-node s3-p-leaf clickable" style="left:38%;top:50%;width:13%;height:8%"  data-popup="pop-ln">Лімфатичні<br>вузли</div>
+        <div class="s3-node s3-p-leaf clickable" style="left:52.3%;top:50%;width:13%;height:8%" data-popup="pop-spl">Селезінка</div>
+        <div class="s3-node s3-p-leaf clickable" style="left:66.5%;top:50%;width:13%;height:8%" data-popup="pop-ta">Мигдалики<br>і аденоїди</div>
+        <div class="s3-node s3-p-leaf clickable" style="left:80.5%;top:50%;width:13%;height:8%" data-popup="pop-lt">Лімфоїдна<br>тканина</div>
+
+        <!-- Рядок 3 -->
+        <div class="s3-node s3-p-sub" style="left:38%;top:67%;width:13%;height:11%">Лімфоїдні скупчення в повітроносних шляхах</div>
+        <div class="s3-node s3-p-sub" style="left:52.3%;top:67%;width:13%;height:11%">Лімфоїдні скупчення в кишечнику</div>
+        <div class="s3-node s3-p-sub" style="left:66.5%;top:67%;width:13%;height:11%">Лімфоїдні скупчення в сечостатевих шляхах</div>
+
+        <!-- Попапи -->
+        <div class="s3-popup central" id="pop-thymus">
+          <button class="s3-popup-close" data-close="pop-thymus">×</button>
+          <p class="s3-popup-title">Тимус</p>
+          <p>• Місце дозрівання Т-лімфоцитів<br>• Забезпечує клітинний імунітет<br>• Виробляє тимозин та інші гормони</p>
+        </div>
+
+        <div class="s3-popup central" id="pop-bm">
+          <button class="s3-popup-close" data-close="pop-bm">×</button>
+          <p class="s3-popup-title">Червоний кістковий мозок</p>
+          <p>• Місце утворення та дозрівання В-лімфоцитів<br>• Джерело всіх клітин крові<br>• Центральний орган кровотворення</p>
+        </div>
+
+        <div class="s3-popup" id="pop-ln">
+          <button class="s3-popup-close" data-close="pop-ln">×</button>
+          <p class="s3-popup-title">Лімфатичні вузли</p>
+          <p>• Бар’єрно-фільтраційна роль<br>• Участь в утворенні лімфоцитів<br>• Утворення плазматичних клітин, які виробляють антитіла</p>
+        </div>
+
+        <div class="s3-popup" id="pop-spl">
+          <button class="s3-popup-close" data-close="pop-spl">×</button>
+          <p class="s3-popup-title">Селезінка</p>
+          <p>• Диференціація В і Т-лімфоцитів<br>• Фільтрація крові<br>• Депо крові</p>
+        </div>
+
+        <div class="s3-popup" id="pop-ta">
+          <button class="s3-popup-close" data-close="pop-ta">×</button>
+          <p class="s3-popup-title">Мигдалики і аденоїди</p>
+          <p>• Бар’єрна роль для верхніх дихальних шляхів<br>• Постачання імунними клітинами<br>• Участь у формуванні мікробної флори</p>
+        </div>
+
+        <div class="s3-popup" id="pop-lt">
+          <button class="s3-popup-close" data-close="pop-lt">×</button>
+          <p class="s3-popup-title">Лімфоїдна тканина</p>
+          <p>• Забезпечує місцевий імунітет<br>• Присутня в повітроносних шляхах, кишечнику та сечостатевій системі</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══ СЛАЙД 4 — Лімфоцити ══ -->
+    <section class="slide">
+      <div class="s4-wrap">
+        <h2 class="s4-heading">Лімфоцити</h2>
+
+        <div class="s4-left">
+          <div class="s4-block">
+            <p class="s4-block-title">В-лімфоцити — гуморальний імунітет</p>
+            <p class="s4-block-sub">В-лімфоцит → плазмоцит → антитіла (Ig)</p>
+            <ul>
+              <li>Антиген потрапляє в організм → активує В-клітину</li>
+              <li>В-клітина перетворюється на <strong>плазмоцит</strong></li>
+              <li>Плазмоцит виробляє <strong>антитіла</strong>, що зв'язують і нейтралізують чужорідні агенти</li>
+              <li>Ознака плазмоцита — хроматин у ядрі у вигляді <strong>«спиць колеса»</strong></li>
+            </ul>
+          </div>
+          <div class="s4-block">
+            <p class="s4-block-title">Т-лімфоцити — клітинний імунітет</p>
+            <ul>
+              <li><strong>Т-хелпери</strong> — головні «координатори» імунної відповіді: розпізнають антиген, стимулюють В-лімфоцити виробляти Ig, активують інші клітини імунітету</li>
+              <li><strong>Т-кілери</strong> — знищують вірус-інфіковані та пухлинні клітини; беруть участь у відторгненні трансплантату</li>
+              <li><strong>Т-супресори / Т-регулятори</strong> — пригнічують надмірну імунну відповідь; контролюють активність В-лімфоцитів та інших Т-клітин</li>
+              <li><strong>Т-клітини пам'яті</strong> — зберігають інформацію про антиген</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="s4-right">
+          <svg class="s4-svg" viewBox="0 0 400 560" preserveAspectRatio="none">
+            <polyline class="s4-tree-ln" points="200,56  88,170  88,185"/>
+            <polyline class="s4-tree-ln" points="200,56  280,170  280,185"/>
+            <polyline class="s4-tree-ln" points="280,225  220,320  220,335"/>
+            <polyline class="s4-tree-ln" points="280,225  340,320  340,335"/>
+            <line class="s4-tree-ln" x1="340" y1="375" x2="340" y2="460"/>
+          </svg>
+          <div class="s4-cell" style="left:50%;top:9%">
+            <div class="s4-circle sz-lg cl-pred"></div>
+            <span class="s4-cell-label">Клітина-попередник</span>
+            <span class="s4-cell-sub">лімфоїдного ряду</span>
+          </div>
+          <div class="s4-cell" style="left:22%;top:36%">
+            <div class="s4-circle sz-md cl-nk"></div>
+            <span class="s4-cell-label">NK-клітина</span>
+            <span class="s4-cell-sub">(природний кілер)</span>
+          </div>
+          <div class="s4-cell" style="left:70%;top:36%">
+            <div class="s4-circle sz-md cl-pred"></div>
+            <span class="s4-cell-label">Малі лімфоцити</span>
+          </div>
+          <div class="s4-cell" style="left:55%;top:62%">
+            <div class="s4-circle sz-md cl-t"></div>
+            <span class="s4-cell-label">Т-лімфоцит</span>
+          </div>
+          <div class="s4-cell" style="left:85%;top:62%">
+            <div class="s4-circle sz-md cl-b"></div>
+            <span class="s4-cell-label">В-лімфоцит</span>
+          </div>
+          <div class="s4-cell" style="left:85%;top:88%">
+            <div class="s4-circle sz-md cl-plazm"></div>
+            <span class="s4-cell-label">Плазматична клітина</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ СЛАЙД 5 — Тести 1-3 ══ -->
+    <section class="slide">
+      <div class="quiz-wrap">
+        <h2 class="quiz-heading">Тести — перевір себе</h2>
+        <div class="quiz-cols">
+          <div class="quiz-card" data-answer="Лімфоцити">
+            <p class="quiz-q"><span class="quiz-num">1</span>При обстеженні хворого виявлено пошкодження <u>білої пульпи</u> селезінки. Які клітини зазнають патологічних змін?</p>
+            <div class="quiz-opts">
+              <button class="qopt">Еритроцити</button>
+              <button class="qopt">Лімфоцити</button>
+              <button class="qopt">Тромбоцити</button>
+              <button class="qopt">Макрофаги</button>
+            </div>
+            <p class="quiz-result"></p>
+          </div>
+          <div class="quiz-card" data-answer="Т-лімфоцити">
+            <p class="quiz-q"><span class="quiz-num">2</span>У новонародженого виявлено вроджену <u>атрофію тимусу</u>. Які клітини імунної системи постраждають найбільше?</p>
+            <div class="quiz-opts">
+              <button class="qopt">В-лімфоцити</button>
+              <button class="qopt">NK-клітини</button>
+              <button class="qopt">Т-лімфоцити</button>
+              <button class="qopt">Нейтрофіли</button>
+            </div>
+            <p class="quiz-result"></p>
+          </div>
+          <div class="quiz-card" data-answer="Т-лімфоцити">
+            <p class="quiz-q"><span class="quiz-num">3</span>Хворому зробили <u>пересадку донорської шкіри</u>. На 8-му добу трансплантат набряк і почав <u>відторгатись</u>. Які клітини беруть у цьому участь?</p>
+            <div class="quiz-opts">
+              <button class="qopt">В-лімфоцити</button>
+              <button class="qopt">Макрофаги</button>
+              <button class="qopt">Плазмоцити</button>
+              <button class="qopt">Т-лімфоцити</button>
+            </div>
+            <p class="quiz-result"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ СЛАЙД 6 — Тести 4-6 ══ -->
+    <section class="slide">
+      <div class="quiz-wrap">
+        <h2 class="quiz-heading">Тести — перевір себе</h2>
+        <div class="quiz-cols">
+          <div class="quiz-card" data-answer="В-лімфоцити">
+            <p class="quiz-q"><span class="quiz-num">4</span>У дитини часті інфекції, у крові <u>відсутні імуноглобуліни</u> всіх класів. Зниження активності якої клітинної популяції лежить в основі синдрому?</p>
+            <div class="quiz-opts">
+              <button class="qopt">Нейтрофіли</button>
+              <button class="qopt">В-лімфоцити</button>
+              <button class="qopt">Макрофаги</button>
+              <button class="qopt">Т-лімфоцити</button>
+            </div>
+            <p class="quiz-result"></p>
+          </div>
+          <div class="quiz-card" data-answer="Макрофаги, В-лімфоцити">
+            <p class="quiz-q"><span class="quiz-num">5</span>В імунній відповіді велику роль відіграють <u>антигенпрезентуючі клітини</u>. Які клітини є антигенпрезентуючими?</p>
+            <div class="quiz-opts">
+              <button class="qopt">Т-лімфоцити, NK-клітини</button>
+              <button class="qopt">Макрофаги, В-лімфоцити</button>
+              <button class="qopt">Плазмоцити, еозинофіли</button>
+              <button class="qopt">Нейтрофіли, тромбоцити</button>
+            </div>
+            <p class="quiz-result"></p>
+          </div>
+          <div class="quiz-card" data-answer="Плазмоцити">
+            <p class="quiz-q"><span class="quiz-num">6</span>На зрізі лімфовузла виявлено клітини з <u>базофільною цитоплазмою</u>, ексцентричним ядром, хроматином <u>«спиці в колесі»</u> — продуценти антитіл. Що це за клітини?</p>
+            <div class="quiz-opts">
+              <button class="qopt">Т-лімфоцити</button>
+              <button class="qopt">NK-клітини</button>
+              <button class="qopt">Плазмоцити</button>
+              <button class="qopt">Макрофаги</button>
+            </div>
+            <p class="quiz-result"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ СЛАЙД 7 — Антиген та Антитіло ══ -->
+    <section class="slide">
+      <div class="ag-wrap">
+        <h2 class="ag-title">Антиген та Антитіло</h2>
+        <div class="ag-row">
+          <!-- АГ картка -->
+          <div class="ag-card">
+            <div class="ag-card-icon">
+              <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="40" cy="40" r="32" stroke="var(--accent)" stroke-width="3"/>
+                <circle cx="40" cy="40" r="18" fill="rgba(42,73,199,0.12)" stroke="var(--accent)" stroke-width="2"/>
+                <line x1="40" y1="8" x2="40" y2="22" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="40" y1="58" x2="40" y2="72" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="8" y1="40" x2="22" y2="40" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="58" y1="40" x2="72" y2="40" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="40" cy="40" r="6" fill="var(--accent)"/>
+              </svg>
+            </div>
+            <h3 class="ag-card-title">АГ — Антиген</h3>
+            <p class="ag-card-def">Будь-яка речовина, яку організм сприймає як <strong>чужорідну або небезпечну</strong>.</p>
+            <div class="ag-examples">
+              <span class="ag-tag">Бактерії</span>
+              <span class="ag-tag">Віруси</span>
+              <span class="ag-tag">Токсини</span>
+              <span class="ag-tag">Пилок</span>
+              <span class="ag-tag">Клітини трансплантатів</span>
+            </div>
+          </div>
+
+          <!-- Стрілка реакції -->
+          <div class="ag-arrow-block">
+            <svg class="ag-react-svg" viewBox="0 0 160 80" fill="none">
+              <path d="M 10,40 C 40,10 120,10 148,40" stroke="var(--accent)" stroke-width="2.5" stroke-dasharray="6 4" stroke-linecap="round"/>
+              <polygon points="148,40 134,32 138,48" fill="var(--accent)"/>
+              <text x="80" y="28" text-anchor="middle" font-family="Nyght Serif,serif" font-size="13" fill="var(--ink)">розпізнає</text>
+              <text x="80" y="68" text-anchor="middle" font-family="Nyght Serif,serif" font-size="13" fill="var(--ink)">нейтралізує</text>
+            </svg>
+          </div>
+
+          <!-- АТ картка -->
+          <div class="ag-card">
+            <div class="ag-card-icon">
+              <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Y-подібна форма антитіла -->
+                <line x1="40" y1="15" x2="40" y2="45" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
+                <line x1="40" y1="45" x2="18" y2="68" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
+                <line x1="40" y1="45" x2="62" y2="68" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
+                <line x1="40" y1="15" x2="16" y2="6" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
+                <line x1="40" y1="15" x2="64" y2="6" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="16" cy="6" r="5" fill="var(--accent)"/>
+                <circle cx="64" cy="6" r="5" fill="var(--accent)"/>
+                <circle cx="18" cy="68" r="5" fill="rgba(42,73,199,0.3)" stroke="var(--accent)" stroke-width="2"/>
+                <circle cx="62" cy="68" r="5" fill="rgba(42,73,199,0.3)" stroke="var(--accent)" stroke-width="2"/>
+              </svg>
+            </div>
+            <h3 class="ag-card-title">АТ — Антитіло</h3>
+            <p class="ag-card-def">Спеціальний білок (<strong>імуноглобулін</strong>), який виробляється B-лімфоцитами для виявлення та нейтралізації антигенів.</p>
+            <div class="ag-examples">
+              <span class="ag-tag">Імуноглобулін</span>
+              <span class="ag-tag">B-лімфоцити</span>
+              <span class="ag-tag">Плазматичні клітини</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Нижній рядок: загальне про Ig -->
+        <div class="ag-ig-bar">
+          <div class="ag-ig-icon">Ig</div>
+          <p class="ag-ig-text"><strong>Імуноглобуліни (Ig)</strong> — антитіла, які виробляються плазматичними клітинами. Захищають організм від інфекцій та забезпечують <em>пасивний імунітет плоду</em>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ СЛАЙД 8 — Імуноглобуліни ══ -->
+    <section class="slide">
+      <div class="ig-wrap">
+        <h2 class="ig-title">Імуноглобуліни</h2>
+        <div class="ig-grid">
+
+          <div class="ig-card" data-ig="IgG">
+            <div class="ig-card-head">
+              <span class="ig-label">IgG</span>
+              <span class="ig-badge">Найпоширеніший</span>
+            </div>
+            <ul class="ig-facts">
+              <li>Проходить через <strong>плаценту</strong> → пасивний імунітет плоду</li>
+              <li>Виробляється після вакцинації</li>
+              <li>Довготривала пам'ять про антиген</li>
+            </ul>
+          </div>
+
+          <div class="ig-card" data-ig="IgA">
+            <div class="ig-card-head">
+              <span class="ig-label">IgA</span>
+              <span class="ig-badge">Місцевий імунітет</span>
+            </div>
+            <ul class="ig-facts">
+              <li>Основний у <strong>слизових оболонках</strong> та грудному молоці</li>
+              <li>Захищає дихальні шляхи та ШКТ немовляти</li>
+              <li>Після живих вакцин</li>
+            </ul>
+          </div>
+
+          <div class="ig-card" data-ig="IgM">
+            <div class="ig-card-head">
+              <span class="ig-label">IgM</span>
+              <span class="ig-badge">Перший відгук</span>
+            </div>
+            <ul class="ig-facts">
+              <li>Перший при <strong>гострій інфекції</strong></li>
+              <li><em>Не</em> проходить через плаценту</li>
+              <li>Наявність у плода → внутрішньоутробна інфекція</li>
+            </ul>
+          </div>
+
+          <div class="ig-card" data-ig="IgE">
+            <div class="ig-card-head">
+              <span class="ig-label">IgE</span>
+              <span class="ig-badge">Алергія / паразити</span>
+            </div>
+            <ul class="ig-facts">
+              <li>Відповідає за <strong>алергічні реакції</strong></li>
+              <li>Бронхіальна астма</li>
+              <li>Боротьба з гельмінтами</li>
+            </ul>
+          </div>
+
+          <div class="ig-card" data-ig="IgD">
+            <div class="ig-card-head">
+              <span class="ig-label">IgD</span>
+              <span class="ig-badge">Дозрівання</span>
+            </div>
+            <ul class="ig-facts">
+              <li>Допомагає <strong>дозрівати B-лімфоцитам</strong></li>
+              <li>Зрідка зустрічається у тестах</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ СЛАЙД 9 — Імунодефіцити ══ -->
+    <section class="slide">
+      <div class="id-wrap">
+        <h2 class="id-title">Імунодефіцити</h2>
+        <div class="id-cols">
+
+          <!-- Колонка 1 -->
+          <div class="id-col">
+            <div class="id-col-head">Т-лімфоцити</div>
+
+            <div class="id-item">
+              <div class="id-item-name">Первинна недостатність Т-клітин</div>
+              <div class="id-item-body">Блокада ранніх етапів утворення Т-лімфоцитів або Т-хелперів. <em>Має спадковий характер.</em></div>
+            </div>
+
+            <div class="id-item">
+              <div class="id-item-name">Синдром Ді Джорджі<br><small>Гіпоплазія тимусу</small></div>
+              <div class="id-item-body">
+                <b>Причина:</b> відсутність тимусу<br>
+                <b>Наслідки:</b> відсутність Т-лімфоцитів, дефекти обличчя, патології щитоподібної та паращитоподібної залоз<br>
+                <b>Клініка:</b> затримка відторгнення трансплантатів
+              </div>
+            </div>
+          </div>
+
+          <!-- Колонка 2 -->
+          <div class="id-col">
+            <div class="id-col-head">В-лімфоцити</div>
+
+            <div class="id-item">
+              <div class="id-item-name">Фізіологічна гіпогаммаглобулінемія</div>
+              <div class="id-item-body">Вік 4–12 тижнів. Зниження материнських імуноглобулінів.</div>
+            </div>
+
+            <div class="id-item">
+              <div class="id-item-name">Хвороба Бруттона</div>
+              <div class="id-item-body">
+                В-клітини та плазматичні клітини відсутні. Т-лімфоцити в нормі.<br>
+                IgG ↓ ×10, IgA ↓ ×100.<br>
+                <em>Зчеплено зі статтю (хлопчики).</em>
+              </div>
+            </div>
+
+            <div class="id-item">
+              <div class="id-item-name">Імунодефіцит IgA / IgG</div>
+              <div class="id-item-body">Блок кінцевого диференціювання В-лімфоцитів.</div>
+            </div>
+          </div>
+
+          <!-- Колонка 3 -->
+          <div class="id-col">
+            <div class="id-col-head">Комбіновані</div>
+
+            <div class="id-item">
+              <div class="id-item-name">Синдром Луї-Бар<br><small>атаксія-телеангіектазія</small></div>
+              <div class="id-item-body">
+                Тимус у зародковому стані. Т-лімфоцити ↓, IgA відсутні, IgM — норма.<br>
+                <b>Симптоми:</b> ластовиння, телеангіектазії, порушення ходи.
+              </div>
+            </div>
+
+            <div class="id-item">
+              <div class="id-item-name">Синдром Віскотта-Олдрича</div>
+              <div class="id-item-body">
+                <b>Тріада:</b> імунодефіцит + тромбоцитопенія + екзема.<br>
+                Зчеплено зі статтю (хлопчики після 10 р.).<br>
+                Т-зони лімфовузлів спустошуються, IgM прогресивно ↓.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ СЛАЙД 10 — Тести 7-9 ══ -->
+    <section class="slide">
+      <div class="quiz-wrap">
+        <h2 class="quiz-title">Тести</h2>
+        <div class="quiz-grid">
+
+          <div class="quiz-card" data-answer="Плазмоцитів">
+            <div class="quiz-num">7</div>
+            <p class="quiz-q">Пацієнт 37 р. — хронічні запалення слизової рота. Різке зниження <u>секреторного імуноглобуліну</u> у слині. Функція яких клітин порушена?</p>
+            <div class="quiz-opts">
+              <button class="qopt">Т-лімфоцитів</button>
+              <button class="qopt">Макрофагів</button>
+              <button class="qopt">Плазмоцитів</button>
+              <button class="qopt">NK-клітин</button>
+            </div>
+            <p class="quiz-result"></p>
+          </div>
+
+          <div class="quiz-card" data-answer="IgE">
+            <div class="quiz-num">8</div>
+            <p class="quiz-q">Пацієнт — кропив'янка після споживання риби. Встановлено <u>анафілактичний тип алергічної реакції</u>. Зростання якого імуноглобуліну виявлено?</p>
+            <div class="quiz-opts">
+              <button class="qopt">IgG</button>
+              <button class="qopt">IgA</button>
+              <button class="qopt">IgM</button>
+              <button class="qopt">IgE</button>
+            </div>
+            <p class="quiz-result"></p>
+          </div>
+
+          <div class="quiz-card" data-answer="IgM">
+            <div class="quiz-num">9</div>
+            <p class="quiz-q">Дитина 5 р., кір. Серологічно виявлено специфічні антитіла. Імуноглобуліни якого класу свідчать про <u>гостру стадію</u> вірусної інфекції?</p>
+            <div class="quiz-opts">
+              <button class="qopt">IgG</button>
+              <button class="qopt">IgA</button>
+              <button class="qopt">IgM</button>
+              <button class="qopt">IgD</button>
+            </div>
+            <p class="quiz-result"></p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ СЛАЙД 11 — Тести 10-12 ══ -->
+    <section class="slide">
+      <div class="quiz-wrap">
+        <h2 class="quiz-title">Тести</h2>
+        <div class="quiz-grid">
+
+          <div class="quiz-card" data-answer="IgM до вірусу кору">
+            <div class="quiz-num">10</div>
+            <p class="quiz-q">Дівчина 15 р. — висип, на слизовій щік <u>яскраво-червоні плями з білим центром</u>. Який специфічний тип імуноглобулінів визначити для діагнозу?</p>
+            <div class="quiz-opts">
+              <button class="qopt">IgG до вірусу кору</button>
+              <button class="qopt">IgM до вірусу кору</button>
+              <button class="qopt">IgA до вірусу кору</button>
+              <button class="qopt">IgE до вірусу кору</button>
+            </div>
+            <p class="quiz-result"></p>
+          </div>
+
+          <div class="quiz-card" data-answer="Імуноглобулін Е">
+            <div class="quiz-num">11</div>
+            <p class="quiz-q">Жінка 20 р. — 8 років поспіль риніт і кон'юнктивіт у серпні-вересні, бронхіальна астма. <u>Гіперчутливість до пилку амброзії</u>. Який клас антитіл реалізує загострення?</p>
+            <div class="quiz-opts">
+              <button class="qopt">Імуноглобулін G</button>
+              <button class="qopt">Імуноглобулін A</button>
+              <button class="qopt">Імуноглобулін M</button>
+              <button class="qopt">Імуноглобулін Е</button>
+            </div>
+            <p class="quiz-result"></p>
+          </div>
+
+          <div class="quiz-card" data-answer="Секреторний імуноглобулін А">
+            <div class="quiz-num">12</div>
+            <p class="quiz-q">Слина виконує захисну функцію через формування <u>місцевого імунітету слизової оболонки</u>. Який білок виділяється привушними залозами?</p>
+            <div class="quiz-opts">
+              <button class="qopt">Секреторний імуноглобулін А</button>
+              <button class="qopt">Імуноглобулін G</button>
+              <button class="qopt">Інтерферон</button>
+              <button class="qopt">Лізоцим</button>
+            </div>
+            <p class="quiz-result"></p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ СЛАЙД 12 — Алергія: визначення + алергени ══ -->
+    <section class="slide">
+      <div class="al-wrap">
+        <h2 class="al-title">Алергія та алергени</h2>
+        <div class="al-body">
+
+          <!-- ЛІВО: визначення + гаптени -->
+          <div class="al-left">
+            <div class="al-def-box">
+              <strong>Алергія (від грец. allos — інший, ergon — дія)</strong>
+              Якісно змінена реакція організму на дію речовин антигенної природи, що призводить до різноманітних порушень — запалення, некрозу, шоку та ін.
+            </div>
+            <div class="al-hapten-box">
+              <h4>Причина — алерген</h4>
+              Речовини, що спричиняють алергічні реакції. Основна властивість — <strong>чужорідність</strong>.<br><br>
+              <strong>а) Повні антигени</strong> — білки.<br>
+              <strong>б) Гаптени</strong> — неповні антигени. Набувають алергенних властивостей тільки після з'єднання з білками тканин. До них належать: метаболіти ліків, йод, бром, полісахариди, косметика, метали, поліакрилати.
+            </div>
+          </div>
+
+          <!-- ПРАВО: класифікація алергенів -->
+          <div class="al-right">
+            <p class="al-section-title">Екзоалергени неінфекційні</p>
+            <div class="al-tags-block">
+              <div class="al-group">
+                <div class="al-group-num">1</div>
+                <div class="al-group-text"><b>Побутові:</b> домашній пил, шерсть і лупа тварин, пух птахів, постільні кліщі, миючі засоби</div>
+              </div>
+              <div class="al-group">
+                <div class="al-group-num">2</div>
+                <div class="al-group-text"><b>Тваринного походження:</b> кліщі, вовна, волосся, корм для риб</div>
+              </div>
+              <div class="al-group">
+                <div class="al-group-num">3</div>
+                <div class="al-group-text"><b>Лікарські:</b> антибіотики, сульфаніламіди, вітаміни, анальгетики, вакцини, сироватки, інсулін, препарати мишʼяку, йоду</div>
+              </div>
+              <div class="al-group">
+                <div class="al-group-num">4</div>
+                <div class="al-group-text"><b>Хімічні:</b> бензин, бензол, хлорамін та ін.</div>
+              </div>
+              <div class="al-group">
+                <div class="al-group-num">5</div>
+                <div class="al-group-text"><b>Рослинні:</b> пилок, сік рослин</div>
+              </div>
+              <div class="al-group">
+                <div class="al-group-num">6</div>
+                <div class="al-group-text"><b>Харчові:</b> молоко, яйця, мʼясо, риба, цитрусові, горіхи, мед</div>
+              </div>
+            </div>
+            <p class="al-section-title" style="margin-top:6px">Екзоалергени інфекційні</p>
+            <div class="al-inf-grid">
+              <div class="al-inf-chip"><b>Мікробні</b>туберкульоз, токсоплазмоз, бруцельоз</div>
+              <div class="al-inf-chip"><b>Вірусні</b>кір, грип, герпес, гепатит</div>
+              <div class="al-inf-chip"><b>Грибкові</b>патогенні та непатогенні грибки, спори у приміщеннях</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ СЛАЙД 13 — Типи алергійних реакцій ══ -->
+    <section class="slide">
+      <div class="ar-wrap">
+
+        <!-- Блок I тип -->
+        <div class="ar-block t1">
+          <div class="ar-block-head">
+            <span class="ar-type-badge">I тип</span>
+            <span class="ar-type-name">Негайного типу<br>(анафілактична, реагінова)</span>
+          </div>
+          <div class="ar-mech">IgE-залежний механізм. Реагіновий — атопічні хвороби. Анафілактичний — IgG4-антитіла.</div>
+          <div class="ar-diseases">
+            <span class="ar-dis-tag">Бронхіальна астма</span>
+            <span class="ar-dis-tag">Полінози</span>
+            <span class="ar-dis-tag">Набряк Квінке</span>
+            <span class="ar-dis-tag">Кропивʼянка</span>
+            <span class="ar-dis-tag">Анафілактичний шок</span>
+            <span class="ar-dis-tag">Алергічний кон'юнктивіт</span>
+            <span class="ar-dis-tag">Алергічний риніт</span>
+          </div>
+        </div>
+
+        <!-- Блок II тип -->
+        <div class="ar-block t2">
+          <div class="ar-block-head">
+            <span class="ar-type-badge">II тип</span>
+            <span class="ar-type-name">Негайного типу<br>(цитотоксична, антитілозалежна)</span>
+          </div>
+          <div class="ar-mech">Антиген — компонент клітини. Антитіла активують комплемент → пошкодження клітини.</div>
+          <div class="ar-diseases">
+            <span class="ar-dis-tag">Аутоалергічні хвороби</span>
+            <span class="ar-dis-tag">Гемотрансфузійний шок</span>
+            <span class="ar-dis-tag">Резус-конфлікт</span>
+            <span class="ar-dis-tag">Уведення прямих антитіл</span>
+            <span class="ar-dis-tag">Дифузний токсичний зоб</span>
+          </div>
+        </div>
+
+        <!-- Центр -->
+        <div class="ar-center">
+          <h2 class="ar-center-title">Типи алергійних реакцій</h2>
+          <div class="ar-center-circle">АР</div>
+        </div>
+
+        <!-- Блок III тип -->
+        <div class="ar-block t3">
+          <div class="ar-block-head">
+            <span class="ar-type-badge">III тип</span>
+            <span class="ar-type-name">Негайного типу<br>(імунокомплексна)</span>
+          </div>
+          <div class="ar-mech">Утворення комплексів алерген+антитіло (IgM, IgG1,3) → пошкодження тканин.</div>
+          <div class="ar-diseases">
+            <span class="ar-dis-tag">Сироваткова хвороба</span>
+            <span class="ar-dis-tag">СЧВ</span>
+            <span class="ar-dis-tag">Ревматоїдний артрит</span>
+            <span class="ar-dis-tag">Реактивний артрит</span>
+            <span class="ar-dis-tag">Гострий гломерулонефрит</span>
+            <span class="ar-dis-tag">Вузелковий поліартеріїт</span>
+          </div>
+        </div>
+
+        <!-- Блок IV тип -->
+        <div class="ar-block t4">
+          <div class="ar-block-head">
+            <span class="ar-type-badge">IV тип</span>
+            <span class="ar-type-name">Уповільненого типу<br>(клітинна цитотоксичність)</span>
+          </div>
+          <div class="ar-mech">Сенсибілізовані Т-лімфоцити-кілери. Реакція через 24–72 год.</div>
+          <div class="ar-diseases">
+            <span class="ar-dis-tag">Контактний дерматит</span>
+            <span class="ar-dis-tag">Туберкулінова реакція</span>
+            <span class="ar-dis-tag">Відторгнення трансплантату</span>
+            <span class="ar-dis-tag">Туберкульоз</span>
+            <span class="ar-dis-tag">Сифіліс</span>
+            <span class="ar-dis-tag">Лепра</span>
+            <span class="ar-dis-tag">Бруцельоз</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══ СЛАЙД 14 — V тип + зведена таблиця ══ -->
+    <section class="slide">
+      <div class="v-wrap">
+        <h2 class="v-title">V тип + зведена таблиця АР</h2>
+        <div class="v-body">
+
+          <!-- V тип картка -->
+          <div class="v-type5">
+            <div class="v-type5-label">V тип — Антирецепторний</div>
+            <div class="v-type5-sub">
+              Обумовлений антитілами до рецепторів клітинних мембран (ацетилхоліновим, інсуліновим та ін.).<br><br>
+              Провідний імунний механізм розвитку:<br>
+              • цукрового діабету<br>
+              • дисфункцій щитоподібної залози<br><br>
+              <em>Описаний Ройтом (1991)</em>
+            </div>
+            <div class="v-type5-tags">
+              <span class="v-type5-tag">Цукровий діабет</span>
+              <span class="v-type5-tag">Хвороба Грейвса</span>
+              <span class="v-type5-tag">Міастенія</span>
+            </div>
+          </div>
+
+          <!-- Таблиця всіх 5 типів -->
+          <div class="v-table">
+            <div class="v-table-head">
+              <div class="v-th">Тип</div>
+              <div class="v-th">Назва</div>
+              <div class="v-th">Ig / медіатор</div>
+              <div class="v-th">Приклади</div>
+            </div>
+            <div class="v-table-body">
+              <div class="v-tr">
+                <div class="v-td">I</div>
+                <div class="v-td">Анафілактична / реагінова</div>
+                <div class="v-td">IgE, IgG4</div>
+                <div class="v-td">Астма, поліноз, анафілактичний шок</div>
+              </div>
+              <div class="v-tr">
+                <div class="v-td">II</div>
+                <div class="v-td">Цитотоксична</div>
+                <div class="v-td">IgG, IgM + комплемент</div>
+                <div class="v-td">Гемотрансфузійний шок, резус-конфлікт</div>
+              </div>
+              <div class="v-tr">
+                <div class="v-td">III</div>
+                <div class="v-td">Імунокомплексна</div>
+                <div class="v-td">IgG1,3 / IgM</div>
+                <div class="v-td">СЧВ, сироваткова хвороба, гломерулонефрит</div>
+              </div>
+              <div class="v-tr">
+                <div class="v-td">IV</div>
+                <div class="v-td">Уповільнена (клітинна)</div>
+                <div class="v-td">Т-лімфоцити-кілери</div>
+                <div class="v-td">Контактний дерматит, туберкульоз, відторгнення трансплантату</div>
+              </div>
+              <div class="v-tr">
+                <div class="v-td">V</div>
+                <div class="v-td">Антирецепторна</div>
+                <div class="v-td">IgG (до рецепторів)</div>
+                <div class="v-td">Цукровий діабет, хвороба Грейвса</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ СЛАЙД 15 — Тести 13-15 ══ -->
+    <section class="slide">
+      <div class="quiz-wrap">
+        <div class="quiz-cols">
+
+          <div class="quiz-card" data-answer="Реагінова реакція">
+            <p class="quiz-q"><span class="quiz-num">13</span>Чоловік помер від ядухи при <u>бронхіальній астмі</u>. У легенях — слиз з еозинофілами, склероз перегородок, розширення альвеол. Який механізм гіперчутливості?</p>
+            <div class="quiz-opts">
+              <button class="qopt">Цитотоксична реакція</button>
+              <button class="qopt">Реагінова реакція</button>
+              <button class="qopt">Імунокомплексна реакція</button>
+              <button class="qopt">Клітинна цитотоксичність</button>
+            </div>
+            <p class="quiz-result"></p>
+          </div>
+
+          <div class="quiz-card" data-answer="І типу (анафілактична)">
+            <p class="quiz-q"><span class="quiz-num">14</span>Пацієнтка померла під час <u>експіраторної задухи</u> від пилку амброзії. У бронхах — слиз, тучні клітини в стані дегрануляції, еозинофіли. До якого типу гіперчутливості відносяться ці зміни?</p>
+            <div class="quiz-opts">
+              <button class="qopt">ІІ типу (цитотоксична)</button>
+              <button class="qopt">І типу (анафілактична)</button>
+              <button class="qopt">ІІІ типу (імунокомплексна)</button>
+              <button class="qopt">IV типу (уповільнена)</button>
+            </div>
+            <p class="quiz-result"></p>
+          </div>
+
+          <div class="quiz-card" data-answer="Цитотоксичний тип">
+            <p class="quiz-q"><span class="quiz-num">15</span>Масугі викликав <u>гломерулонефрит</u> у щурів: гомогенат нирок щура → кролю, через тижні сироватка кроля → щурам. По якому алергічному типу розвивався гломерулонефрит?</p>
+            <div class="quiz-opts">
+              <button class="qopt">Реагіновий тип</button>
+              <button class="qopt">Імунокомплексний тип</button>
+              <button class="qopt">Цитотоксичний тип</button>
+              <button class="qopt">Клітинний тип</button>
+            </div>
+            <p class="quiz-result"></p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ СЛАЙД 16 — Тести 16-18 ══ -->
+    <section class="slide">
+      <div class="quiz-wrap">
+        <div class="quiz-cols">
+
+          <div class="quiz-card" data-answer="Імунокомплексні">
+            <p class="quiz-q"><span class="quiz-num">16</span>Пацієнтці з протеїнурією, гематурією, набряками та гіпертензією поставлено діагноз <u>гострий гломерулонефрит</u>. Які алергічні реакції за Кумбсом і Джеллом у 80% є причиною?</p>
+            <div class="quiz-opts">
+              <button class="qopt">Реагінові</button>
+              <button class="qopt">Цитотоксичні</button>
+              <button class="qopt">Імунокомплексні</button>
+              <button class="qopt">Клітинні</button>
+            </div>
+            <p class="quiz-result"></p>
+          </div>
+
+          <div class="quiz-card" data-answer="IV тип (клітинна цитотоксичність)">
+            <p class="quiz-q"><span class="quiz-num">17</span>Жінка тривало використовувала губну помаду — на губах еритема, лущення, тріщини. Мікроскопічно: <u>сенсибілізовані лімфоцити і макрофаги</u>, цитоліз. Який тип імунологічної гіперчутливості?</p>
+            <div class="quiz-opts">
+              <button class="qopt">І тип (анафілактична)</button>
+              <button class="qopt">ІІ тип (цитотоксична)</button>
+              <button class="qopt">ІІІ тип (імунокомплексна)</button>
+              <button class="qopt">IV тип (клітинна цитотоксичність)</button>
+            </div>
+            <p class="quiz-result"></p>
+          </div>
+
+          <div class="quiz-card" data-answer="Клітинна цитотоксичність">
+            <p class="quiz-q"><span class="quiz-num">18</span>Після <u>проби Манту</u> у дитини <u>через 48 годин</u> на місці введення туберкуліну — папула до 10 мм. Який механізм гіперчутливості лежить в основі?</p>
+            <div class="quiz-opts">
+              <button class="qopt">Реагінова реакція</button>
+              <button class="qopt">Цитотоксична реакція</button>
+              <button class="qopt">Імунокомплексна реакція</button>
+              <button class="qopt">Клітинна цитотоксичність</button>
+            </div>
+            <p class="quiz-result"></p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script type="module">
+  import { animate } from "https://esm.sh/motion@12.23.24";
+
+  /* ── Навігація ── */
+  const track = document.getElementById("track");
+  const slides = Array.from(track.children);
+  let index = 0, locked = false, touchY = 0;
+  const H = () => window.innerHeight;
+
+  function go(next) {
+    if (locked || next === index || next < 0 || next >= slides.length) return;
+    locked = true; index = next;
+    animate(track, { transform: `translateY(${-index * H()}px)` }, { duration: 0.55, ease: [0.22,1,0.36,1] })
+      .finished.finally(() => { locked = false; });
+  }
+  window.addEventListener("wheel",     e => { if (Math.abs(e.deltaY) >= 20) go(index + (e.deltaY > 0 ? 1 : -1)); }, { passive: true });
+  window.addEventListener("keydown",   e => { if (e.key==="ArrowDown"||e.key==="PageDown") go(index+1); if (e.key==="ArrowUp"||e.key==="PageUp") go(index-1); });
+  window.addEventListener("touchstart",e => { touchY = e.touches[0].clientY; }, { passive: true });
+  window.addEventListener("touchend",  e => { const d = touchY - e.changedTouches[0].clientY; if (Math.abs(d)>=40) go(index+(d>0?1:-1)); }, { passive: true });
+  window.addEventListener("resize",    () => { track.style.transform = `translateY(${-index * H()}px)`; });
+
+  /* ── 3D модель ── */
+  const mv = document.getElementById("mv");
+  const statusEl = document.getElementById("status");
+  const sources = ["./lynphocyte.glb","./lynphocite.glb","./lymphocyte.glb"];
+  let si = 0, tAz = -14, tPol = 78, cAz = -14, cPol = 78;
+
+  function tryNext() {
+    if (si >= sources.length) { if (statusEl) statusEl.textContent = "3D файл не знайдено"; return; }
+    mv.src = sources[si++];
+  }
+  function recolor() {
+    const m = mv.model;
+    if (!m?.materials?.length) return;
+    const shell = [[0.82,0.87,1,0.5],[0.9,0.93,1,0.44],[0.78,0.83,0.98,0.56],[0.86,0.9,1,0.48]];
+    let ii = m.materials.findIndex(x => /inner|core|nucleus|sphere|ball/i.test(x.name||""));
+    if (ii < 0 && m.materials.length > 1) ii = 1;
+    if (ii < 0) ii = 0;
+    m.materials.forEach((mat,i) => {
+      const p = mat.pbrMetallicRoughness;
+      if (p?.setBaseColorFactor) {
+        p.setBaseColorFactor(i===ii ? [0.46,0.44,0.72,0.82] : shell[i%shell.length]);
+        p.setRoughnessFactor(i===ii ? 0.36 : 0.28);
+        p.setMetallicFactor(0);
+      }
+      mat.setEmissiveFactor?.(i===ii ? [0.02,0.02,0.08] : [0.04,0.06,0.16]);
+    });
+  }
+  mv.addEventListener("load",  () => { recolor(); if (statusEl) statusEl.style.display="none"; });
+  mv.addEventListener("error", tryNext);
+  document.addEventListener("mousemove", e => {
+    const x = (e.clientX/innerWidth)*2-1, y = (e.clientY/innerHeight)*2-1;
+    tAz = -14+x*14; tPol = 78+y*6;
+  }, { passive: true });
+  function orbit() {
+    cAz += (tAz-cAz)*0.08; cPol += (tPol-cPol)*0.08;
+    mv.cameraOrbit = `${cAz}deg ${cPol}deg 98%`;
+    requestAnimationFrame(orbit);
+  }
+  tryNext(); requestAnimationFrame(orbit);
+
+  /* ── Слайд 3: кліковані ноди → попап ── */
+  document.querySelectorAll(".s3-node.clickable").forEach(node => {
+    node.addEventListener("click", e => {
+      e.stopPropagation();
+      const popId = node.dataset.popup;
+      if (!popId) return;
+      const pop = document.getElementById(popId);
+      if (!pop) return;
+
+      // закрити всі інші
+      document.querySelectorAll(".s3-popup.show").forEach(p => { if (p !== pop) p.classList.remove("show"); });
+
+      if (pop.classList.contains("show")) {
+        pop.classList.remove("show");
+        return;
+      }
+
+      // позиціонування попапу відносно ноди
+      const nr = node.getBoundingClientRect();
+      const wr = node.closest(".s3-wrap").getBoundingClientRect();
+      let left = (nr.left - wr.left) + nr.width / 2;
+      let top  = (nr.bottom - wr.top) + 8;
+
+      // зсув якщо виходить за правий край
+      const popW = 300;
+      if (left + popW / 2 > wr.width - 16) left = wr.width - popW - 16;
+      if (left - popW / 2 < 16) left = 16 + popW / 2;
+
+      pop.style.left = (left - popW / 2) + "px";
+      pop.style.top  = top + "px";
+      pop.style.width = popW + "px";
+      pop.classList.add("show");
+    });
+  });
+
+  // закрити попап по кнопці ×
+  document.querySelectorAll(".s3-popup-close").forEach(btn => {
+    btn.addEventListener("click", e => {
+      e.stopPropagation();
+      const popId = btn.dataset.close;
+      document.getElementById(popId)?.classList.remove("show");
+    });
+  });
+
+  // закрити клік по фону
+  document.addEventListener("click", () => {
+    document.querySelectorAll(".s3-popup.show").forEach(p => p.classList.remove("show"));
+  });
+
+  /* ── Слайд 2: розкривні картки ── */
+  document.querySelectorAll(".card.leaf").forEach(card => {
+    card.addEventListener("click", e => {
+      e.stopPropagation();
+      card.classList.toggle("open");
+    });
+  });
+
+  /* ── Слайди 4-5: інтерактивні тести ── */
+  document.querySelectorAll(".quiz-card").forEach(card => {
+    const answer = card.dataset.answer;
+    const opts   = card.querySelectorAll(".qopt");
+    const result = card.querySelector(".quiz-result");
+
+    opts.forEach(btn => {
+      btn.addEventListener("click", () => {
+        // заблокувати всі кнопки
+        opts.forEach(b => { b.disabled = true; });
+
+        if (btn.textContent.trim() === answer) {
+          btn.classList.add("correct");
+          result.textContent = "Правильно!";
+          result.classList.remove("wrong-res");
+        } else {
+          btn.classList.add("wrong");
+          result.textContent = `Правильна відповідь: ${answer}`;
+          result.classList.add("wrong-res");
+          // показати правильну
+          opts.forEach(b => {
+            if (b.textContent.trim() === answer) b.classList.add("correct");
+          });
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>
