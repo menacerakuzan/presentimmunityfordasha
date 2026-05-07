@@ -138,14 +138,14 @@
     }
 
     /* позиції карток */
-    .c-inn  { top: 16%; left: 2%;  width: 47%; height: 43%; }
-    .c-ada  { top: 16%; left: 52%; width: 46%; height: 43%; }
+    .c-inn  { top: 13%; left: 2%;  width: 47%; min-height: 43%; max-height: 52%; overflow-y: auto; }
+    .c-ada  { top: 13%; left: 52%; width: 46%; min-height: 43%; max-height: 52%; overflow-y: auto; }
     .c-nat  { top: 52%; left: 36%; width: 27%; height: 11%; display:flex; align-items:center; justify-content:center; }
     .c-art  { top: 52%; left: 66%; width: 27%; height: 11%; display:flex; align-items:center; justify-content:center; }
-    .c-na   { top: 69%; left: 2%;  width: 23%; }
-    .c-np   { top: 69%; left: 27%; width: 23%; }
-    .c-aa   { top: 69%; left: 52%; width: 23%; }
-    .c-ap   { top: 69%; left: 77%; width: 21%; }
+    .c-na   { top: 68%; left: 2%;  width: 23%; }
+    .c-np   { top: 68%; left: 27%; width: 23%; }
+    .c-aa   { top: 68%; left: 52%; width: 23%; }
+    .c-ap   { top: 68%; left: 77%; width: 21%; }
 
     /* ══════════════ СЛАЙД 3 ══════════════ */
     .s3 {
@@ -218,7 +218,7 @@
     /* ══════════════ СЛАЙД 3 — схема органів ══════════════ */
     .s3-wrap {
       position: absolute; inset: 0; z-index: 2; overflow: hidden;
-      font-family: "Nyght Serif", serif;
+      font-family: "Nyght Serif", serif; box-sizing: border-box;
     }
     .s3-title {
       position: absolute; left: 50%; top: 3.5%;
@@ -320,21 +320,21 @@
       position: absolute; inset: 0; z-index: 2;
       font-family: "Nyght Serif", serif; color: var(--ink);
       display: flex; flex-direction: column;
-      padding: 2vh 2.5vw; box-sizing: border-box;
+      padding: 1.2vh 2vw; box-sizing: border-box;
     }
     .quiz-heading, .quiz-title { display: none; }
     .quiz-cols, .quiz-grid {
       flex: 1; display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: clamp(10px, 1.4vw, 20px); min-height: 0;
+      gap: clamp(8px, 1vw, 14px); min-height: 0;
     }
     .quiz-card {
       background: rgba(255,255,255,0.78);
       border: 1.8px solid rgba(42,73,199,0.2);
       border-radius: 14px;
       box-shadow: 0 2px 16px rgba(42,73,199,0.07);
-      padding: clamp(10px,1.1vw,16px) clamp(12px,1.2vw,18px);
-      display: flex; flex-direction: column; gap: clamp(6px,0.7vh,10px);
+      padding: clamp(8px,0.9vw,13px) clamp(10px,1vw,15px);
+      display: flex; flex-direction: column; gap: clamp(4px,0.5vh,7px);
       backdrop-filter: blur(6px); overflow: hidden;
     }
     .quiz-num {
@@ -351,12 +351,12 @@
     }
     .quiz-q u { text-decoration-color: var(--accent); text-underline-offset: 2px; }
     .quiz-opts {
-      display: flex; flex-direction: column; gap: clamp(4px,0.45vh,7px);
+      display: flex; flex-direction: column; gap: clamp(3px,0.35vh,5px);
     }
     .qopt {
       background: rgba(233,236,242,0.85);
       border: 1.5px solid rgba(42,73,199,0.18);
-      border-radius: 8px; padding: clamp(5px,0.5vh,8px) 12px;
+      border-radius: 8px; padding: clamp(4px,0.4vh,6px) 10px;
       font-family: "Nyght Serif", serif;
       font-size: clamp(19px,1.5vw,23px); color: var(--ink);
       cursor: pointer; text-align: left;
@@ -393,7 +393,7 @@
       display: grid;
       grid-template-columns: 55% 45%;
       grid-template-rows: auto 1fr;
-      padding: 3vh 2.5vw 2.5vh;
+      padding: 1.5vh 2vw 1.5vh;
       gap: 0 1.5vw;
       box-sizing: border-box;
     }
@@ -406,8 +406,8 @@
 
     /* ліва колонка */
     .s4-left {
-      display: flex; flex-direction: column; gap: 1.2vh;
-      overflow: hidden;
+      display: flex; flex-direction: column; gap: 0.7vh;
+      overflow: hidden; position: relative; z-index: 2;
     }
     .s4-block {
       background: rgba(255,255,255,0.78);
@@ -436,7 +436,7 @@
     /* права колонка — SVG дерево */
     .s4-right {
       position: relative;
-      overflow: hidden;
+      overflow: hidden; z-index: 1;
     }
     .s4-svg {
       position: absolute; inset: 0; width: 100%; height: 100%;
@@ -494,7 +494,7 @@
     .ag-wrap {
       position: absolute; inset: 0; z-index: 2;
       display: flex; flex-direction: column; align-items: center;
-      justify-content: center; gap: clamp(16px,2.2vh,32px); padding: 3vh 4vw;
+      justify-content: center; gap: clamp(8px,1.2vh,18px); padding: 1.5vh 3.5vw;
     }
     .ag-title {
       margin: 0; font-family: "Nyght Serif", serif; font-weight: 700;
@@ -548,7 +548,7 @@
     .ig-wrap {
       position: absolute; inset: 0; z-index: 2;
       display: flex; flex-direction: column; align-items: center;
-      justify-content: center; gap: clamp(14px, 2vh, 28px); padding: 3vh 4vw;
+      justify-content: center; gap: clamp(8px, 1.2vh, 16px); padding: 1.5vh 3vw;
     }
     .ig-title {
       margin: 0; font-family: "Nyght Serif", serif; font-weight: 700;
@@ -561,7 +561,7 @@
         "bl center br";
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: 1fr 1fr;
-      gap: clamp(10px, 1.2vw, 20px);
+      gap: clamp(6px, 0.8vw, 12px);
       width: 100%; flex: 1; min-height: 0;
     }
     .ig-tl     { grid-area: tl; }
@@ -574,7 +574,7 @@
     .ig-br     { grid-area: br; }
     .ig-card {
       background: white; border-radius: 18px;
-      box-shadow: 0 4px 24px rgba(42,73,199,0.09); padding: clamp(14px, 1.6vw, 24px);
+      box-shadow: 0 4px 24px rgba(42,73,199,0.09); padding: clamp(10px, 1.1vw, 16px);
       display: flex; flex-direction: column; gap: 10px;
       border: 1.5px solid rgba(42,73,199,0.10);
       transition: box-shadow 0.2s, transform 0.2s;
@@ -607,14 +607,14 @@
     .id-wrap {
       position: absolute; inset: 0; z-index: 2;
       display: flex; flex-direction: column; align-items: center;
-      justify-content: center; gap: clamp(12px, 1.8vh, 24px); padding: 3vh 3.5vw;
+      justify-content: center; gap: clamp(6px, 1vh, 14px); padding: 1.5vh 3vw;
     }
     .id-title {
       margin: 0; font-family: "Nyght Serif", serif; font-weight: 700;
       font-size: clamp(26px, 2.8vw, 50px); color: var(--ink); text-align: center;
     }
     .id-cols {
-      display: flex; gap: clamp(10px, 1.2vw, 20px); width: 100%; max-width: 1260px;
+      display: flex; gap: clamp(6px, 0.8vw, 12px); width: 100%; max-width: 1260px;
       align-items: flex-start;
     }
     .id-col {
@@ -648,17 +648,17 @@
     .al-wrap {
       position: absolute; inset: 0; z-index: 2;
       display: grid; grid-template-rows: auto 1fr;
-      padding: 2.8vh 3.5vw 2.5vh; gap: clamp(10px,1.4vh,22px); box-sizing: border-box;
+      padding: 1.5vh 3vw 1.5vh; gap: clamp(6px,0.8vh,14px); box-sizing: border-box;
     }
     .al-title {
       margin: 0; font-family: "Nyght Serif", serif; font-weight: 700;
       font-size: clamp(26px,2.8vw,50px); color: var(--ink);
     }
     .al-body {
-      display: grid; grid-template-columns: 1fr 1fr; gap: clamp(12px,1.6vw,28px); min-height: 0;
+      display: grid; grid-template-columns: 1fr 1fr; gap: clamp(8px,1vw,16px); min-height: 0; overflow: hidden;
     }
     /* Ліва колонка: визначення + гаптени */
-    .al-left { display: flex; flex-direction: column; gap: clamp(8px,1vh,16px); }
+    .al-left { display: flex; flex-direction: column; gap: clamp(8px,1vh,16px); overflow-y: auto; min-height: 0; }
     .al-def-box {
       background: var(--accent); color: white; border-radius: 16px;
       padding: clamp(12px,1.4vw,22px); font-family: "Nyght Serif", serif;
@@ -674,7 +674,7 @@
     }
     .al-hapten-box h4 { margin: 0 0 6px; font-size: clamp(16px,1.25vw,20px); color: var(--accent); }
     /* Права колонка: алергени */
-    .al-right { display: flex; flex-direction: column; gap: 8px; }
+    .al-right { display: flex; flex-direction: column; gap: 8px; overflow-y: auto; min-height: 0; }
     .al-section-title {
       font-family: "Nyght Serif", serif; font-weight: 700;
       font-size: clamp(19px,1.5vw,23px); color: var(--accent);
@@ -718,8 +718,8 @@
         "t2 center t4";
       grid-template-columns: 1fr auto 1fr;
       grid-template-rows: 1fr 1fr;
-      gap: clamp(8px,1vw,18px);
-      padding: 2.5vh 2.8vw; box-sizing: border-box;
+      gap: clamp(6px,0.7vw,12px);
+      padding: 1.5vh 2vw; box-sizing: border-box;
     }
     .ar-center {
       grid-area: center; display: flex; flex-direction: column;
@@ -743,7 +743,7 @@
       background: white; border-radius: 16px;
       border: 1.8px solid rgba(42,73,199,0.15);
       box-shadow: 0 3px 20px rgba(42,73,199,0.09);
-      padding: clamp(12px,1.3vw,20px); display: flex; flex-direction: column; gap: 8px;
+      padding: clamp(8px,0.9vw,14px); display: flex; flex-direction: column; gap: 6px;
       cursor: pointer; transition: box-shadow 0.2s, transform 0.18s;
       overflow: hidden;
     }
@@ -766,7 +766,7 @@
       font-size: clamp(15px,1.25vw,18px); color: var(--ink); line-height: 1.25;
     }
     .ar-mech {
-      font-family: "Nyght Serif", serif; font-size: clamp(19px,1.5vw,23px);
+      font-family: "Nyght Serif", serif; font-size: clamp(16px,1.3vw,20px);
       color: #4a5ba0; line-height: 1.4; border-left: 3px solid rgba(42,73,199,0.25);
       padding-left: 8px;
     }
@@ -777,7 +777,7 @@
     }
     .ar-dis-tag {
       background: rgba(42,73,199,0.07); border-radius: 8px;
-      padding: 2px 8px; font-size: clamp(9px,0.72vw,12px);
+      padding: 3px 10px; font-size: clamp(15px,1.1vw,18px);
       color: var(--ink); border: 1px solid rgba(42,73,199,0.12);
     }
 
@@ -785,7 +785,7 @@
     .v-wrap {
       position: absolute; inset: 0; z-index: 2;
       display: flex; align-items: center; justify-content: center;
-      padding: 3vh 4vw; box-sizing: border-box;
+      padding: 2vh 4vw; box-sizing: border-box;
     }
     .v-title {
       margin: 0; font-family: "Nyght Serif", serif; font-weight: 700;
@@ -794,7 +794,7 @@
     .v-body { display: grid; grid-template-columns: 1fr 2fr; gap: clamp(12px,1.5vw,24px); min-height: 0; }
     .v-type5 {
       background: var(--accent); color: white; border-radius: 18px;
-      padding: clamp(24px,3vw,48px) clamp(32px,4vw,64px);
+      padding: clamp(16px,2vw,32px) clamp(20px,2.5vw,42px);
       display: flex; flex-direction: column; gap: 16px;
       max-width: 700px; width: 100%;
     }
@@ -845,100 +845,121 @@
     /* ══════════════ TABLET ≤ 1024px ══════════════ */
     @media (max-width: 1024px) {
 
+      /* ── Глобально: всі обгортки дозволяють скрол ── */
+      .s2-wrap, .s3-wrap, .s4-wrap,
+      .ag-wrap, .ig-wrap, .id-wrap,
+      .al-wrap, .ar-wrap, .v-wrap,
+      .quiz-wrap {
+        overflow-y: auto !important;
+        overflow-x: hidden;
+      }
+
       /* Слайд 1 */
-      .title { font-size: clamp(72px,12vw,140px); }
-      .subtitle { font-size: clamp(18px,2.8vw,28px); }
+      .title { font-size: clamp(60px,10vw,120px); }
+      .subtitle { font-size: clamp(16px,2.5vw,26px); }
       model-viewer { left: 80%; width: 120vw; }
 
-      /* Слайд 2 */
-      .s2-title { font-size: clamp(22px,3.5vw,40px); }
-      .s2-wrap { overflow-y: auto; }
-      .card { font-size: clamp(14px,1.8vw,18px); }
+      /* Слайд 2 — перемикаємо з absolute на flow */
+      .s2-wrap { position: absolute; inset: 0; padding: 2vh 3vw 3vh; box-sizing: border-box; }
+      .s2-title { position: relative; left: auto; top: auto; transform: none;
+        display: block; text-align: center; margin-bottom: 1.5vh;
+        font-size: clamp(20px,3.5vw,36px); }
+      .s2-svg { display: none; }
+      .card {
+        position: relative !important; top: auto !important; left: auto !important;
+        width: 100% !important; height: auto !important; max-height: none !important;
+        min-height: 0 !important; margin-bottom: 10px;
+        font-size: clamp(14px,1.8vw,18px); padding: 12px 16px;
+      }
       .card h3 { font-size: clamp(16px,2.2vw,22px); }
-      .card ul li { font-size: clamp(14px,1.8vw,18px); }
+      .card ul  { font-size: clamp(14px,1.8vw,18px); }
+      .card .sub, .card .desc, .card .note { font-size: clamp(13px,1.7vw,17px); }
+      .card.leaf .desc { max-height: none; opacity: 1; }
+      .c-nat, .c-art { display: none; }
 
-      /* Слайд 3 */
-      .s3-title { font-size: clamp(20px,3vw,36px); }
-      .s3-node { font-size: clamp(18px,2.4vw,22px); }
+      /* Слайд 3 — масштаб */
+      .s3-wrap { position: absolute; inset: 0; }
+      .s3-title { font-size: clamp(18px,2.8vw,32px); }
+      .s3-node  { font-size: clamp(12px,1.6vw,16px); }
 
       /* Слайд 4 — Лімфоцити */
       .s4-wrap {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto;
-        padding: 2vh 4vw;
-        overflow-y: auto;
+        position: absolute; inset: 0;
+        grid-template-columns: 1fr !important;
+        grid-template-rows: auto auto !important;
+        padding: 2vh 3vw;
       }
-      .s4-title { font-size: clamp(22px,4vw,38px); grid-column: 1; }
-      .s4-info  { grid-column: 1; grid-row: 2; }
-      .s4-cell-area { grid-column: 1; grid-row: 3; height: 35vh; }
+      .s4-heading { font-size: clamp(20px,3.5vw,34px); }
+      .s4-left  { grid-column: 1; grid-row: 2; overflow: visible; }
+      .s4-right { grid-column: 1; grid-row: 3; height: 40vw; }
+      .s4-block-title { font-size: clamp(16px,2.2vw,22px); }
+      .s4-block-body  { font-size: clamp(14px,1.9vw,19px); }
 
       /* Тести */
+      .quiz-wrap { position: absolute; inset: 0; padding: 2vh 3vw; }
       .quiz-cols, .quiz-grid {
-        grid-template-columns: 1fr;
-        gap: clamp(8px,1.5vw,14px);
-        overflow-y: auto;
+        grid-template-columns: 1fr !important;
+        gap: 10px; overflow: visible;
       }
-      .quiz-card { padding: 10px 14px; gap: 6px; }
-      .quiz-q { font-size: clamp(16px,2.2vw,22px); }
-      .qopt { font-size: clamp(14px,1.9vw,19px); padding: 6px 12px; }
-      .quiz-result { font-size: clamp(14px,1.8vw,18px); }
+      .quiz-card { padding: 12px 16px; gap: 8px; }
+      .quiz-q    { font-size: clamp(15px,2.2vw,21px); }
+      .qopt      { font-size: clamp(14px,2vw,19px); padding: 7px 12px; }
+      .quiz-result { font-size: clamp(14px,1.9vw,18px); }
 
       /* Слайд 7 — АГ/АТ */
-      .ag-row { flex-direction: column; align-items: center; gap: 10px; }
-      .ag-card { max-width: 90%; }
-      .ag-arrow-block { transform: rotate(90deg); }
-      .ag-ig-bar { flex-direction: column; text-align: center; }
+      .ag-wrap { position: absolute; inset: 0; justify-content: flex-start; padding: 2vh 3vw; }
+      .ag-row  { flex-direction: column; align-items: center; gap: 12px; }
+      .ag-card { max-width: 96%; }
+      .ag-ig-bar { flex-direction: column; }
 
-      /* Слайд 8 — Ig */
+      /* Слайд 9 — Імуноглобуліни */
+      .ig-wrap { position: absolute; inset: 0; justify-content: flex-start; padding: 2vh 3vw; }
       .ig-bento {
-        grid-template-areas: "tl tr" "center center" "bl br";
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr auto 1fr;
+        grid-template-areas: "tl tr" "center center" "bl br" !important;
+        grid-template-columns: 1fr 1fr !important;
+        grid-template-rows: auto auto auto !important;
       }
 
-      /* Слайд 9 — Імунодефіцити */
-      .id-cols { flex-direction: column; overflow-y: auto; }
-      .id-col { flex: none; }
+      /* Слайд 8 — Імунодефіцити */
+      .id-wrap { position: absolute; inset: 0; justify-content: flex-start; padding: 2vh 3vw; }
+      .id-cols { flex-direction: column; }
+      .id-col  { flex: none; }
 
       /* Слайд 12 — Алергія */
-      .al-body { grid-template-columns: 1fr; overflow-y: auto; }
+      .al-wrap { position: absolute; inset: 0; padding: 2vh 3vw; }
+      .al-body { grid-template-columns: 1fr !important; overflow: visible; }
+      .al-left, .al-right { overflow: visible; min-height: 0; }
       .al-inf-grid { grid-template-columns: 1fr 1fr; }
 
       /* Слайд 13 — Типи АР */
       .ar-wrap {
-        grid-template-areas:
-          "center center"
-          "t1 t2"
-          "t3 t4";
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto 1fr 1fr;
-        overflow-y: auto;
+        position: absolute; inset: 0; padding: 2vh 2vw;
+        grid-template-areas: "t1 t2" "t3 t4" !important;
+        grid-template-columns: 1fr 1fr !important;
+        grid-template-rows: 1fr 1fr !important;
         gap: 8px;
       }
-      .ar-center { width: 100%; flex-direction: row; justify-content: center; gap: 16px; padding: 8px 0; }
-      .ar-center-circle { width: 56px; height: 56px; font-size: 20px; flex-shrink: 0; }
-      .ar-center-title { font-size: clamp(16px,2.5vw,24px); text-align: left; }
-      .ar-block { padding: 10px 12px; }
-      .ar-type-badge { font-size: clamp(18px,2.4vw,22px); }
-      .ar-type-name { font-size: clamp(18px,2.4vw,22px); }
-      .ar-mech { font-size: clamp(17px,2.2vw,21px); }
-      .ar-dis-tag { font-size: clamp(16px,2.1vw,20px); }
+      .ar-center { display: none; }
+      .ar-block  { padding: 10px 12px; }
+      .ar-type-badge { font-size: clamp(13px,1.8vw,17px); }
+      .ar-type-name  { font-size: clamp(13px,1.8vw,17px); }
+      .ar-mech       { font-size: clamp(12px,1.6vw,16px); }
+      .ar-dis-tag    { font-size: clamp(11px,1.5vw,15px); padding: 2px 7px; }
 
-      /* Слайд 14 — V тип + таблиця */
-      .v-body { grid-template-columns: 1fr; grid-template-rows: auto 1fr; overflow-y: auto; }
-      .v-type5 { padding: 14px; }
-      .v-th, .v-td { font-size: clamp(17px,2.2vw,21px); padding: 6px 8px; }
-      .v-table-head, .v-tr { grid-template-columns: 0.5fr 1fr 0.8fr 1.2fr; }
+      /* Слайд 14 — V тип */
+      .v-wrap  { position: absolute; inset: 0; padding: 3vh 4vw; }
+      .v-type5 { padding: 20px 24px; max-width: 100%; }
+      .v-type5-label { font-size: clamp(20px,3vw,32px); }
+      .v-type5-sub   { font-size: clamp(15px,2vw,20px); }
     }
 
     /* ══════════════ MOBILE ≤ 680px ══════════════ */
     @media (max-width: 680px) {
-      .quiz-cols, .quiz-grid { grid-template-columns: 1fr; }
-      .ig-card { flex: 1 1 100%; }
+      .quiz-cols, .quiz-grid { grid-template-columns: 1fr !important; }
       .ar-wrap {
-        grid-template-areas: "center" "t1" "t2" "t3" "t4";
-        grid-template-columns: 1fr;
-        grid-template-rows: auto repeat(4, auto);
+        grid-template-areas: "t1" "t2" "t3" "t4" !important;
+        grid-template-columns: 1fr !important;
+        grid-template-rows: repeat(4, auto) !important;
       }
       .ar-center { flex-direction: column; }
       .al-inf-grid { grid-template-columns: 1fr; }
@@ -1133,63 +1154,48 @@
             sub3 cx=1270  x=1136..1405
         -->
         <svg class="s3-svg" viewBox="0 0 1920 1080" preserveAspectRatio="none" aria-hidden="true">
-          <!-- cx нових блоків (×1920):
-               Корінь:    55%=1056
-               Центральні: 22%=422   Периферійні: 79%=1517
-               Тимус:14.5%=278  КМ:29%=557  ЛВ:44.5%=854  Сел:58.8%=1129  Мигд:73%=1402  ЛТ:87%=1670
-               sub1:44.5=854  sub2:58.8=1129  sub3:73=1402
-          -->
-          <!-- корінь → Центральні -->
-          <polyline class="s3-ln" points="1056,237  422,286  422,335"/>
-          <!-- корінь → Периферійні -->
-          <polyline class="s3-ln" points="1056,237  1517,286  1517,335"/>
-
-          <!-- Центральні → Тимус -->
-          <polyline class="s3-ln" points="422,421  278,480  278,540"/>
-          <!-- Центральні → КМ -->
-          <polyline class="s3-ln" points="422,421  557,480  557,540"/>
-
-          <!-- Периферійні → ЛВ -->
-          <polyline class="s3-ln" points="1517,421  854,480  854,540"/>
-          <!-- Периферійні → Сел -->
-          <polyline class="s3-ln" points="1517,421  1129,480  1129,540"/>
-          <!-- Периферійні → Мигд -->
-          <polyline class="s3-ln" points="1517,421  1402,480  1402,540"/>
-          <!-- Периферійні → ЛТ -->
-          <polyline class="s3-ln" points="1517,421  1670,480  1670,540"/>
-
-          <!-- ЛТ → шина → підпункти -->
-          <polyline class="s3-ln" points="1670,626  1670,664  854,664"/>
-          <line class="s3-ln" x1="854"  y1="664" x2="854"  y2="724"/>
-          <line class="s3-ln" x1="1129" y1="664" x2="1129" y2="724"/>
-          <line class="s3-ln" x1="1402" y1="664" x2="1402" y2="724"/>
+          <!-- Корінь cx=960, Центральні cx=384, Периф cx=1402
+               Тимус=250 КМ=538 | ЛВ=845 Сел=1133 Мигд=1421 ЛТ=1709
+               sub: ЛВ=845 Сел=1133 Мигд=1421 -->
+          <polyline class="s3-ln" points="960,237  384,286  384,335"/>
+          <polyline class="s3-ln" points="960,237  1402,286  1402,335"/>
+          <polyline class="s3-ln" points="384,421  250,480  250,540"/>
+          <polyline class="s3-ln" points="384,421  538,480  538,540"/>
+          <polyline class="s3-ln" points="1402,421  845,480  845,540"/>
+          <polyline class="s3-ln" points="1402,421  1133,480  1133,540"/>
+          <polyline class="s3-ln" points="1402,421  1421,480  1421,540"/>
+          <polyline class="s3-ln" points="1402,421  1709,480  1709,540"/>
+          <polyline class="s3-ln" points="1709,626  1709,664  845,664"/>
+          <line class="s3-ln" x1="845"  y1="664" x2="845"  y2="724"/>
+          <line class="s3-ln" x1="1133" y1="664" x2="1133" y2="724"/>
+          <line class="s3-ln" x1="1421" y1="664" x2="1421" y2="724"/>
         </svg>
 
         <!-- Корінь -->
-        <div class="s3-node s3-root" style="left:44%;top:14%;width:22%;height:8%">
+        <div class="s3-node s3-root" style="left:40%;top:14%;width:20%;height:8%">
           Органи імунної системи
         </div>
 
         <!-- Рівень 1 -->
-        <div class="s3-node s3-central" style="left:13%;top:31%;width:18%;height:8%">
+        <div class="s3-node s3-central" style="left:10%;top:31%;width:20%;height:8%">
           Центральні
         </div>
-        <div class="s3-node s3-periph" style="left:65%;top:31%;width:28%;height:8%">
+        <div class="s3-node s3-periph" style="left:60%;top:31%;width:26%;height:8%">
           Периферійні
         </div>
 
         <!-- Рівень 2 -->
-        <div class="s3-node s3-c-leaf clickable" style="left:8%;top:50%;width:13%;height:8%"   data-popup="pop-thymus">Тимус</div>
-        <div class="s3-node s3-c-leaf clickable" style="left:22.5%;top:50%;width:13%;height:8%" data-popup="pop-bm">Червоний<br>кістковий мозок</div>
-        <div class="s3-node s3-p-leaf clickable" style="left:38%;top:50%;width:13%;height:8%"  data-popup="pop-ln">Лімфатичні<br>вузли</div>
-        <div class="s3-node s3-p-leaf clickable" style="left:52.3%;top:50%;width:13%;height:8%" data-popup="pop-spl">Селезінка</div>
-        <div class="s3-node s3-p-leaf clickable" style="left:66.5%;top:50%;width:13%;height:8%" data-popup="pop-ta">Мигдалики<br>і аденоїди</div>
-        <div class="s3-node s3-p-leaf clickable" style="left:80.5%;top:50%;width:13%;height:8%" data-popup="pop-lt">Лімфоїдна<br>тканина</div>
+        <div class="s3-node s3-c-leaf clickable" style="left:6%;top:50%;width:14%;height:8%" data-popup="pop-thymus">Тимус</div>
+        <div class="s3-node s3-c-leaf clickable" style="left:21%;top:50%;width:14%;height:8%" data-popup="pop-bm">Червоний<br>кістковий мозок</div>
+        <div class="s3-node s3-p-leaf clickable" style="left:37%;top:50%;width:14%;height:8%" data-popup="pop-ln">Лімфатичні<br>вузли</div>
+        <div class="s3-node s3-p-leaf clickable" style="left:52%;top:50%;width:14%;height:8%" data-popup="pop-spl">Селезінка</div>
+        <div class="s3-node s3-p-leaf clickable" style="left:67%;top:50%;width:14%;height:8%" data-popup="pop-ta">Мигдалики<br>і аденоїди</div>
+        <div class="s3-node s3-p-leaf clickable" style="left:82%;top:50%;width:14%;height:8%" data-popup="pop-lt">Лімфоїдна<br>тканина</div>
 
         <!-- Рядок 3 -->
-        <div class="s3-node s3-p-sub" style="left:38%;top:67%;width:13%;height:11%">Лімфоїдні скупчення в повітроносних шляхах</div>
-        <div class="s3-node s3-p-sub" style="left:52.3%;top:67%;width:13%;height:11%">Лімфоїдні скупчення в кишечнику</div>
-        <div class="s3-node s3-p-sub" style="left:66.5%;top:67%;width:13%;height:11%">Лімфоїдні скупчення в сечостатевих шляхах</div>
+        <div class="s3-node s3-p-sub" style="left:37%;top:67%;width:14%;height:11%">Лімфоїдні скупчення в повітроносних шляхах</div>
+        <div class="s3-node s3-p-sub" style="left:52%;top:67%;width:14%;height:11%">Лімфоїдні скупчення в кишечнику</div>
+        <div class="s3-node s3-p-sub" style="left:67%;top:67%;width:14%;height:11%">Лімфоїдні скупчення в сечостатевих шляхах</div>
 
         <!-- Попапи -->
         <div class="s3-popup central" id="pop-thymus">
@@ -1860,7 +1866,7 @@
             <span class="ar-type-badge">I тип</span>
             <span class="ar-type-name">Негайного типу<br>(анафілактична, реагінова)</span>
           </div>
-          <div class="ar-mech">IgE-залежний механізм. Реагіновий — атопічні хвороби. Анафілактичний — IgG4-антитіла.</div>
+          <div class="ar-mech">Повʼязаний з виробленням антитіл IgE-класу та лежить в основі атопічних захворювань.</div>
           <div class="ar-diseases">
             <span class="ar-dis-tag">Бронхіальна астма</span>
             <span class="ar-dis-tag">Полінози</span>
@@ -1878,7 +1884,7 @@
             <span class="ar-type-badge">II тип</span>
             <span class="ar-type-name">Негайного типу<br>(цитотоксична, антитілозалежна)</span>
           </div>
-          <div class="ar-mech">Антиген — компонент клітини. Антитіла активують комплемент → пошкодження клітини.</div>
+          <div class="ar-mech">Антиген є компонентом клітини. Реакція починається з активуючого впливу антитіл на компоненти комплементу з подальшим ушкодженням клітини.</div>
           <div class="ar-diseases">
             <span class="ar-dis-tag">Аутоалергічні хвороби</span>
             <span class="ar-dis-tag">Гемотрансфузійний шок</span>
@@ -1899,7 +1905,7 @@
             <span class="ar-type-badge">III тип</span>
             <span class="ar-type-name">Негайного типу<br>(імунокомплексна)</span>
           </div>
-          <div class="ar-mech">Утворення комплексів алерген+антитіло (IgM, IgG1,3) → пошкодження тканин.</div>
+          <div class="ar-mech">Повʼязаний з утворенням комплексів алергенів та аутоалергенів з антитілами (IgM, IgG) і шкідливою дією цих комплексів на тканини організму.</div>
           <div class="ar-diseases">
             <span class="ar-dis-tag">Сироваткова хвороба</span>
             <span class="ar-dis-tag">СЧВ</span>
@@ -1916,7 +1922,7 @@
             <span class="ar-type-badge">IV тип</span>
             <span class="ar-type-name">Уповільненого типу<br>(клітинна цитотоксичність)</span>
           </div>
-          <div class="ar-mech">Сенсибілізовані Т-лімфоцити-кілери. Реакція через 24–72 год.</div>
+          <div class="ar-mech">Гіперчутливість уповільненого типу. Повʼязаний із утворенням сенсибілізованих Т-лімфоцитів.</div>
           <div class="ar-diseases">
             <span class="ar-dis-tag">Контактний дерматит</span>
             <span class="ar-dis-tag">Туберкулінова реакція</span>
@@ -1937,11 +1943,7 @@
         <div class="v-type5">
           <div class="v-type5-label">V тип — Антирецепторний</div>
           <div class="v-type5-sub">
-            Обумовлений антитілами до рецепторів клітинних мембран (ацетилхоліновим, інсуліновим та ін.).<br><br>
-            Провідний імунний механізм розвитку:<br>
-            • цукрового діабету<br>
-            • дисфункцій щитоподібної залози<br><br>
-            <em>Описаний Ройтом (1991)</em>
+            Обумовлений антитілами до рецепторів клітинних мембран — ацетилхолінових, інсулінових та інших.
           </div>
           <div class="v-type5-tags">
             <span class="v-type5-tag">Цукровий діабет</span>
