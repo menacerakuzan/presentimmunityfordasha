@@ -823,6 +823,102 @@
       display: flex; align-items: center;
     }
     .v-td:first-child { font-weight: 700; color: var(--accent); }
+
+    /* ══════════════ TABLET ≤ 1024px ══════════════ */
+    @media (max-width: 1024px) {
+
+      /* Слайд 1 */
+      .title { font-size: clamp(72px,12vw,140px); }
+      .subtitle { font-size: clamp(18px,2.8vw,28px); }
+      model-viewer { left: 80%; width: 120vw; }
+
+      /* Слайд 2 */
+      .s2-title { font-size: clamp(22px,3.5vw,40px); }
+
+      /* Слайд 3 */
+      .s3-title { font-size: clamp(20px,3vw,36px); }
+      .s3-node { font-size: clamp(10px,1.3vw,14px); }
+
+      /* Слайд 4 — Лімфоцити */
+      .s4-wrap {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        padding: 2vh 4vw;
+        overflow-y: auto;
+      }
+      .s4-title { font-size: clamp(22px,4vw,38px); grid-column: 1; }
+      .s4-info  { grid-column: 1; grid-row: 2; }
+      .s4-cell-area { grid-column: 1; grid-row: 3; height: 35vh; }
+
+      /* Тести */
+      .quiz-cols, .quiz-grid {
+        grid-template-columns: 1fr;
+        gap: clamp(8px,1.5vw,16px);
+        overflow-y: auto;
+      }
+      .quiz-card { padding: 12px 14px; }
+      .quiz-q { font-size: clamp(13px,1.8vw,18px); }
+      .qopt { font-size: clamp(12px,1.6vw,16px); padding: 8px 12px; }
+
+      /* Слайд 7 — АГ/АТ */
+      .ag-row { flex-direction: column; align-items: center; gap: 10px; }
+      .ag-card { max-width: 90%; }
+      .ag-arrow-block { transform: rotate(90deg); }
+      .ag-ig-bar { flex-direction: column; text-align: center; }
+
+      /* Слайд 8 — Ig */
+      .ig-grid { flex-wrap: wrap; }
+      .ig-card { flex: 1 1 calc(50% - 10px); min-width: 200px; }
+
+      /* Слайд 9 — Імунодефіцити */
+      .id-cols { flex-direction: column; overflow-y: auto; }
+      .id-col { flex: none; }
+
+      /* Слайд 12 — Алергія */
+      .al-body { grid-template-columns: 1fr; overflow-y: auto; }
+      .al-inf-grid { grid-template-columns: 1fr 1fr; }
+
+      /* Слайд 13 — Типи АР */
+      .ar-wrap {
+        grid-template-areas:
+          "center center"
+          "t1 t2"
+          "t3 t4";
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto 1fr 1fr;
+        overflow-y: auto;
+        gap: 8px;
+      }
+      .ar-center { width: 100%; flex-direction: row; justify-content: center; gap: 16px; padding: 8px 0; }
+      .ar-center-circle { width: 56px; height: 56px; font-size: 20px; flex-shrink: 0; }
+      .ar-center-title { font-size: clamp(16px,2.5vw,24px); text-align: left; }
+      .ar-block { padding: 10px 12px; }
+      .ar-type-badge { font-size: clamp(11px,1.4vw,14px); }
+      .ar-type-name { font-size: clamp(11px,1.4vw,14px); }
+      .ar-mech { font-size: clamp(10px,1.2vw,13px); }
+      .ar-dis-tag { font-size: clamp(9px,1.1vw,12px); }
+
+      /* Слайд 14 — V тип + таблиця */
+      .v-body { grid-template-columns: 1fr; grid-template-rows: auto 1fr; overflow-y: auto; }
+      .v-type5 { padding: 14px; }
+      .v-th, .v-td { font-size: clamp(10px,1.3vw,13px); padding: 6px 8px; }
+      .v-table-head, .v-tr { grid-template-columns: 0.5fr 1fr 0.8fr 1.2fr; }
+    }
+
+    /* ══════════════ MOBILE ≤ 680px ══════════════ */
+    @media (max-width: 680px) {
+      .quiz-cols, .quiz-grid { grid-template-columns: 1fr; }
+      .ig-card { flex: 1 1 100%; }
+      .ar-wrap {
+        grid-template-areas: "center" "t1" "t2" "t3" "t4";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto repeat(4, auto);
+      }
+      .ar-center { flex-direction: column; }
+      .al-inf-grid { grid-template-columns: 1fr; }
+      .v-table-head, .v-tr { grid-template-columns: 0.5fr 1fr 0.7fr 1fr; }
+      .s4-wrap { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
