@@ -15,6 +15,7 @@
       --accent: #2a49c7;
       --grid: rgba(74,101,170,0.085);
       --ink: #0e1d58;
+      font-size: 17px;
     }
 
     html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: var(--bg); }
@@ -105,20 +106,20 @@
     }
     .card .sub {
       font-style: italic; font-weight: 500;
-      font-size: clamp(11px,0.9vw,17px); color: #4a5ba0;
+      font-size: clamp(15px,1.2vw,19px); color: #4a5ba0;
       margin: 0 0 8px;
     }
     .card ul {
       margin: 0; padding-left: 1.1em;
-      font-size: clamp(11px,0.9vw,17px); line-height: 1.45; color: #1b2865;
+      font-size: clamp(15px,1.2vw,19px); line-height: 1.45; color: #1b2865;
     }
     .card ul li::marker { color: var(--accent); }
     .card .note {
       margin-top: 8px; font-weight: 700;
-      color: #8b2250; font-size: clamp(11px,0.85vw,16px);
+      color: #8b2250; font-size: clamp(15px,1.15vw,18px);
     }
     .card .desc {
-      font-size: clamp(11px,0.9vw,17px); color: #1b2865; line-height: 1.35; margin: 0;
+      font-size: clamp(15px,1.2vw,19px); color: #1b2865; line-height: 1.35; margin: 0;
     }
     .card .ico { font-size: clamp(18px,1.5vw,28px); display: block; margin: 6px 0 4px; text-align: center; }
     .card h3.center { text-align: center; font-size: clamp(18px,1.6vw,30px); }
@@ -245,7 +246,7 @@
       border-radius: 12px; z-index: 2;
       display: flex; align-items: center; justify-content: center;
       padding: 8px 12px;
-      font-size: clamp(13px,1.1vw,20px);
+      font-size: clamp(16px,1.3vw,21px);
       line-height: 1.25;
       border: 2px solid transparent;
       transition: transform 180ms ease, box-shadow 180ms ease;
@@ -254,7 +255,7 @@
     .s3-root {
       background: linear-gradient(160deg,#2a49c7,#1a35a8);
       color: #fff; border-color: #1a35a8;
-      font-size: clamp(14px,1.3vw,24px);
+      font-size: clamp(17px,1.45vw,26px);
     }
     .s3-central {
       background: linear-gradient(160deg,#3d5fdd,#2a49c7);
@@ -275,7 +276,7 @@
     .s3-p-sub {
       background: rgba(233,236,242,0.9);
       color: var(--ink); border: 1.5px dashed rgba(42,73,199,0.35);
-      font-size: clamp(11px,0.9vw,16px);
+      font-size: clamp(15px,1.2vw,18px);
     }
 
     /* кліковані ноди */
@@ -296,7 +297,7 @@
       box-shadow: 0 8px 32px rgba(42,73,199,0.16);
       padding: 16px 20px 14px;
       font-family: "Nyght Serif", serif;
-      font-size: clamp(12px,0.95vw,18px);
+      font-size: clamp(15px,1.2vw,19px);
       color: #1b2865; line-height: 1.5;
       max-width: 320px; min-width: 200px;
       pointer-events: none;
@@ -319,47 +320,48 @@
       position: absolute; inset: 0; z-index: 2;
       font-family: "Nyght Serif", serif; color: var(--ink);
       display: flex; flex-direction: column;
-      padding: 2.2vh 2.8vw; box-sizing: border-box;
+      padding: 2vh 2.5vw; box-sizing: border-box;
     }
     .quiz-heading, .quiz-title { display: none; }
     .quiz-cols, .quiz-grid {
       flex: 1; display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: clamp(12px, 1.6vw, 24px); min-height: 0;
+      gap: clamp(10px, 1.4vw, 20px); min-height: 0;
     }
     .quiz-card {
       background: rgba(255,255,255,0.78);
       border: 1.8px solid rgba(42,73,199,0.2);
-      border-radius: 16px;
+      border-radius: 14px;
       box-shadow: 0 2px 16px rgba(42,73,199,0.07);
-      padding: clamp(14px,1.4vw,22px) clamp(16px,1.5vw,24px);
-      display: flex; flex-direction: column; gap: clamp(8px,0.9vh,14px);
+      padding: clamp(10px,1.1vw,16px) clamp(12px,1.2vw,18px);
+      display: flex; flex-direction: column; gap: clamp(6px,0.7vh,10px);
       backdrop-filter: blur(6px); overflow: hidden;
     }
     .quiz-num {
       display: inline-flex; align-items: center; justify-content: center;
-      width: 1.6em; height: 1.6em; border-radius: 50%;
+      width: 1.5em; height: 1.5em; border-radius: 50%;
       background: var(--accent); color: #fff;
-      font-size: 0.9em; font-weight: 700;
+      font-size: 1em; font-weight: 700;
       margin-right: 6px; flex-shrink: 0;
       vertical-align: middle;
     }
     .quiz-q {
-      margin: 0; font-size: clamp(13px,1.05vw,17px);
+      margin: 0; font-size: clamp(15px,1.25vw,20px);
       line-height: 1.45; color: var(--ink);
     }
     .quiz-q u { text-decoration-color: var(--accent); text-underline-offset: 2px; }
     .quiz-opts {
-      display: flex; flex-direction: column; gap: clamp(5px,0.6vh,9px);
+      display: flex; flex-direction: column; gap: clamp(4px,0.45vh,7px);
     }
     .qopt {
       background: rgba(233,236,242,0.85);
       border: 1.5px solid rgba(42,73,199,0.18);
-      border-radius: 10px; padding: clamp(7px,0.7vh,11px) 14px;
+      border-radius: 8px; padding: clamp(5px,0.5vh,8px) 12px;
       font-family: "Nyght Serif", serif;
-      font-size: clamp(12px,0.95vw,16px); color: var(--ink);
+      font-size: clamp(16px,1.3vw,20px); color: var(--ink);
       cursor: pointer; text-align: left;
       transition: background 160ms, border-color 160ms, transform 100ms;
+      line-height: 1.3;
     }
     .qopt:hover:not(:disabled) {
       background: rgba(200,212,255,0.7);
@@ -378,7 +380,7 @@
     .qopt.wrong::before { content: "✗  "; font-weight: 700; }
     .qopt:disabled { cursor: default; transform: none; }
     .quiz-result {
-      margin: 0; font-size: clamp(12px,0.9vw,15px);
+      margin: 0; font-size: clamp(16px,1.2vw,19px);
       font-weight: 700; min-height: 1em;
       color: #3aad5a;
     }
@@ -416,16 +418,16 @@
       flex: 1; overflow: hidden;
     }
     .s4-block-title {
-      font-weight: 700; font-size: clamp(14px,1.25vw,22px);
+      font-weight: 700; font-size: clamp(17px,1.4vw,24px);
       color: var(--accent); margin: 0 0 6px;
     }
     .s4-block-sub {
-      font-size: clamp(11px,0.9vw,16px); color: #1b2865;
+      font-size: clamp(15px,1.2vw,18px); color: #1b2865;
       margin: 0 0 6px; font-style: italic;
     }
     .s4-block ul {
       margin: 0; padding-left: 1.1em;
-      font-size: clamp(11px,0.88vw,15px); line-height: 1.45; color: #1b2865;
+      font-size: clamp(15px,1.15vw,18px); line-height: 1.45; color: #1b2865;
     }
     .s4-block ul li { margin: 2px 0; }
     .s4-block ul li::marker { color: var(--accent); }
@@ -449,7 +451,7 @@
       position: absolute; transform: translate(-50%, -50%);
       display: flex; flex-direction: column; align-items: center;
       text-align: center; gap: 4px;
-      font-size: clamp(10px,0.78vw,13px); color: var(--ink);
+      font-size: clamp(16px,1.3vw,19px); color: var(--ink);
       line-height: 1.2; white-space: nowrap;
     }
     .s4-circle {
@@ -485,8 +487,8 @@
       background: radial-gradient(circle, rgba(60,20,120,0.9) 30%, transparent 31%),
         repeating-conic-gradient(rgba(180,140,255,0.7) 0deg 4deg, transparent 4deg 45deg);
     }
-    .s4-cell-label { font-weight: 700; font-size: clamp(10px,0.8vw,14px); }
-    .s4-cell-sub   { font-weight: 400; font-size: clamp(9px,0.65vw,11px); color: #4a5ba0; }
+    .s4-cell-label { font-weight: 700; font-size: clamp(16px,1.3vw,19px); }
+    .s4-cell-sub   { font-weight: 400; font-size: clamp(15px,1.1vw,18px); color: #4a5ba0; }
 
     /* ══════════════ СЛАЙД 7 — АГ / АТ ══════════════ */
     .ag-wrap {
@@ -514,13 +516,13 @@
       font-size: clamp(20px, 1.8vw, 28px); color: var(--accent); text-align: center;
     }
     .ag-card-def {
-      margin: 0; font-family: "Nyght Serif", serif; font-size: clamp(13px, 1.1vw, 17px);
+      margin: 0; font-family: "Nyght Serif", serif; font-size: clamp(16px, 1.3vw, 20px);
       color: var(--ink); line-height: 1.55; text-align: center;
     }
     .ag-examples { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
     .ag-tag {
       background: rgba(42,73,199,0.09); color: var(--accent); border-radius: 20px;
-      padding: 3px 12px; font-family: "Nyght Serif", serif; font-size: clamp(11px, 0.85vw, 14px);
+      padding: 3px 12px; font-family: "Nyght Serif", serif; font-size: clamp(15px, 1.15vw, 18px);
       font-weight: 500; border: 1px solid rgba(42,73,199,0.18);
     }
     .ag-arrow-block { flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
@@ -538,7 +540,7 @@
       font-family: "Nyght Serif", serif; font-weight: 700; font-size: clamp(18px, 1.8vw, 26px);
     }
     .ag-ig-text {
-      margin: 0; font-family: "Nyght Serif", serif; font-size: clamp(13px, 1.05vw, 16px);
+      margin: 0; font-family: "Nyght Serif", serif; font-size: clamp(16px, 1.25vw, 19px);
       color: var(--ink); line-height: 1.5;
     }
 
@@ -578,11 +580,11 @@
     .ig-badge {
       background: rgba(42,73,199,0.1); color: var(--accent); border-radius: 12px;
       padding: 2px 10px; font-family: "Nyght Serif", serif;
-      font-size: clamp(10px, 0.75vw, 13px); font-weight: 500; white-space: nowrap;
+      font-size: clamp(14px, 1.05vw, 16px); font-weight: 500; white-space: nowrap;
     }
     .ig-facts {
       margin: 0; padding: 0 0 0 16px;
-      font-family: "Nyght Serif", serif; font-size: clamp(11px, 0.85vw, 14px);
+      font-family: "Nyght Serif", serif; font-size: clamp(15px, 1.15vw, 18px);
       color: var(--ink); line-height: 1.55; display: flex; flex-direction: column; gap: 4px;
     }
     .ig-facts li { margin: 0; }
@@ -618,13 +620,13 @@
     }
     .id-item-name {
       font-family: "Nyght Serif", serif; font-weight: 700;
-      font-size: clamp(12px, 1vw, 15px); color: var(--accent);
+      font-size: clamp(16px, 1.2vw, 19px); color: var(--accent);
       padding: 10px 14px 6px; border-bottom: 1px solid rgba(42,73,199,0.08);
       line-height: 1.3;
     }
     .id-item-name small { font-weight: 500; font-size: 0.82em; color: #6070a0; }
     .id-item-body {
-      font-family: "Nyght Serif", serif; font-size: clamp(11px, 0.82vw, 13px);
+      font-family: "Nyght Serif", serif; font-size: clamp(15px, 1.1vw, 17px);
       color: var(--ink); padding: 8px 14px 10px; line-height: 1.55;
     }
 
@@ -646,22 +648,22 @@
     .al-def-box {
       background: var(--accent); color: white; border-radius: 16px;
       padding: clamp(12px,1.4vw,22px); font-family: "Nyght Serif", serif;
-      font-size: clamp(12px,0.95vw,16px); line-height: 1.55;
+      font-size: clamp(15px,1.2vw,18px); line-height: 1.55;
     }
     .al-def-box strong { font-size: 1.12em; display: block; margin-bottom: 6px; }
     .al-hapten-box {
       background: white; border-radius: 14px; border: 1.5px solid rgba(42,73,199,0.14);
       box-shadow: 0 3px 18px rgba(42,73,199,0.08);
       padding: clamp(10px,1.2vw,18px); font-family: "Nyght Serif", serif;
-      font-size: clamp(11px,0.85vw,14px); color: var(--ink); line-height: 1.5;
+      font-size: clamp(15px,1.15vw,18px); color: var(--ink); line-height: 1.5;
       flex: 1;
     }
-    .al-hapten-box h4 { margin: 0 0 6px; font-size: clamp(13px,1vw,17px); color: var(--accent); }
+    .al-hapten-box h4 { margin: 0 0 6px; font-size: clamp(16px,1.25vw,20px); color: var(--accent); }
     /* Права колонка: алергени */
     .al-right { display: flex; flex-direction: column; gap: 8px; }
     .al-section-title {
       font-family: "Nyght Serif", serif; font-weight: 700;
-      font-size: clamp(13px,1.05vw,17px); color: var(--accent);
+      font-size: clamp(16px,1.3vw,20px); color: var(--accent);
       border-bottom: 2px solid rgba(42,73,199,0.18); padding-bottom: 4px; margin: 0;
     }
     .al-tags-block { display: flex; flex-direction: column; gap: 6px; flex: 1; }
@@ -675,10 +677,10 @@
       background: rgba(42,73,199,0.12); color: var(--accent);
       display: flex; align-items: center; justify-content: center;
       font-family: "Nyght Serif", serif; font-weight: 700;
-      font-size: clamp(10px,0.78vw,13px);
+      font-size: clamp(16px,1.3vw,19px);
     }
     .al-group-text {
-      font-family: "Nyght Serif", serif; font-size: clamp(10px,0.78vw,13px);
+      font-family: "Nyght Serif", serif; font-size: clamp(16px,1.3vw,19px);
       color: var(--ink); line-height: 1.45;
     }
     .al-group-text b { color: var(--accent); }
@@ -688,7 +690,7 @@
     .al-inf-chip {
       background: rgba(42,73,199,0.08); border-radius: 10px;
       padding: 6px 10px; font-family: "Nyght Serif", serif;
-      font-size: clamp(10px,0.75vw,12px); color: var(--ink);
+      font-size: clamp(16px,1.25vw,19px); color: var(--ink);
       border: 1px solid rgba(42,73,199,0.14); text-align: center; line-height: 1.3;
     }
     .al-inf-chip b { display: block; color: var(--accent); font-size: 1.05em; margin-bottom: 2px; }
@@ -743,19 +745,19 @@
       flex-shrink: 0; background: var(--accent); color: white;
       border-radius: 10px; padding: 4px 12px;
       font-family: "Nyght Serif", serif; font-weight: 700;
-      font-size: clamp(12px,1vw,16px);
+      font-size: clamp(15px,1.25vw,18px);
     }
     .ar-type-name {
       font-family: "Nyght Serif", serif; font-weight: 700;
-      font-size: clamp(12px,1vw,16px); color: var(--ink); line-height: 1.25;
+      font-size: clamp(15px,1.25vw,18px); color: var(--ink); line-height: 1.25;
     }
     .ar-mech {
-      font-family: "Nyght Serif", serif; font-size: clamp(10px,0.8vw,13px);
+      font-family: "Nyght Serif", serif; font-size: clamp(16px,1.3vw,19px);
       color: #4a5ba0; line-height: 1.4; border-left: 3px solid rgba(42,73,199,0.25);
       padding-left: 8px;
     }
     .ar-diseases {
-      font-family: "Nyght Serif", serif; font-size: clamp(10px,0.8vw,13px);
+      font-family: "Nyght Serif", serif; font-size: clamp(16px,1.3vw,19px);
       color: var(--ink); line-height: 1.5;
       display: flex; flex-wrap: wrap; gap: 4px;
     }
@@ -785,14 +787,14 @@
       font-size: clamp(18px,1.8vw,30px);
     }
     .v-type5-sub {
-      font-family: "Nyght Serif", serif; font-size: clamp(12px,0.95vw,16px);
+      font-family: "Nyght Serif", serif; font-size: clamp(15px,1.2vw,18px);
       opacity: 0.88; line-height: 1.5;
     }
     .v-type5-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
     .v-type5-tag {
       background: rgba(255,255,255,0.18); border-radius: 10px;
       padding: 3px 10px; font-family: "Nyght Serif", serif;
-      font-size: clamp(10px,0.76vw,13px); border: 1px solid rgba(255,255,255,0.3);
+      font-size: clamp(16px,1.25vw,19px); border: 1px solid rgba(255,255,255,0.3);
     }
     /* Таблиця */
     .v-table {
@@ -807,7 +809,7 @@
     }
     .v-th {
       padding: 8px 12px; font-family: "Nyght Serif", serif; font-weight: 700;
-      font-size: clamp(10px,0.8vw,13px); color: var(--accent);
+      font-size: clamp(16px,1.3vw,19px); color: var(--accent);
     }
     .v-table-body { flex: 1; overflow-y: auto; display: flex; flex-direction: column; }
     .v-tr {
@@ -819,7 +821,7 @@
     .v-tr:hover { background: rgba(42,73,199,0.04); }
     .v-td {
       padding: 7px 12px; font-family: "Nyght Serif", serif;
-      font-size: clamp(10px,0.76vw,13px); color: var(--ink); line-height: 1.4;
+      font-size: clamp(16px,1.25vw,19px); color: var(--ink); line-height: 1.4;
       display: flex; align-items: center;
     }
     .v-td:first-child { font-weight: 700; color: var(--accent); }
@@ -837,7 +839,7 @@
 
       /* Слайд 3 */
       .s3-title { font-size: clamp(20px,3vw,36px); }
-      .s3-node { font-size: clamp(10px,1.3vw,14px); }
+      .s3-node { font-size: clamp(15px,2vw,18px); }
 
       /* Слайд 4 — Лімфоцити */
       .s4-wrap {
@@ -853,12 +855,13 @@
       /* Тести */
       .quiz-cols, .quiz-grid {
         grid-template-columns: 1fr;
-        gap: clamp(8px,1.5vw,16px);
+        gap: clamp(8px,1.5vw,14px);
         overflow-y: auto;
       }
-      .quiz-card { padding: 12px 14px; }
-      .quiz-q { font-size: clamp(13px,1.8vw,18px); }
-      .qopt { font-size: clamp(12px,1.6vw,16px); padding: 8px 12px; }
+      .quiz-card { padding: 10px 14px; gap: 6px; }
+      .quiz-q { font-size: clamp(16px,2.2vw,22px); }
+      .qopt { font-size: clamp(14px,1.9vw,19px); padding: 6px 12px; }
+      .quiz-result { font-size: clamp(14px,1.8vw,18px); }
 
       /* Слайд 7 — АГ/АТ */
       .ag-row { flex-direction: column; align-items: center; gap: 10px; }
@@ -893,15 +896,15 @@
       .ar-center-circle { width: 56px; height: 56px; font-size: 20px; flex-shrink: 0; }
       .ar-center-title { font-size: clamp(16px,2.5vw,24px); text-align: left; }
       .ar-block { padding: 10px 12px; }
-      .ar-type-badge { font-size: clamp(11px,1.4vw,14px); }
-      .ar-type-name { font-size: clamp(11px,1.4vw,14px); }
-      .ar-mech { font-size: clamp(10px,1.2vw,13px); }
-      .ar-dis-tag { font-size: clamp(9px,1.1vw,12px); }
+      .ar-type-badge { font-size: clamp(15px,2.1vw,19px); }
+      .ar-type-name { font-size: clamp(15px,2.1vw,19px); }
+      .ar-mech { font-size: clamp(14px,1.9vw,18px); }
+      .ar-dis-tag { font-size: clamp(13px,1.8vw,16px); }
 
       /* Слайд 14 — V тип + таблиця */
       .v-body { grid-template-columns: 1fr; grid-template-rows: auto 1fr; overflow-y: auto; }
       .v-type5 { padding: 14px; }
-      .v-th, .v-td { font-size: clamp(10px,1.3vw,13px); padding: 6px 8px; }
+      .v-th, .v-td { font-size: clamp(14px,1.9vw,17px); padding: 6px 8px; }
       .v-table-head, .v-tr { grid-template-columns: 0.5fr 1fr 0.8fr 1.2fr; }
     }
 
@@ -1379,11 +1382,15 @@
 
           <!-- Стрілка реакції -->
           <div class="ag-arrow-block">
-            <svg class="ag-react-svg" viewBox="0 0 160 80" fill="none">
-              <path d="M 10,40 C 40,10 120,10 148,40" stroke="var(--accent)" stroke-width="2.5" stroke-dasharray="6 4" stroke-linecap="round"/>
-              <polygon points="148,40 134,32 138,48" fill="var(--accent)"/>
-              <text x="80" y="28" text-anchor="middle" font-family="Nyght Serif,serif" font-size="13" fill="var(--ink)">розпізнає</text>
-              <text x="80" y="68" text-anchor="middle" font-family="Nyght Serif,serif" font-size="13" fill="var(--ink)">нейтралізує</text>
+            <svg class="ag-react-svg" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- стрілка зверху: АГ → АТ (розпізнає) -->
+              <line x1="10" y1="28" x2="100" y2="28" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
+              <polygon points="110,28 96,22 96,34" fill="var(--accent)"/>
+              <text x="60" y="20" text-anchor="middle" font-family="Nyght Serif,serif" font-size="14" fill="var(--ink)" font-weight="600">розпізнає</text>
+              <!-- стрілка знизу: АТ → АГ (нейтралізує) -->
+              <line x1="110" y1="72" x2="20" y2="72" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
+              <polygon points="10,72 24,66 24,78" fill="var(--accent)"/>
+              <text x="60" y="90" text-anchor="middle" font-family="Nyght Serif,serif" font-size="14" fill="var(--ink)" font-weight="600">нейтралізує</text>
             </svg>
           </div>
 
