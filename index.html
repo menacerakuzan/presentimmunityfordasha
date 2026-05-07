@@ -15,7 +15,7 @@
       --accent: #2a49c7;
       --grid: rgba(74,101,170,0.085);
       --ink: #0e1d58;
-      font-size: 17px;
+      font-size: 19px;
     }
 
     html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: var(--bg); }
@@ -102,24 +102,24 @@
     }
     .card h3 {
       margin: 0 0 3px; font-weight: 700;
-      font-size: clamp(19px,1.7vw,34px); color: var(--ink);
+      font-size: clamp(22px,1.9vw,36px); color: var(--ink);
     }
     .card .sub {
       font-style: italic; font-weight: 500;
-      font-size: clamp(15px,1.2vw,19px); color: #4a5ba0;
+      font-size: clamp(18px,1.45vw,22px); color: #4a5ba0;
       margin: 0 0 8px;
     }
     .card ul {
       margin: 0; padding-left: 1.1em;
-      font-size: clamp(15px,1.2vw,19px); line-height: 1.45; color: #1b2865;
+      font-size: clamp(18px,1.45vw,22px); line-height: 1.45; color: #1b2865;
     }
     .card ul li::marker { color: var(--accent); }
     .card .note {
       margin-top: 8px; font-weight: 700;
-      color: #8b2250; font-size: clamp(15px,1.15vw,18px);
+      color: #8b2250; font-size: clamp(18px,1.4vw,22px);
     }
     .card .desc {
-      font-size: clamp(15px,1.2vw,19px); color: #1b2865; line-height: 1.35; margin: 0;
+      font-size: clamp(18px,1.45vw,22px); color: #1b2865; line-height: 1.35; margin: 0;
     }
     .card .ico { font-size: clamp(18px,1.5vw,28px); display: block; margin: 6px 0 4px; text-align: center; }
     .card h3.center { text-align: center; font-size: clamp(18px,1.6vw,30px); }
@@ -246,7 +246,7 @@
       border-radius: 12px; z-index: 2;
       display: flex; align-items: center; justify-content: center;
       padding: 8px 12px;
-      font-size: clamp(16px,1.3vw,21px);
+      font-size: clamp(19px,1.5vw,24px);
       line-height: 1.25;
       border: 2px solid transparent;
       transition: transform 180ms ease, box-shadow 180ms ease;
@@ -255,7 +255,7 @@
     .s3-root {
       background: linear-gradient(160deg,#2a49c7,#1a35a8);
       color: #fff; border-color: #1a35a8;
-      font-size: clamp(17px,1.45vw,26px);
+      font-size: clamp(20px,1.65vw,28px);
     }
     .s3-central {
       background: linear-gradient(160deg,#3d5fdd,#2a49c7);
@@ -276,7 +276,7 @@
     .s3-p-sub {
       background: rgba(233,236,242,0.9);
       color: var(--ink); border: 1.5px dashed rgba(42,73,199,0.35);
-      font-size: clamp(15px,1.2vw,18px);
+      font-size: clamp(18px,1.4vw,22px);
     }
 
     /* кліковані ноди */
@@ -297,7 +297,7 @@
       box-shadow: 0 8px 32px rgba(42,73,199,0.16);
       padding: 16px 20px 14px;
       font-family: "Nyght Serif", serif;
-      font-size: clamp(15px,1.2vw,19px);
+      font-size: clamp(18px,1.45vw,22px);
       color: #1b2865; line-height: 1.5;
       max-width: 320px; min-width: 200px;
       pointer-events: none;
@@ -346,7 +346,7 @@
       vertical-align: middle;
     }
     .quiz-q {
-      margin: 0; font-size: clamp(15px,1.25vw,20px);
+      margin: 0; font-size: clamp(18px,1.45vw,23px);
       line-height: 1.45; color: var(--ink);
     }
     .quiz-q u { text-decoration-color: var(--accent); text-underline-offset: 2px; }
@@ -358,7 +358,7 @@
       border: 1.5px solid rgba(42,73,199,0.18);
       border-radius: 8px; padding: clamp(5px,0.5vh,8px) 12px;
       font-family: "Nyght Serif", serif;
-      font-size: clamp(16px,1.3vw,20px); color: var(--ink);
+      font-size: clamp(19px,1.5vw,23px); color: var(--ink);
       cursor: pointer; text-align: left;
       transition: background 160ms, border-color 160ms, transform 100ms;
       line-height: 1.3;
@@ -380,7 +380,7 @@
     .qopt.wrong::before { content: "✗  "; font-weight: 700; }
     .qopt:disabled { cursor: default; transform: none; }
     .quiz-result {
-      margin: 0; font-size: clamp(16px,1.2vw,19px);
+      margin: 0; font-size: clamp(19px,1.45vw,23px);
       font-weight: 700; min-height: 1em;
       color: #3aad5a;
     }
@@ -418,16 +418,16 @@
       flex: 1; overflow: hidden;
     }
     .s4-block-title {
-      font-weight: 700; font-size: clamp(17px,1.4vw,24px);
+      font-weight: 700; font-size: clamp(20px,1.6vw,26px);
       color: var(--accent); margin: 0 0 6px;
     }
     .s4-block-sub {
-      font-size: clamp(15px,1.2vw,18px); color: #1b2865;
+      font-size: clamp(18px,1.4vw,22px); color: #1b2865;
       margin: 0 0 6px; font-style: italic;
     }
     .s4-block ul {
       margin: 0; padding-left: 1.1em;
-      font-size: clamp(15px,1.15vw,18px); line-height: 1.45; color: #1b2865;
+      font-size: clamp(18px,1.4vw,22px); line-height: 1.45; color: #1b2865;
     }
     .s4-block ul li { margin: 2px 0; }
     .s4-block ul li::marker { color: var(--accent); }
@@ -451,7 +451,7 @@
       position: absolute; transform: translate(-50%, -50%);
       display: flex; flex-direction: column; align-items: center;
       text-align: center; gap: 4px;
-      font-size: clamp(16px,1.3vw,19px); color: var(--ink);
+      font-size: clamp(19px,1.5vw,23px); color: var(--ink);
       line-height: 1.2; white-space: nowrap;
     }
     .s4-circle {
@@ -487,8 +487,8 @@
       background: radial-gradient(circle, rgba(60,20,120,0.9) 30%, transparent 31%),
         repeating-conic-gradient(rgba(180,140,255,0.7) 0deg 4deg, transparent 4deg 45deg);
     }
-    .s4-cell-label { font-weight: 700; font-size: clamp(16px,1.3vw,19px); }
-    .s4-cell-sub   { font-weight: 400; font-size: clamp(15px,1.1vw,18px); color: #4a5ba0; }
+    .s4-cell-label { font-weight: 700; font-size: clamp(19px,1.5vw,23px); }
+    .s4-cell-sub   { font-weight: 400; font-size: clamp(18px,1.35vw,22px); color: #4a5ba0; }
 
     /* ══════════════ СЛАЙД 7 — АГ / АТ ══════════════ */
     .ag-wrap {
@@ -516,13 +516,13 @@
       font-size: clamp(20px, 1.8vw, 28px); color: var(--accent); text-align: center;
     }
     .ag-card-def {
-      margin: 0; font-family: "Nyght Serif", serif; font-size: clamp(16px, 1.3vw, 20px);
+      margin: 0; font-family: "Nyght Serif", serif; font-size: clamp(19px, 1.5vw, 23px);
       color: var(--ink); line-height: 1.55; text-align: center;
     }
     .ag-examples { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
     .ag-tag {
       background: rgba(42,73,199,0.09); color: var(--accent); border-radius: 20px;
-      padding: 3px 12px; font-family: "Nyght Serif", serif; font-size: clamp(15px, 1.15vw, 18px);
+      padding: 3px 12px; font-family: "Nyght Serif", serif; font-size: clamp(18px, 1.4vw, 22px);
       font-weight: 500; border: 1px solid rgba(42,73,199,0.18);
     }
     .ag-arrow-block { flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
@@ -540,7 +540,7 @@
       font-family: "Nyght Serif", serif; font-weight: 700; font-size: clamp(18px, 1.8vw, 26px);
     }
     .ag-ig-text {
-      margin: 0; font-family: "Nyght Serif", serif; font-size: clamp(16px, 1.25vw, 19px);
+      margin: 0; font-family: "Nyght Serif", serif; font-size: clamp(19px, 1.5vw, 23px);
       color: var(--ink); line-height: 1.5;
     }
 
@@ -554,12 +554,26 @@
       margin: 0; font-family: "Nyght Serif", serif; font-weight: 700;
       font-size: clamp(28px, 3vw, 54px); color: var(--ink); text-align: center;
     }
-    .ig-grid {
-      display: flex; gap: clamp(10px, 1.2vw, 20px); width: 100%; max-width: 1200px;
-      align-items: stretch;
+    .ig-bento {
+      display: grid;
+      grid-template-areas:
+        "tl center tr"
+        "bl center br";
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: clamp(10px, 1.2vw, 20px);
+      width: 100%; flex: 1; min-height: 0;
     }
+    .ig-tl     { grid-area: tl; }
+    .ig-tr     { grid-area: tr; }
+    .ig-center { grid-area: center; background: var(--accent) !important; border-color: transparent !important; }
+    .ig-center .ig-label { color: white !important; }
+    .ig-center .ig-badge { background: rgba(255,255,255,0.2) !important; color: white !important; }
+    .ig-center .ig-facts { color: rgba(255,255,255,0.92) !important; }
+    .ig-bl     { grid-area: bl; }
+    .ig-br     { grid-area: br; }
     .ig-card {
-      flex: 1; background: white; border-radius: 18px;
+      background: white; border-radius: 18px;
       box-shadow: 0 4px 24px rgba(42,73,199,0.09); padding: clamp(14px, 1.6vw, 24px);
       display: flex; flex-direction: column; gap: 10px;
       border: 1.5px solid rgba(42,73,199,0.10);
@@ -568,7 +582,7 @@
     }
     .ig-card:hover {
       box-shadow: 0 8px 36px rgba(42,73,199,0.18);
-      transform: translateY(-3px);
+      transform: translateY(-2px);
     }
     .ig-card-head {
       display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
@@ -580,11 +594,11 @@
     .ig-badge {
       background: rgba(42,73,199,0.1); color: var(--accent); border-radius: 12px;
       padding: 2px 10px; font-family: "Nyght Serif", serif;
-      font-size: clamp(14px, 1.05vw, 16px); font-weight: 500; white-space: nowrap;
+      font-size: clamp(17px, 1.3vw, 20px); font-weight: 500; white-space: nowrap;
     }
     .ig-facts {
       margin: 0; padding: 0 0 0 16px;
-      font-family: "Nyght Serif", serif; font-size: clamp(15px, 1.15vw, 18px);
+      font-family: "Nyght Serif", serif; font-size: clamp(18px, 1.4vw, 22px);
       color: var(--ink); line-height: 1.55; display: flex; flex-direction: column; gap: 4px;
     }
     .ig-facts li { margin: 0; }
@@ -608,7 +622,7 @@
     }
     .id-col-head {
       font-family: "Nyght Serif", serif; font-weight: 700;
-      font-size: clamp(15px, 1.3vw, 20px); color: white;
+      font-size: clamp(19px, 1.5vw, 23px); color: white;
       background: var(--accent); border-radius: 12px;
       padding: 8px 16px; text-align: center;
     }
@@ -648,14 +662,14 @@
     .al-def-box {
       background: var(--accent); color: white; border-radius: 16px;
       padding: clamp(12px,1.4vw,22px); font-family: "Nyght Serif", serif;
-      font-size: clamp(15px,1.2vw,18px); line-height: 1.55;
+      font-size: clamp(18px,1.4vw,22px); line-height: 1.55;
     }
     .al-def-box strong { font-size: 1.12em; display: block; margin-bottom: 6px; }
     .al-hapten-box {
       background: white; border-radius: 14px; border: 1.5px solid rgba(42,73,199,0.14);
       box-shadow: 0 3px 18px rgba(42,73,199,0.08);
       padding: clamp(10px,1.2vw,18px); font-family: "Nyght Serif", serif;
-      font-size: clamp(15px,1.15vw,18px); color: var(--ink); line-height: 1.5;
+      font-size: clamp(18px,1.4vw,22px); color: var(--ink); line-height: 1.5;
       flex: 1;
     }
     .al-hapten-box h4 { margin: 0 0 6px; font-size: clamp(16px,1.25vw,20px); color: var(--accent); }
@@ -663,7 +677,7 @@
     .al-right { display: flex; flex-direction: column; gap: 8px; }
     .al-section-title {
       font-family: "Nyght Serif", serif; font-weight: 700;
-      font-size: clamp(16px,1.3vw,20px); color: var(--accent);
+      font-size: clamp(19px,1.5vw,23px); color: var(--accent);
       border-bottom: 2px solid rgba(42,73,199,0.18); padding-bottom: 4px; margin: 0;
     }
     .al-tags-block { display: flex; flex-direction: column; gap: 6px; flex: 1; }
@@ -677,10 +691,10 @@
       background: rgba(42,73,199,0.12); color: var(--accent);
       display: flex; align-items: center; justify-content: center;
       font-family: "Nyght Serif", serif; font-weight: 700;
-      font-size: clamp(16px,1.3vw,19px);
+      font-size: clamp(19px,1.5vw,23px);
     }
     .al-group-text {
-      font-family: "Nyght Serif", serif; font-size: clamp(16px,1.3vw,19px);
+      font-family: "Nyght Serif", serif; font-size: clamp(19px,1.5vw,23px);
       color: var(--ink); line-height: 1.45;
     }
     .al-group-text b { color: var(--accent); }
@@ -690,7 +704,7 @@
     .al-inf-chip {
       background: rgba(42,73,199,0.08); border-radius: 10px;
       padding: 6px 10px; font-family: "Nyght Serif", serif;
-      font-size: clamp(16px,1.25vw,19px); color: var(--ink);
+      font-size: clamp(19px,1.5vw,23px); color: var(--ink);
       border: 1px solid rgba(42,73,199,0.14); text-align: center; line-height: 1.3;
     }
     .al-inf-chip b { display: block; color: var(--accent); font-size: 1.05em; margin-bottom: 2px; }
@@ -752,12 +766,12 @@
       font-size: clamp(15px,1.25vw,18px); color: var(--ink); line-height: 1.25;
     }
     .ar-mech {
-      font-family: "Nyght Serif", serif; font-size: clamp(16px,1.3vw,19px);
+      font-family: "Nyght Serif", serif; font-size: clamp(19px,1.5vw,23px);
       color: #4a5ba0; line-height: 1.4; border-left: 3px solid rgba(42,73,199,0.25);
       padding-left: 8px;
     }
     .ar-diseases {
-      font-family: "Nyght Serif", serif; font-size: clamp(16px,1.3vw,19px);
+      font-family: "Nyght Serif", serif; font-size: clamp(19px,1.5vw,23px);
       color: var(--ink); line-height: 1.5;
       display: flex; flex-wrap: wrap; gap: 4px;
     }
@@ -770,8 +784,8 @@
     /* ══════════════ СЛАЙД 14 — V тип + таблиця ══════════════ */
     .v-wrap {
       position: absolute; inset: 0; z-index: 2;
-      display: grid; grid-template-rows: auto 1fr;
-      padding: 2.5vh 3vw 2.5vh; gap: clamp(10px,1.4vh,20px); box-sizing: border-box;
+      display: flex; align-items: center; justify-content: center;
+      padding: 3vh 4vw; box-sizing: border-box;
     }
     .v-title {
       margin: 0; font-family: "Nyght Serif", serif; font-weight: 700;
@@ -780,21 +794,23 @@
     .v-body { display: grid; grid-template-columns: 1fr 2fr; gap: clamp(12px,1.5vw,24px); min-height: 0; }
     .v-type5 {
       background: var(--accent); color: white; border-radius: 18px;
-      padding: clamp(14px,1.6vw,26px); display: flex; flex-direction: column; gap: 10px;
+      padding: clamp(24px,3vw,48px) clamp(32px,4vw,64px);
+      display: flex; flex-direction: column; gap: 16px;
+      max-width: 700px; width: 100%;
     }
     .v-type5-label {
       font-family: "Nyght Serif", serif; font-weight: 700;
       font-size: clamp(18px,1.8vw,30px);
     }
     .v-type5-sub {
-      font-family: "Nyght Serif", serif; font-size: clamp(15px,1.2vw,18px);
+      font-family: "Nyght Serif", serif; font-size: clamp(18px,1.4vw,22px);
       opacity: 0.88; line-height: 1.5;
     }
     .v-type5-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
     .v-type5-tag {
       background: rgba(255,255,255,0.18); border-radius: 10px;
       padding: 3px 10px; font-family: "Nyght Serif", serif;
-      font-size: clamp(16px,1.25vw,19px); border: 1px solid rgba(255,255,255,0.3);
+      font-size: clamp(19px,1.5vw,23px); border: 1px solid rgba(255,255,255,0.3);
     }
     /* Таблиця */
     .v-table {
@@ -809,7 +825,7 @@
     }
     .v-th {
       padding: 8px 12px; font-family: "Nyght Serif", serif; font-weight: 700;
-      font-size: clamp(16px,1.3vw,19px); color: var(--accent);
+      font-size: clamp(19px,1.5vw,23px); color: var(--accent);
     }
     .v-table-body { flex: 1; overflow-y: auto; display: flex; flex-direction: column; }
     .v-tr {
@@ -821,7 +837,7 @@
     .v-tr:hover { background: rgba(42,73,199,0.04); }
     .v-td {
       padding: 7px 12px; font-family: "Nyght Serif", serif;
-      font-size: clamp(16px,1.25vw,19px); color: var(--ink); line-height: 1.4;
+      font-size: clamp(19px,1.5vw,23px); color: var(--ink); line-height: 1.4;
       display: flex; align-items: center;
     }
     .v-td:first-child { font-weight: 700; color: var(--accent); }
@@ -836,10 +852,14 @@
 
       /* Слайд 2 */
       .s2-title { font-size: clamp(22px,3.5vw,40px); }
+      .s2-wrap { overflow-y: auto; }
+      .card { font-size: clamp(14px,1.8vw,18px); }
+      .card h3 { font-size: clamp(16px,2.2vw,22px); }
+      .card ul li { font-size: clamp(14px,1.8vw,18px); }
 
       /* Слайд 3 */
       .s3-title { font-size: clamp(20px,3vw,36px); }
-      .s3-node { font-size: clamp(15px,2vw,18px); }
+      .s3-node { font-size: clamp(18px,2.4vw,22px); }
 
       /* Слайд 4 — Лімфоцити */
       .s4-wrap {
@@ -870,8 +890,11 @@
       .ag-ig-bar { flex-direction: column; text-align: center; }
 
       /* Слайд 8 — Ig */
-      .ig-grid { flex-wrap: wrap; }
-      .ig-card { flex: 1 1 calc(50% - 10px); min-width: 200px; }
+      .ig-bento {
+        grid-template-areas: "tl tr" "center center" "bl br";
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr auto 1fr;
+      }
 
       /* Слайд 9 — Імунодефіцити */
       .id-cols { flex-direction: column; overflow-y: auto; }
@@ -896,15 +919,15 @@
       .ar-center-circle { width: 56px; height: 56px; font-size: 20px; flex-shrink: 0; }
       .ar-center-title { font-size: clamp(16px,2.5vw,24px); text-align: left; }
       .ar-block { padding: 10px 12px; }
-      .ar-type-badge { font-size: clamp(15px,2.1vw,19px); }
-      .ar-type-name { font-size: clamp(15px,2.1vw,19px); }
-      .ar-mech { font-size: clamp(14px,1.9vw,18px); }
-      .ar-dis-tag { font-size: clamp(13px,1.8vw,16px); }
+      .ar-type-badge { font-size: clamp(18px,2.4vw,22px); }
+      .ar-type-name { font-size: clamp(18px,2.4vw,22px); }
+      .ar-mech { font-size: clamp(17px,2.2vw,21px); }
+      .ar-dis-tag { font-size: clamp(16px,2.1vw,20px); }
 
       /* Слайд 14 — V тип + таблиця */
       .v-body { grid-template-columns: 1fr; grid-template-rows: auto 1fr; overflow-y: auto; }
       .v-type5 { padding: 14px; }
-      .v-th, .v-td { font-size: clamp(14px,1.9vw,17px); padding: 6px 8px; }
+      .v-th, .v-td { font-size: clamp(17px,2.2vw,21px); padding: 6px 8px; }
       .v-table-head, .v-tr { grid-template-columns: 0.5fr 1fr 0.8fr 1.2fr; }
     }
 
@@ -1381,19 +1404,6 @@
           </div>
 
           <!-- Стрілка реакції -->
-          <div class="ag-arrow-block">
-            <svg class="ag-react-svg" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <!-- стрілка зверху: АГ → АТ (розпізнає) -->
-              <line x1="10" y1="28" x2="100" y2="28" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
-              <polygon points="110,28 96,22 96,34" fill="var(--accent)"/>
-              <text x="60" y="20" text-anchor="middle" font-family="Nyght Serif,serif" font-size="14" fill="var(--ink)" font-weight="600">розпізнає</text>
-              <!-- стрілка знизу: АТ → АГ (нейтралізує) -->
-              <line x1="110" y1="72" x2="20" y2="72" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
-              <polygon points="10,72 24,66 24,78" fill="var(--accent)"/>
-              <text x="60" y="90" text-anchor="middle" font-family="Nyght Serif,serif" font-size="14" fill="var(--ink)" font-weight="600">нейтралізує</text>
-            </svg>
-          </div>
-
           <!-- АТ картка -->
           <div class="ag-card">
             <div class="ag-card-icon">
@@ -1507,9 +1517,9 @@
     <section class="slide">
       <div class="ig-wrap">
         <h2 class="ig-title">Імуноглобуліни</h2>
-        <div class="ig-grid">
+        <div class="ig-bento">
 
-          <div class="ig-card" data-ig="IgG">
+          <div class="ig-card ig-tl" data-ig="IgG">
             <div class="ig-card-head">
               <span class="ig-label">IgG</span>
               <span class="ig-badge">Найпоширеніший</span>
@@ -1521,7 +1531,7 @@
             </ul>
           </div>
 
-          <div class="ig-card" data-ig="IgA">
+          <div class="ig-card ig-tr" data-ig="IgA">
             <div class="ig-card-head">
               <span class="ig-label">IgA</span>
               <span class="ig-badge">Місцевий імунітет</span>
@@ -1533,7 +1543,7 @@
             </ul>
           </div>
 
-          <div class="ig-card" data-ig="IgM">
+          <div class="ig-card ig-center" data-ig="IgM">
             <div class="ig-card-head">
               <span class="ig-label">IgM</span>
               <span class="ig-badge">Перший відгук</span>
@@ -1545,7 +1555,7 @@
             </ul>
           </div>
 
-          <div class="ig-card" data-ig="IgE">
+          <div class="ig-card ig-bl" data-ig="IgE">
             <div class="ig-card-head">
               <span class="ig-label">IgE</span>
               <span class="ig-badge">Алергія / паразити</span>
@@ -1557,7 +1567,7 @@
             </ul>
           </div>
 
-          <div class="ig-card" data-ig="IgD">
+          <div class="ig-card ig-br" data-ig="IgD">
             <div class="ig-card-head">
               <span class="ig-label">IgD</span>
               <span class="ig-badge">Дозрівання</span>
@@ -1921,71 +1931,23 @@
       </div>
     </section>
 
-    <!-- ══ СЛАЙД 14 — V тип + зведена таблиця ══ -->
+    <!-- ══ СЛАЙД 14 — V тип ══ -->
     <section class="slide">
       <div class="v-wrap">
-        <h2 class="v-title">V тип + зведена таблиця АР</h2>
-        <div class="v-body">
-
-          <!-- V тип картка -->
-          <div class="v-type5">
-            <div class="v-type5-label">V тип — Антирецепторний</div>
-            <div class="v-type5-sub">
-              Обумовлений антитілами до рецепторів клітинних мембран (ацетилхоліновим, інсуліновим та ін.).<br><br>
-              Провідний імунний механізм розвитку:<br>
-              • цукрового діабету<br>
-              • дисфункцій щитоподібної залози<br><br>
-              <em>Описаний Ройтом (1991)</em>
-            </div>
-            <div class="v-type5-tags">
-              <span class="v-type5-tag">Цукровий діабет</span>
-              <span class="v-type5-tag">Хвороба Грейвса</span>
-              <span class="v-type5-tag">Міастенія</span>
-            </div>
+        <div class="v-type5">
+          <div class="v-type5-label">V тип — Антирецепторний</div>
+          <div class="v-type5-sub">
+            Обумовлений антитілами до рецепторів клітинних мембран (ацетилхоліновим, інсуліновим та ін.).<br><br>
+            Провідний імунний механізм розвитку:<br>
+            • цукрового діабету<br>
+            • дисфункцій щитоподібної залози<br><br>
+            <em>Описаний Ройтом (1991)</em>
           </div>
-
-          <!-- Таблиця всіх 5 типів -->
-          <div class="v-table">
-            <div class="v-table-head">
-              <div class="v-th">Тип</div>
-              <div class="v-th">Назва</div>
-              <div class="v-th">Ig / медіатор</div>
-              <div class="v-th">Приклади</div>
-            </div>
-            <div class="v-table-body">
-              <div class="v-tr">
-                <div class="v-td">I</div>
-                <div class="v-td">Анафілактична / реагінова</div>
-                <div class="v-td">IgE, IgG4</div>
-                <div class="v-td">Астма, поліноз, анафілактичний шок</div>
-              </div>
-              <div class="v-tr">
-                <div class="v-td">II</div>
-                <div class="v-td">Цитотоксична</div>
-                <div class="v-td">IgG, IgM + комплемент</div>
-                <div class="v-td">Гемотрансфузійний шок, резус-конфлікт</div>
-              </div>
-              <div class="v-tr">
-                <div class="v-td">III</div>
-                <div class="v-td">Імунокомплексна</div>
-                <div class="v-td">IgG1,3 / IgM</div>
-                <div class="v-td">СЧВ, сироваткова хвороба, гломерулонефрит</div>
-              </div>
-              <div class="v-tr">
-                <div class="v-td">IV</div>
-                <div class="v-td">Уповільнена (клітинна)</div>
-                <div class="v-td">Т-лімфоцити-кілери</div>
-                <div class="v-td">Контактний дерматит, туберкульоз, відторгнення трансплантату</div>
-              </div>
-              <div class="v-tr">
-                <div class="v-td">V</div>
-                <div class="v-td">Антирецепторна</div>
-                <div class="v-td">IgG (до рецепторів)</div>
-                <div class="v-td">Цукровий діабет, хвороба Грейвса</div>
-              </div>
-            </div>
+          <div class="v-type5-tags">
+            <span class="v-type5-tag">Цукровий діабет</span>
+            <span class="v-type5-tag">Хвороба Грейвса</span>
+            <span class="v-type5-tag">Міастенія</span>
           </div>
-
         </div>
       </div>
     </section>
