@@ -329,15 +329,18 @@
     .quiz-cols, .quiz-grid {
       flex: 1; display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: clamp(8px, 1vw, 14px); min-height: 0;
+      gap: clamp(6px, 0.8vw, 11px); min-height: 0;
+    }
+    .quiz-cols:has(> .quiz-card:nth-child(4)) {
+      grid-template-columns: repeat(4, 1fr);
     }
     .quiz-card {
       background: rgba(255,255,255,0.78);
       border: 1.8px solid rgba(42,73,199,0.2);
-      border-radius: 14px;
+      border-radius: 12px;
       box-shadow: 0 2px 16px rgba(42,73,199,0.07);
-      padding: clamp(8px,0.9vw,13px) clamp(10px,1vw,15px);
-      display: flex; flex-direction: column; gap: clamp(4px,0.5vh,7px);
+      padding: clamp(6px,0.7vw,10px) clamp(8px,0.8vw,12px);
+      display: flex; flex-direction: column; gap: clamp(3px,0.4vh,5px);
       backdrop-filter: blur(6px); overflow: hidden;
     }
     .quiz-num {
@@ -349,22 +352,22 @@
       vertical-align: middle;
     }
     .quiz-q {
-      margin: 0; font-size: clamp(18px,1.45vw,23px);
-      line-height: 1.45; color: var(--ink);
+      margin: 0; font-size: clamp(15px,1.2vw,19px);
+      line-height: 1.4; color: var(--ink);
     }
     .quiz-q u { text-decoration-color: var(--accent); text-underline-offset: 2px; }
     .quiz-opts {
-      display: flex; flex-direction: column; gap: clamp(3px,0.35vh,5px);
+      display: flex; flex-direction: column; gap: clamp(2px,0.3vh,4px);
     }
     .qopt {
       background: rgba(233,236,242,0.85);
       border: 1.5px solid rgba(42,73,199,0.18);
-      border-radius: 8px; padding: clamp(4px,0.4vh,6px) 10px;
+      border-radius: 8px; padding: clamp(3px,0.35vh,5px) 8px;
       font-family: "Nyght Serif", serif;
-      font-size: clamp(19px,1.5vw,23px); color: var(--ink);
+      font-size: clamp(15px,1.2vw,19px); color: var(--ink);
       cursor: pointer; text-align: left;
       transition: background 160ms, border-color 160ms, transform 100ms;
-      line-height: 1.3;
+      line-height: 1.25;
     }
     .qopt:hover:not(:disabled) {
       background: rgba(200,212,255,0.7);
@@ -1413,6 +1416,17 @@
             </div>
             <p class="quiz-result"></p>
           </div>
+          <div class="quiz-card" data-answer="Макрофаги, В-лімфоцити">
+            <p class="quiz-q"><span class="quiz-num">10</span>В імунній відповіді велику роль відіграють <u>антигенпрезентуючі клітини.</u> Які клітини є антигенпрезентуючими?</p>
+            <div class="quiz-opts">
+              <button class="qopt">Т-хелпери, Т-кілери</button>
+              <button class="qopt">Природні кілери: NK і K-клітини</button>
+              <button class="qopt">Макрофаги, В-лімфоцити</button>
+              <button class="qopt">Т-хелпери, В-лімфоцити</button>
+              <button class="qopt">Дендритні клітини, Т-кілери</button>
+            </div>
+            <p class="quiz-result"></p>
+          </div>
           <div class="quiz-card" data-answer="Плазмоцити">
             <p class="quiz-q"><span class="quiz-num">9</span>На зрізі лімфатичного вузла виявлено клітини з <u>базофільною цитоплазмою, ексцентричним ядром і хроматином у вигляді «спиць у колесі»</u> — <u>продуценти антитіл</u>. Які це клітини?</p>
             <div class="quiz-opts">
@@ -1428,24 +1442,7 @@
       </div>
     </section>
 
-    <!-- ══ Тести після Лімфоцитів — 4 ══ -->
-    <section class="slide">
-      <div class="quiz-wrap">
-        <div class="quiz-cols">
-          <div class="quiz-card" data-answer="Макрофаги, В-лімфоцити">
-            <p class="quiz-q"><span class="quiz-num">10</span>В імунній відповіді велику роль відіграють <u>антигенпрезентуючі клітини.</u> Які клітини є антигенпрезентуючими?</p>
-            <div class="quiz-opts">
-              <button class="qopt">Т-хелпери, Т-кілери</button>
-              <button class="qopt">Природні кілери: NK і K-клітини</button>
-              <button class="qopt">Макрофаги, В-лімфоцити</button>
-              <button class="qopt">Т-хелпери, В-лімфоцити</button>
-              <button class="qopt">Дендритні клітини, Т-кілери</button>
-            </div>
-            <p class="quiz-result"></p>
-          </div>
-        </div>
-      </div>
-    </section>
+
 
     <!-- ══ СЛАЙД 7 — Антиген та Антитіло ══ -->
     <section class="slide">
@@ -1611,6 +1608,17 @@
             </div>
             <p class="quiz-result"></p>
           </div>
+          <div class="quiz-card" data-answer="Синдром Віскотта-Олдрича">
+            <p class="quiz-q"><span class="quiz-num">4</span>Хлопчику 14 років. З 7 років — <u>тромбоцитопенії</u>, з 12 років — 2-3 рази на рік гостра пневмонія, рецидивуюча <u>герпетична інфекція, екзема</u> з періоду новонародженості. Який різновид первинного імунодефіциту слід запідозрити?</p>
+            <div class="quiz-opts">
+              <button class="qopt">Синдром Віскотта-Олдрича</button>
+              <button class="qopt">Синдром Луї-Барра</button>
+              <button class="qopt">Хвороба Верльгофа</button>
+              <button class="qopt">Хвороба Брутона</button>
+              <button class="qopt">Хвороба Шенлейна-Геноха</button>
+            </div>
+            <p class="quiz-result"></p>
+          </div>
           <div class="quiz-card" data-answer="Синдром Луї-Бар">
             <p class="quiz-q"><span class="quiz-num">3</span>У пацієнта — <u>телеангіоектазія, атаксія,</u> <u>знижена кількість Т-лімфоцитів</u>, <u>відсутність IgA, зниження рівня IgG, IgM</u>. Для якого синдрому характерні такі показники?</p>
             <div class="quiz-opts">
@@ -1626,24 +1634,7 @@
       </div>
     </section>
 
-    <!-- ══ Тести після Імунодефіцитів — 2 ══ -->
-    <section class="slide">
-      <div class="quiz-wrap">
-        <div class="quiz-cols">
-          <div class="quiz-card" data-answer="Синдром Віскотта-Олдрича">
-            <p class="quiz-q"><span class="quiz-num">4</span>Хлопчику 14 років. З 7 років — <u>тромбоцитопенії</u>, з 12 років — 2-3 рази на рік гостра пневмонія, рецидивуюча <u>герпетична інфекція, екзема</u> з періоду новонародженості. Який різновид первинного імунодефіциту слід запідозрити?</p>
-            <div class="quiz-opts">
-              <button class="qopt">Синдром Віскотта-Олдрича</button>
-              <button class="qopt">Синдром Луї-Барра</button>
-              <button class="qopt">Хвороба Верльгофа</button>
-              <button class="qopt">Хвороба Брутона</button>
-              <button class="qopt">Хвороба Шенлейна-Геноха</button>
-            </div>
-            <p class="quiz-result"></p>
-          </div>
-        </div>
-      </div>
-    </section>
+
 
     <!-- ══ СЛАЙД 9 — Імуноглобуліни ══ -->
     <section class="slide">
