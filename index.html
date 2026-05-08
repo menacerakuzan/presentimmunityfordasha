@@ -138,14 +138,14 @@
     }
 
     /* позиції карток */
-    .c-inn  { top: 13%; left: 2%;  width: 47%; min-height: 43%; max-height: 52%; overflow-y: auto; }
-    .c-ada  { top: 13%; left: 52%; width: 46%; min-height: 43%; max-height: 52%; overflow-y: auto; }
-    .c-nat  { top: 52%; left: 36%; width: 27%; height: 11%; display:flex; align-items:center; justify-content:center; }
-    .c-art  { top: 52%; left: 66%; width: 27%; height: 11%; display:flex; align-items:center; justify-content:center; }
-    .c-na   { top: 68%; left: 2%;  width: 23%; }
-    .c-np   { top: 68%; left: 27%; width: 23%; }
-    .c-aa   { top: 68%; left: 52%; width: 23%; }
-    .c-ap   { top: 68%; left: 77%; width: 21%; }
+    .c-inn  { top: 9%; left: 2%;  width: 47%; min-height: 38%; max-height: 43%; overflow-y: auto; }
+    .c-ada  { top: 9%; left: 52%; width: 46%; min-height: 38%; max-height: 43%; overflow-y: auto; }
+    .c-nat  { top: 47%; left: 36%; width: 27%; height: 10%; display:flex; align-items:center; justify-content:center; }
+    .c-art  { top: 47%; left: 66%; width: 27%; height: 10%; display:flex; align-items:center; justify-content:center; }
+    .c-na   { top: 59%; left: 2%;  width: 23%; max-height: 38%; overflow-y: auto; }
+    .c-np   { top: 59%; left: 27%; width: 23%; max-height: 38%; overflow-y: auto; }
+    .c-aa   { top: 59%; left: 52%; width: 23%; max-height: 38%; overflow-y: auto; }
+    .c-ap   { top: 59%; left: 77%; width: 21%; max-height: 38%; overflow-y: auto; }
 
     /* ══════════════ СЛАЙД 3 ══════════════ */
     .s3 {
@@ -440,7 +440,7 @@
     }
     .s4-svg {
       position: absolute; inset: 0; width: 100%; height: 100%;
-      pointer-events: none;
+      pointer-events: none; z-index: 1;
     }
     .s4-tree-ln {
       fill: none; stroke: var(--ink); stroke-width: 1.8px;
@@ -453,6 +453,12 @@
       text-align: center; gap: 4px;
       font-size: clamp(19px,1.5vw,23px); color: var(--ink);
       line-height: 1.2; white-space: nowrap;
+      z-index: 2;
+    }
+    .s4-cell-label, .s4-cell-sub {
+      background: var(--bg);
+      padding: 0 3px;
+      border-radius: 3px;
     }
     .s4-circle {
       border-radius: 50%; border: 2.5px solid rgba(42,73,199,0.5);
