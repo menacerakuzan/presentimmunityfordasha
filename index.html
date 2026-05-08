@@ -56,26 +56,6 @@
       left: 96%; top: 52%; width: min(78vw,1360px); height: 100vh;
       transform: translate(-50%,-50%);
     }
-    .mv-deco-wrap {
-      position: absolute; pointer-events: none; z-index: 1;
-    }
-    .mv-deco-wrap model-viewer {
-      width: 100%; height: 100%; --poster-color: transparent; background: transparent;
-    }
-    .mv-deco-wrap::after {
-      content: ''; position: absolute; inset: 0; border-radius: 50%;
-      background: rgba(160,170,230,0.38);
-      mix-blend-mode: multiply;
-      pointer-events: none;
-    }
-    .mv-deco-tl {
-      width: min(26vw, 380px); height: min(26vw, 380px);
-      left: -6%; top: -20%;
-    }
-    .mv-deco-bl {
-      width: min(24vw, 340px); height: min(24vw, 340px);
-      left: -5%; bottom: -18%;
-    }
     .status {
       position: absolute; left: 50%; top: 52%; transform: translateX(-50%);
       color: #2463ae; font-family: "Nyght Serif",serif; font-size: 16px; opacity: 0.7; z-index: 2;
@@ -1015,32 +995,6 @@
         shadow-softness="0.65" shadow-intensity="0"
         interaction-prompt="none"
       ></model-viewer>
-      <!-- дeco зверху зліва -->
-      <div class="mv-deco-wrap mv-deco-tl">
-        <model-viewer
-          src="./lynphocyte.glb"
-          auto-rotate rotation-per-second="14deg"
-          camera-orbit="-18deg 80deg 98%"
-          min-camera-orbit="auto 64deg 92%"
-          max-camera-orbit="auto 92deg 150%"
-          exposure="0.9" environment-image="neutral"
-          shadow-softness="0.65" shadow-intensity="0"
-          interaction-prompt="none"
-        ></model-viewer>
-      </div>
-      <!-- дeco знизу зліва -->
-      <div class="mv-deco-wrap mv-deco-bl">
-        <model-viewer
-          src="./lynphocyte.glb"
-          auto-rotate rotation-per-second="14deg"
-          camera-orbit="-18deg 80deg 98%"
-          min-camera-orbit="auto 64deg 92%"
-          max-camera-orbit="auto 92deg 150%"
-          exposure="0.9" environment-image="neutral"
-          shadow-softness="0.65" shadow-intensity="0"
-          interaction-prompt="none"
-        ></model-viewer>
-      </div>
       <p class="subtitle">Підготувала : <span class="name">Богаченко Дарина</span></p>
       <p class="status" id="status">Завантаження 3D моделі…</p>
     </section>
@@ -1075,21 +1029,21 @@
           <path class="ln" id="l-rr" d="M 960,92 C 1100,180 1290,190 1440,172"/>
           <polygon class="arr" id="a-rr" points="1440,172 1422,160 1426,178"/>
 
-          <!-- Природний → н-акт (поднято до Y=745) -->
-          <path class="ln" id="l-na" d="M 950,680 C 860,710 520,730 259,745"/>
-          <polygon class="arr" id="a-na" points="259,745 278,733 275,751"/>
+          <!-- Природний → н-акт -->
+          <path class="ln" id="l-na" d="M 950,560 C 860,600 520,625 259,640"/>
+          <polygon class="arr" id="a-na" points="259,640 278,628 275,646"/>
 
-          <!-- Природний → н-пас (поднято до Y=745) -->
-          <path class="ln" id="l-np" d="M 950,680 C 930,710 840,730 739,745"/>
-          <polygon class="arr" id="a-np" points="739,745 758,733 755,751"/>
+          <!-- Природний → н-пас -->
+          <path class="ln" id="l-np" d="M 950,560 C 930,600 840,625 739,640"/>
+          <polygon class="arr" id="a-np" points="739,640 758,628 755,646"/>
 
-          <!-- Штучний → ш-акт (поднято до Y=745) -->
-          <path class="ln" id="l-sa" d="M 1527,680 C 1485,710 1360,730 1219,745"/>
-          <polygon class="arr" id="a-sa" points="1219,745 1238,733 1235,751"/>
+          <!-- Штучний → ш-акт -->
+          <path class="ln" id="l-sa" d="M 1527,560 C 1485,600 1360,625 1219,640"/>
+          <polygon class="arr" id="a-sa" points="1219,640 1238,628 1235,646"/>
 
-          <!-- Штучний → ш-пас (поднято до Y=745) -->
-          <path class="ln" id="l-sp" d="M 1527,680 C 1570,710 1640,730 1680,745"/>
-          <polygon class="arr" id="a-sp" points="1680,745 1661,733 1664,751"/>
+          <!-- Штучний → ш-пас -->
+          <path class="ln" id="l-sp" d="M 1527,560 C 1570,600 1640,625 1680,640"/>
+          <polygon class="arr" id="a-sp" points="1680,640 1661,628 1664,646"/>
 
         </svg>
 
