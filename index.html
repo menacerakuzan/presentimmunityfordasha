@@ -9,6 +9,11 @@
     @font-face { font-family: "Nyght Serif"; src: url("./fonts/NyghtSerif-Bold.ttf") format("truetype"); font-weight: 700; }
     @font-face { font-family: "Nyght Serif"; src: url("./fonts/NyghtSerif-Medium.ttf") format("truetype"); font-weight: 500; }
     @font-face { font-family: "Felidae"; src: url("./fonts/Felidae.ttf") format("truetype"); font-weight: 400; }
+    @font-face { font-family: "Odesa"; src: url("./fonts/OdesaRegionType-Regular.woff2") format("woff2"), url("./fonts/OdesaRegionType-Regular.woff") format("woff"); font-weight: 400; }
+    @font-face { font-family: "Odesa"; src: url("./fonts/OdesaRegionType-Medium.woff2") format("woff2"), url("./fonts/OdesaRegionType-Medium.woff") format("woff"); font-weight: 500; }
+    @font-face { font-family: "Odesa"; src: url("./fonts/OdesaRegionType-Semi.woff2") format("woff2"), url("./fonts/OdesaRegionType-Semi.woff") format("woff"); font-weight: 600; }
+    @font-face { font-family: "Odesa"; src: url("./fonts/OdesaRegionType-Bold.woff2") format("woff2"), url("./fonts/OdesaRegionType-Bold.woff") format("woff"); font-weight: 700; }
+    @font-face { font-family: "Odesa"; src: url("./fonts/OdesaRegionType-Heavy.woff2") format("woff2"), url("./fonts/OdesaRegionType-Heavy.woff") format("woff"); font-weight: 800; }
 
     :root {
       --bg: #e9ecf2;
@@ -18,7 +23,7 @@
       font-size: 19px;
     }
 
-    html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: var(--bg); }
+    html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: var(--bg); font-family: "Nyght Serif", serif; }
     .viewport { position: fixed; inset: 0; overflow: hidden; }
     .track { position: absolute; inset: 0; will-change: transform; }
 
@@ -79,7 +84,7 @@
     .ab-deco { pointer-events: none; }
     .status {
       position: absolute; left: 50%; top: 52%; transform: translateX(-50%);
-      color: #2463ae; font-family: "Nyght Serif",serif; font-size: 16px; opacity: 0.7; z-index: 2;
+      color: #2463ae; font-family: "Nyght Serif", serif; font-size: 16px; opacity: 0.7; z-index: 2;
     }
 
     .s2-wrap { position: absolute; inset: 0; z-index: 2; overflow: hidden; }
@@ -394,7 +399,7 @@
       position: absolute; top: 8px; right: 10px;
       font-size: 18px; line-height: 1; cursor: pointer;
       color: #aaa; background: none; border: none; padding: 0;
-      font-family: sans-serif;
+      font-family: "Nyght Serif", serif;
     }
     .s3-popup-close:hover { color: var(--ink); }
 
@@ -1360,8 +1365,8 @@
               <div class="cls-node cls-mid">Штучний</div>
               <div class="cls-connector-v"></div>
               <div class="cls-leaf-h-wrap">
-                <div class="cls-node cls-leaf">Під дією<br>вакцини<br><span class="cls-sub">(активний)</span></div>
-                <div class="cls-node cls-leaf">Під дією<br>сироватки<br><span class="cls-sub">(пасивний)</span></div>
+                <div class="cls-node cls-leaf">Активний<br><span class="cls-sub">(Під дією вакцини)</span></div>
+                <div class="cls-node cls-leaf">Пасивний<br><span class="cls-sub">(Під дією сироватки)</span></div>
               </div>
             </div>
           </div>
@@ -1527,11 +1532,6 @@
           <!-- Колонка 1 -->
           <div class="id-col">
             <div class="id-col-head">Т-лімфоцити</div>
-
-            <div class="id-item">
-              <div class="id-item-name">Первинна недостатність Т-клітин</div>
-              <div class="id-item-body">Блокада ранніх етапів утворення Т-лімфоцитів або Т-хелперів. <em>Має спадковий характер.</em></div>
-            </div>
 
             <div class="id-item">
               <div class="id-item-name">Синдром Ді Джорджі<br><small>Гіпоплазія тимусу</small></div>
@@ -1777,7 +1777,7 @@
               <h4>Причина — алерген</h4>
               Речовини, що спричиняють алергічні реакції. Основна властивість — <strong>чужорідність</strong>.<br><br>
               <strong>а) Повні антигени</strong> — білки.<br>
-              <strong>б) Гаптени</strong> — неповні антигени. Набувають алергенних властивостей тільки після з'єднання з білками тканин. До них належать: метаболіти ліків, йод, бром, полісахариди, косметика, метали, поліакрилати.
+              <strong>б) Неповні антигени</strong> — гаптени. Набувають алергенних властивостей тільки після з'єднання з білками тканин. До них належать: метаболіти ліків, йод, бром, полісахариди, косметика, метали, поліакрилати.
             </div>
           </div>
 
