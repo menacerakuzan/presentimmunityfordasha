@@ -37,6 +37,26 @@
         radial-gradient(circle at 50% 38%, rgba(255,255,255,0.45), transparent 58%);
     }
 
+    /* ══════════════ СЛАЙД "Що таке імунітет" ══════════════ */
+    .def-wrap {
+      position: absolute; inset: 0; display: flex;
+      align-items: center; justify-content: center; z-index: 2;
+    }
+    .def-card {
+      max-width: 72%; text-align: center;
+      display: flex; flex-direction: column; gap: 2.5vh;
+    }
+    .def-title {
+      font-family: "Nyght Serif", serif; font-weight: 700;
+      font-size: clamp(38px, 4vw, 72px); color: var(--accent);
+      margin: 0;
+    }
+    .def-text {
+      font-family: "Nyght Serif", serif;
+      font-size: clamp(24px, 2.2vw, 42px); color: var(--ink);
+      line-height: 1.5; margin: 0;
+    }
+
     /* ══════════════ СЛАЙД 1 ══════════════ */
     .title {
       position: absolute; top: 41%; left: 50%; transform: translate(-50%,-50%);
@@ -56,6 +76,7 @@
       left: 96%; top: 52%; width: min(78vw,1360px); height: 100vh;
       transform: translate(-50%,-50%);
     }
+    .ab-deco { pointer-events: none; }
     .status {
       position: absolute; left: 50%; top: 52%; transform: translateX(-50%);
       color: #2463ae; font-family: "Nyght Serif",serif; font-size: 16px; opacity: 0.7; z-index: 2;
@@ -149,6 +170,65 @@
     .c-np   { top: 59%; left: 27%; width: 23%; max-height: 38%; overflow-y: auto; }
     .c-aa   { top: 59%; left: 52%; width: 23%; max-height: 38%; overflow-y: auto; }
     .c-ap   { top: 59%; left: 77%; width: 21%; max-height: 38%; overflow-y: auto; }
+
+    /* ══════════════ Класифікація імунітету ══════════════ */
+    .cls-wrap {
+      position: absolute; inset: 0; z-index: 2; overflow: hidden;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 2vh 4vw; box-sizing: border-box;
+      font-family: "Nyght Serif", serif;
+    }
+    .cls-title {
+      font-weight: 700; font-size: clamp(28px, 3vw, 52px);
+      color: var(--ink); margin: 0 0 1.5vh; white-space: nowrap;
+    }
+    .cls-tree { display: flex; flex-direction: column; align-items: center; width: 100%; }
+    .cls-row-root { display: flex; justify-content: center; width: 100%; }
+    .cls-connector-v { width: 2px; height: 2.5vh; background: var(--ink); margin: 0 auto; }
+    .cls-connector-h-wrap { display: flex; width: 60%; justify-content: space-between; align-items: flex-start; position: relative; }
+    .cls-connector-h-wrap::before {
+      content: ''; position: absolute; top: 0; left: 16%; width: 68%;
+      height: 2px; background: var(--ink);
+    }
+    .cls-mid-wrap { display: flex; flex-direction: column; align-items: center; width: 40%; }
+    .cls-row-leaves { display: flex; width: 100%; gap: 2%; margin-top: 0; }
+    .cls-leaf-group { display: flex; flex: 1; gap: 2%; }
+    .cls-node {
+      text-align: center; border-radius: 12px; box-sizing: border-box;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; line-height: 1.3;
+    }
+    .cls-root {
+      padding: clamp(10px,1.2vh,18px) clamp(24px,3vw,60px);
+      font-size: clamp(22px, 2.2vw, 40px); font-weight: 700;
+      background: linear-gradient(160deg,#2a49c7,#1a35a8);
+      color: #fff; border: 2px solid #1a35a8; border-radius: 12px;
+    }
+    .cls-mid {
+      width: 100%; padding: clamp(8px,1vh,16px) clamp(12px,1.5vw,28px);
+      font-size: clamp(18px, 1.8vw, 34px); font-weight: 700;
+      background: linear-gradient(160deg,#3d5fdd,#2a49c7);
+      color: #fff; border: 2px solid #2240b0; border-radius: 12px;
+    }
+    .cls-leaf {
+      flex: 1; padding: clamp(8px,1vh,16px) clamp(8px,1vw,16px);
+      font-size: clamp(14px, 1.3vw, 22px); font-weight: 700;
+      background: rgba(255,255,255,0.82);
+      border: 2px solid rgba(42,73,199,0.35); border-radius: 12px;
+      color: var(--ink);
+      box-shadow: 0 2px 12px rgba(42,73,199,0.08);
+    }
+    .cls-sub {
+      font-size: clamp(11px, 1vw, 17px); font-weight: 400;
+      color: #4a5ba0; display: block; margin-top: 3px;
+    }
+    .cls-leaf-connector { width: 2px; height: 2.5vh; background: var(--ink); margin: 0 auto; }
+    .cls-leaf-h-wrap { position: relative; display: flex; width: 100%; gap: 2%; }
+    .cls-leaf-h-wrap::before {
+      content: ''; position: absolute; top: 0; left: 25%; width: 50%;
+      height: 2px; background: var(--ink);
+    }
 
     /* ══════════════ СЛАЙД 3 ══════════════ */
     .s3 {
@@ -740,8 +820,13 @@
     }
     .ar-center-title {
       font-family: "Nyght Serif", serif; font-weight: 700;
-      font-size: clamp(16px,1.5vw,26px); color: var(--ink);
-      text-align: center; line-height: 1.25; margin: 0;
+      font-size: clamp(15px,1.4vw,24px); color: var(--ink);
+      text-align: center; line-height: 1.3; margin: 0;
+      border: 2px solid var(--accent);
+      border-radius: 14px;
+      padding: clamp(10px,1.2vh,18px) clamp(12px,1.2vw,20px);
+      background: rgba(42,73,199,0.07);
+      box-shadow: 0 2px 16px rgba(42,73,199,0.10);
     }
     .ar-center-circle {
       width: clamp(90px,9vw,130px); height: clamp(90px,9vw,130px);
@@ -791,6 +876,36 @@
       background: rgba(42,73,199,0.07); border-radius: 8px;
       padding: 3px 10px; font-size: clamp(15px,1.1vw,18px);
       color: var(--ink); border: 1px solid rgba(42,73,199,0.12);
+    }
+
+    /* кнопка і попап сенсибілізованих Т-лімфоцитів */
+    .sens-btn {
+      background: none; border: none;
+      color: var(--accent); font-family: "Nyght Serif", serif;
+      font-size: inherit; font-weight: 700;
+      cursor: pointer; text-decoration: underline;
+      text-decoration-color: var(--accent);
+      text-underline-offset: 3px; padding: 0;
+    }
+    .sens-btn:hover { opacity: 0.75; }
+    .sens-popup {
+      display: none; position: fixed;
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+      background: rgba(255,255,255,0.98);
+      border: 2px solid rgba(42,73,199,0.25);
+      border-radius: 16px; padding: 24px 28px 20px;
+      width: min(480px, 75vw);
+      max-height: 70vh; overflow-y: auto;
+      box-shadow: 0 8px 48px rgba(42,73,199,0.22);
+      z-index: 999; font-family: "Nyght Serif", serif;
+      font-size: clamp(14px,1.1vw,18px); color: var(--ink);
+      line-height: 1.6;
+    }
+    .sens-popup.show { display: block; }
+    .sens-close {
+      position: absolute; top: 12px; right: 16px;
+      background: none; border: none; font-size: 24px;
+      cursor: pointer; color: var(--ink); line-height: 1;
     }
 
     /* ══════════════ СЛАЙД 14 — V тип + таблиця ══════════════ */
@@ -1002,113 +1117,24 @@
       <p class="status" id="status">Завантаження 3D моделі…</p>
     </section>
 
-    <!-- ══ СЛАЙД 2 ══ -->
+    <!-- ══ СЛАЙД 1.5 — Що таке імунітет ══ -->
     <section class="slide">
-      <div class="s2-wrap" id="s2">
-
-        <h2 class="s2-title" id="s2h">Класифікація імунітету</h2>
-
-        <!--
-          SVG viewBox 1920×1080. Центри карток:
-            заголовок низ:  960, 92
-            Вроджений cx:   470, top=184 bot=573
-            Набутий cx:    1440, top=184 bot=443
-            Природний cx:   950, top=594 bot=734
-            Штучний cx:    1527, top=594 bot=734
-            н-акт cx:   259, top=810
-            н-пас cx:   739, top=810
-            ш-акт cx:  1219, top=810
-            ш-пас cx:  1680, top=810
-        -->
-        <!-- SVG ліній поверх всього -->
-        <!-- SVG ліній поверх всього -->
-        <svg class="s2-svg" viewBox="0 0 1920 1080" preserveAspectRatio="none" aria-hidden="true">
-
-
-          <!-- Природний → н-акт -->
-          <path class="ln" id="l-na" d="M 950,616 C 860,640 520,655 259,668"/>
-          <polygon class="arr" id="a-na" points="259,668 278,656 275,674"/>
-
-          <!-- Природний → н-пас -->
-          <path class="ln" id="l-np" d="M 950,616 C 930,640 840,655 739,668"/>
-          <polygon class="arr" id="a-np" points="739,668 758,656 755,674"/>
-
-          <!-- Штучний → ш-акт -->
-          <path class="ln" id="l-sa" d="M 1527,616 C 1485,640 1360,655 1219,668"/>
-          <polygon class="arr" id="a-sa" points="1219,668 1238,656 1235,674"/>
-
-          <!-- Штучний → ш-пас -->
-          <path class="ln" id="l-sp" d="M 1527,616 C 1570,640 1640,655 1680,668"/>
-          <polygon class="arr" id="a-sp" points="1680,668 1661,656 1664,674"/>
-
-        </svg>
-
-        <!-- Рівень 1: Вроджений -->
-        <div class="card c-inn" id="c-inn">
-          <h3>Вроджений</h3>
-          <p class="sub">«неспецифічний»</p>
-          <ul>
-            <li>фагоцити</li>
-            <li>NK-клітини</li>
-            <li>бар'єри шкіри та слизових</li>
-            <li>лізоцим</li>
-            <li>система комплементу</li>
-            <li>запалення</li>
-          </ul>
-          <p class="note">✕ немає імунологічної пам'яті</p>
+      <!-- антитіла на фоні: близько до тексту, по кутах і боках -->
+      <model-viewer class="ab-deco" style="left:0%;top:0%;width:19vw;height:35vh;z-index:0;" src="./antibodies_iga.glb" auto-rotate rotation-per-second="22deg" camera-orbit="40deg 60deg 105%" exposure="0.9" environment-image="neutral" shadow-intensity="0" interaction-prompt="none"></model-viewer>
+      <model-viewer class="ab-deco" style="left:0%;bottom:0%;width:17vw;height:32vh;z-index:0;" src="./antibodies_igg.glb" auto-rotate rotation-per-second="-18deg" camera-orbit="-30deg 65deg 108%" exposure="0.9" environment-image="neutral" shadow-intensity="0" interaction-prompt="none"></model-viewer>
+      <model-viewer class="ab-deco" style="left:50%;top:0%;transform:translateX(-50%);width:18vw;height:30vh;z-index:0;" src="./antibodies_igm.glb" auto-rotate rotation-per-second="25deg" camera-orbit="60deg 55deg 102%" exposure="0.9" environment-image="neutral" shadow-intensity="0" interaction-prompt="none"></model-viewer>
+      <model-viewer class="ab-deco" style="right:0%;bottom:0%;width:17vw;height:32vh;z-index:0;" src="./antibodies_iga.glb" auto-rotate rotation-per-second="-20deg" camera-orbit="-50deg 70deg 110%" exposure="0.9" environment-image="neutral" shadow-intensity="0" interaction-prompt="none"></model-viewer>
+      <model-viewer class="ab-deco" style="right:0%;top:0%;width:19vw;height:35vh;z-index:0;" src="./antibodies_igg.glb" auto-rotate rotation-per-second="24deg" camera-orbit="20deg 62deg 104%" exposure="0.9" environment-image="neutral" shadow-intensity="0" interaction-prompt="none"></model-viewer>
+      <model-viewer class="ab-deco" style="left:50%;bottom:0%;transform:translateX(-50%);width:16vw;height:28vh;z-index:0;" src="./antibodies_igm.glb" auto-rotate rotation-per-second="-19deg" camera-orbit="-70deg 58deg 106%" exposure="0.9" environment-image="neutral" shadow-intensity="0" interaction-prompt="none"></model-viewer>
+      <div class="def-wrap">
+        <div class="def-card">
+          <h2 class="def-title">Що таке імунітет?</h2>
+          <p class="def-text">Імунітет — це система захисту організму, яка підтримує сталість внутрішнього середовища та захищає від інфекцій і чужорідних речовин.</p>
         </div>
-
-        <!-- Рівень 1: Набутий -->
-        <div class="card c-ada" id="c-ada">
-          <h3>Набутий</h3>
-          <p class="sub">«специфічний»</p>
-          <p class="desc">Розвивається після контакту з антигеном. Має імунологічну пам'ять та високу специфічність.</p>
-        </div>
-
-        <!-- Рівень 2 -->
-        <div class="card c-nat" id="c-nat">
-          <h3 class="center" style="margin:0">Природний</h3>
-        </div>
-        <div class="card c-art" id="c-art">
-          <h3 class="center" style="margin:0">Штучний</h3>
-        </div>
-
-        <!-- Рівень 3: листові картки -->
-        <!-- Рівень 3: листові картки (с двумя типами описания) -->
-        <div class="card card-dash c-na leaf" id="c-na">
-          <h3 class="leaf">активний</h3>
-          <span class="ico">💪</span>
-          <!-- Этот текст виден ДО нажатия -->
-          <p class="short-desc">після перенесеної хвороби</p>
-          <!-- Этот текст виден ПОСЛЕ нажатия -->
-          <p class="desc" style="text-align:center">• природний активний - у наслідок хвороби (зустрічі з антигеном та продукція антитіл)</p>
-        </div>
-
-        <div class="card card-dash c-np leaf" id="c-np">
-          <h3 class="leaf">пасивний</h3>
-          <span class="ico">🤱</span>
-          <p class="short-desc">антитіла матері дитині</p>
-          <p class="desc" style="text-align:center">• природний пасивний - готові антитіла матері через молоко/плаценту передаються дитині</p>
-        </div>
-
-        <div class="card card-dash c-aa leaf" id="c-aa">
-          <h3 class="leaf">активний</h3>
-          <span class="ico">💉</span>
-          <p class="short-desc">вакцини та анатоксини</p>
-          <p class="desc" style="text-align:center">• штучний активний — у наслідок уведення вакцин та анатоксинів (спеціально ввели антиген для стимуляції продукції антитіл)</p>
-        </div>
-
-        <div class="card card-dash c-ap leaf" id="c-ap">
-          <h3 class="leaf">пасивний</h3>
-          <span class="ico">🧪</span>
-          <p class="short-desc">готові антитіла (сироватки)</p>
-          <p class="desc" style="text-align:center">• штучний пасивний — уведення «готових» антитіл за допомогою сироваток</p>
-        </div>
-
       </div>
     </section>
 
-    <!-- ══ СЛАЙД 3 ══ -->
+    <!-- ══ СЛАЙД 2 ══ -->
     <section class="slide">
       <div class="s3-wrap">
         <!--
@@ -1200,9 +1226,9 @@
         <div class="s3-node s3-p-leaf clickable" style="left:82%;top:50%;width:14%;height:11%" data-popup="pop-lt">Лімфоїдна<br>тканина</div>
 
         <!-- Рядок 3 -->
-        <div class="s3-node s3-p-sub" style="left:37%;top:70%;width:16%;height:12%">Лімфоїдні скупчення в повітроносних шляхах</div>
-        <div class="s3-node s3-p-sub" style="left:54%;top:70%;width:14%;height:12%">Лімфоїдні скупчення в кишечнику</div>
-        <div class="s3-node s3-p-sub" style="left:69%;top:70%;width:16%;height:12%">Лімфоїдні скупчення в сечостатевих шляхах</div>
+        <div class="s3-node s3-p-sub" style="left:37%;top:70%;width:16%;height:15%">Лімфоїдні скупчення в повітроносних шляхах</div>
+        <div class="s3-node s3-p-sub" style="left:54%;top:70%;width:14%;height:15%">Лімфоїдні скупчення в кишечнику</div>
+        <div class="s3-node s3-p-sub" style="left:69%;top:70%;width:16%;height:15%">Лімфоїдні скупчення в сечостатевих шляхах</div>
 
         <!-- Попапи -->
         <div class="s3-popup central" id="pop-thymus">
@@ -1243,206 +1269,6 @@
 
       </div>
     </section>
-
-    <!-- ══ СЛАЙД 4 — Лімфоцити ══ -->
-    <section class="slide">
-      <div class="s4-wrap">
-        <h2 class="s4-heading">Лімфоцити</h2>
-
-        <div class="s4-left">
-          <div class="s4-block">
-            <p class="s4-block-title">В-лімфоцити — гуморальний імунітет</p>
-            <p class="s4-block-sub">В-лімфоцит → плазмоцит → антитіла (Ig)</p>
-            <ul>
-              <li>Антиген потрапляє в організм → активує В-клітину</li>
-              <li>В-клітина перетворюється на <strong>плазмоцит</strong></li>
-              <li>Плазмоцит виробляє <strong>антитіла</strong>, що зв'язують і нейтралізують чужорідні агенти</li>
-              <li>Ознака плазмоцита — хроматин у ядрі у вигляді <strong>«спиць колеса»</strong></li>
-            </ul>
-          </div>
-          <div class="s4-block">
-            <p class="s4-block-title">Т-лімфоцити — клітинний імунітет</p>
-            <ul>
-              <li><strong>Т-хелпери</strong> — головні «координатори» імунної відповіді: розпізнають антиген, стимулюють В-лімфоцити виробляти Ig, активують інші клітини імунітету</li>
-              <li><strong>Т-кілери</strong> — знищують вірус-інфіковані та пухлинні клітини; беруть участь у відторгненні трансплантату</li>
-              <li><strong>Т-супресори / Т-регулятори</strong> — пригнічують надмірну імунну відповідь; контролюють активність В-лімфоцитів та інших Т-клітин</li>
-              <li><strong>Т-клітини пам'яті</strong> — зберігають інформацію про антиген</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="s4-right">
-          <svg class="s4-svg" viewBox="0 0 400 560" preserveAspectRatio="none">
-            <polyline class="s4-tree-ln" points="200,56  88,170  88,185"/>
-            <polyline class="s4-tree-ln" points="200,56  280,170  280,185"/>
-            <polyline class="s4-tree-ln" points="280,225  220,320  220,335"/>
-            <polyline class="s4-tree-ln" points="280,225  340,320  340,335"/>
-            <line class="s4-tree-ln" x1="340" y1="375" x2="340" y2="460"/>
-          </svg>
-          <div class="s4-cell" style="left:50%;top:9%">
-            <div class="s4-circle sz-lg cl-pred"></div>
-            <span class="s4-cell-label">Клітина-попередник</span>
-            <span class="s4-cell-sub">лімфоїдного ряду</span>
-          </div>
-          <div class="s4-cell" style="left:22%;top:36%">
-            <div class="s4-circle sz-md cl-nk"></div>
-            <span class="s4-cell-label">NK-клітина</span>
-            <span class="s4-cell-sub">(природний кілер)</span>
-          </div>
-          <div class="s4-cell" style="left:70%;top:36%">
-            <div class="s4-circle sz-md cl-pred"></div>
-            <span class="s4-cell-label">Малі лімфоцити</span>
-          </div>
-          <div class="s4-cell" style="left:55%;top:62%">
-            <div class="s4-circle sz-md cl-t"></div>
-            <span class="s4-cell-label">Т-лімфоцит</span>
-          </div>
-          <div class="s4-cell" style="left:85%;top:62%">
-            <div class="s4-circle sz-md cl-b"></div>
-            <span class="s4-cell-label">В-лімфоцит</span>
-          </div>
-          <div class="s4-cell" style="left:85%;top:88%">
-            <div class="s4-circle sz-md cl-plazm"></div>
-            <span class="s4-cell-label">Плазматична клітина</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ Тести після Лімфоцитів — 1 ══ -->
-    <section class="slide">
-      <div class="quiz-wrap">
-        <div class="quiz-cols">
-          <div class="quiz-card" data-answer="Лімфоцити">
-            <p class="quiz-q"><span class="quiz-num">1</span>При обстеженні хворого, який зазнав дії іонізуючого випромінювання, виявлено <u>пошкодження білої пульпи селезінки</u>. Які клітини білої пульпи зазнають патологічних змін?</p>
-            <div class="quiz-opts">
-              <button class="qopt">Тканинні базофіли</button>
-              <button class="qopt">Базофільні лейкоцити</button>
-              <button class="qopt">Лімфоцити</button>
-              <button class="qopt">Нейтрофільні лейкоцити</button>
-              <button class="qopt">Моноцити</button>
-            </div>
-            <p class="quiz-result"></p>
-          </div>
-          <div class="quiz-card" data-answer="Т-лімфоцити">
-            <p class="quiz-q"><span class="quiz-num">2</span>У новонародженого виявлено <u>вроджену атрофію тимусу.</u> Які клітини імунної системи постраждають найбільше?</p>
-            <div class="quiz-opts">
-              <button class="qopt">Т-лімфоцити</button>
-              <button class="qopt">В-клітини пам'яті</button>
-              <button class="qopt">Антигенпредставляючі клітини</button>
-              <button class="qopt">Макрофаги</button>
-              <button class="qopt">В-лімфоцити</button>
-            </div>
-            <p class="quiz-result"></p>
-          </div>
-          <div class="quiz-card" data-answer="Т - лімфоцити">
-            <p class="quiz-q"><span class="quiz-num">3</span>Хворому з великими опіками зробили <u>пересадку донорської шкіри</u>. На 8-му добу трансплантат набряк і <u>почав відторгати</u>сь. Які клітини беруть у цьому участь?</p>
-            <div class="quiz-opts">
-              <button class="qopt">Еритроцити</button>
-              <button class="qopt">Т - лімфоцити</button>
-              <button class="qopt">Базофіли</button>
-              <button class="qopt">В - лімфоцити</button>
-              <button class="qopt">Еозинофіли</button>
-            </div>
-            <p class="quiz-result"></p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ Тести після Лімфоцитів — 2 ══ -->
-    <section class="slide">
-      <div class="quiz-wrap">
-        <div class="quiz-cols">
-          <div class="quiz-card" data-answer="В-лімфоцити">
-            <p class="quiz-q"><span class="quiz-num">4</span>У хлопчика практично <u>відсутні імуноглобуліни всіх класів</u>. Зниження функціональної активності якої клітинної популяції лежить в основі описаного синдрому?</p>
-            <div class="quiz-opts">
-              <button class="qopt">Нейтрофіли</button>
-              <button class="qopt">В-лімфоцити</button>
-              <button class="qopt">Макрофаги</button>
-              <button class="qopt">NK-лімфоцити</button>
-              <button class="qopt">Т-лімфоцити</button>
-            </div>
-            <p class="quiz-result"></p>
-          </div>
-          <div class="quiz-card" data-answer="Т-лімфоцити">
-            <p class="quiz-q"><span class="quiz-num">5</span>Хворому <u>вживлено зубні імпланти.</u> За 3 тижні <u>відбулося їх відторгнення</u>. Які клітини крові беруть найбільшу участь у цьому патологічному процесі?</p>
-            <div class="quiz-opts">
-              <button class="qopt">Т-лімфоцити</button>
-              <button class="qopt">Плазмоцити</button>
-              <button class="qopt">Імуноглобуліни E</button>
-              <button class="qopt">Імуноглобуліни M</button>
-              <button class="qopt">В-лімфоцити</button>
-            </div>
-            <p class="quiz-result"></p>
-          </div>
-          <div class="quiz-card" data-answer="В-лімфоцити">
-            <p class="quiz-q"><span class="quiz-num">6</span>Серед лімфоцитів є популяція клітин з <u>рецепторами до IgM</u>, які під впливом антигенів диференціюються у плазматичні клітини, що <u>виробляють антитіла (імуноглобуліни)</u>. Укажіть ці клітини.</p>
-            <div class="quiz-opts">
-              <button class="qopt">Т-лімфоцити пам'яті</button>
-              <button class="qopt">Т-лімфоцити кілери</button>
-              <button class="qopt">Т-лімфоцити супресори</button>
-              <button class="qopt">В-лімфоцити</button>
-            </div>
-            <p class="quiz-result"></p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ Тести після Лімфоцитів — 3 ══ -->
-    <section class="slide">
-      <div class="quiz-wrap">
-        <div class="quiz-cols">
-          <div class="quiz-card" data-answer="Плазмоцити">
-            <p class="quiz-q"><span class="quiz-num">7</span>Одужання організму від інфекційної хвороби супроводжується нейтралізацією антигенів <u>специфічними антитілами</u>. Якими клітинами вони продукуються?</p>
-            <div class="quiz-opts">
-              <button class="qopt">Т-лімфоцити</button>
-              <button class="qopt">Тканинні базофіли</button>
-              <button class="qopt">Плазмоцити</button>
-              <button class="qopt">Еозинофіли</button>
-              <button class="qopt">Фібробласти</button>
-            </div>
-            <p class="quiz-result"></p>
-          </div>
-          <div class="quiz-card" data-answer="Плазмоцитів">
-            <p class="quiz-q"><span class="quiz-num">8</span>У пацієнта 37 років виявлено <u>зниження вмісту у слині секреторного імуноглобуліну</u>. Функція яких клітин порушена?</p>
-            <div class="quiz-opts">
-              <button class="qopt">Плазмоцитів</button>
-              <button class="qopt">Макрофагів</button>
-              <button class="qopt">Мукоцитів</button>
-              <button class="qopt">Сероцитів</button>
-              <button class="qopt">Епітелію слизової</button>
-            </div>
-            <p class="quiz-result"></p>
-          </div>
-          <div class="quiz-card" data-answer="Макрофаги, В-лімфоцити">
-            <p class="quiz-q"><span class="quiz-num">10</span>В імунній відповіді велику роль відіграють <u>антигенпрезентуючі клітини.</u> Які клітини є антигенпрезентуючими?</p>
-            <div class="quiz-opts">
-              <button class="qopt">Т-хелпери, Т-кілери</button>
-              <button class="qopt">Природні кілери: NK і K-клітини</button>
-              <button class="qopt">Макрофаги, В-лімфоцити</button>
-              <button class="qopt">Т-хелпери, В-лімфоцити</button>
-              <button class="qopt">Дендритні клітини, Т-кілери</button>
-            </div>
-            <p class="quiz-result"></p>
-          </div>
-          <div class="quiz-card" data-answer="Плазмоцити">
-            <p class="quiz-q"><span class="quiz-num">9</span>На зрізі лімфатичного вузла виявлено клітини з <u>базофільною цитоплазмою, ексцентричним ядром і хроматином у вигляді «спиць у колесі»</u> — <u>продуценти антитіл</u>. Які це клітини?</p>
-            <div class="quiz-opts">
-              <button class="qopt">Макрофаги</button>
-              <button class="qopt">Тучні клітини</button>
-              <button class="qopt">Плазмоцити</button>
-              <button class="qopt">Фібробласти</button>
-              <button class="qopt">Адипоцити</button>
-            </div>
-            <p class="quiz-result"></p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
 
     <!-- ══ СЛАЙД 7 — Антиген та Антитіло ══ -->
     <section class="slide">
@@ -1508,6 +1334,190 @@
       </div>
     </section>
 
+    <!-- ══ СЛАЙД 3 ══ -->
+    <section class="slide">
+      <div class="cls-wrap">
+        <h2 class="cls-title">Класифікація імунітету</h2>
+        <div class="cls-tree">
+          <!-- Корінь -->
+          <div class="cls-row-root">
+            <div class="cls-node cls-root">Імунітет</div>
+          </div>
+          <div class="cls-connector-v"></div>
+          <!-- Горизонтальна лінія + гілки -->
+          <div class="cls-connector-h-wrap">
+            <div class="cls-mid-wrap">
+              <div class="cls-connector-v"></div>
+              <div class="cls-node cls-mid">Природний</div>
+              <div class="cls-connector-v"></div>
+              <div class="cls-leaf-h-wrap">
+                <div class="cls-node cls-leaf">Вроджений<br>(пасивний)<br><span class="cls-sub">від матері до дитини</span></div>
+                <div class="cls-node cls-leaf">Набутий<br>(активний)<br><span class="cls-sub">після хвороби</span></div>
+              </div>
+            </div>
+            <div class="cls-mid-wrap">
+              <div class="cls-connector-v"></div>
+              <div class="cls-node cls-mid">Штучний</div>
+              <div class="cls-connector-v"></div>
+              <div class="cls-leaf-h-wrap">
+                <div class="cls-node cls-leaf">Під дією<br>вакцини<br><span class="cls-sub">(активний)</span></div>
+                <div class="cls-node cls-leaf">Під дією<br>сироватки<br><span class="cls-sub">(пасивний)</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ СЛАЙД 4 — Лімфоцити ══ -->
+    <section class="slide">
+      <div class="s4-wrap">
+        <h2 class="s4-heading">Лімфоцити</h2>
+
+        <div class="s4-left">
+          <div class="s4-block">
+            <p class="s4-block-title">В-лімфоцити — гуморальний імунітет</p>
+            <p class="s4-block-sub">В-лімфоцит → плазмоцит → антитіла (Ig)</p>
+            <ul>
+              <li>Антиген потрапляє в організм → активує В-клітину</li>
+              <li>В-клітина перетворюється на <strong>плазмоцит</strong></li>
+              <li>Плазмоцит виробляє <strong>антитіла</strong>, що зв'язують і нейтралізують чужорідні агенти</li>
+              <li>Ознака плазмоцита — хроматин у ядрі у вигляді <strong>«спиць колеса»</strong></li>
+            </ul>
+          </div>
+          <div class="s4-block">
+            <p class="s4-block-title">Т-лімфоцити — клітинний імунітет</p>
+            <ul>
+              <li><strong>Т-хелпери</strong> — головні «координатори» імунної відповіді: розпізнають антиген, стимулюють В-лімфоцити виробляти Ig, активують інші клітини імунітету</li>
+              <li><strong>Т-кілери</strong> — знищують вірус-інфіковані та пухлинні клітини; беруть участь у відторгненні трансплантату</li>
+              <li><strong>Т-супресори / Т-регулятори</strong> — пригнічують надмірну імунну відповідь; контролюють активність В-лімфоцитів та інших Т-клітин</li>
+              <li><strong>Т-клітини пам'яті</strong> — зберігають інформацію про антиген</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="s4-right">
+          <svg class="s4-svg" viewBox="0 0 400 560" preserveAspectRatio="none">
+            <polyline class="s4-tree-ln" points="200,56  88,170  88,185"/>
+            <polyline class="s4-tree-ln" points="200,56  280,170  280,185"/>
+            <polyline class="s4-tree-ln" points="280,225  220,320  220,335"/>
+            <polyline class="s4-tree-ln" points="280,225  340,320  340,335"/>
+            <line class="s4-tree-ln" x1="340" y1="375" x2="340" y2="460"/>
+          </svg>
+          <div class="s4-cell" style="left:50%;top:9%">
+            <div class="s4-circle sz-lg cl-pred"></div>
+            <span class="s4-cell-label">Клітина-попередник</span>
+            <span class="s4-cell-sub">лімфоїдного ряду</span>
+          </div>
+          <div class="s4-cell" style="left:22%;top:36%">
+            <div class="s4-circle sz-md cl-nk"></div>
+            <span class="s4-cell-label">NK-клітина</span>
+            <span class="s4-cell-sub">(природний кілер)</span>
+          </div>
+          <div class="s4-cell" style="left:70%;top:36%">
+            <div class="s4-circle sz-md cl-pred"></div>
+            <span class="s4-cell-label">Малі лімфоцити</span>
+          </div>
+          <div class="s4-cell" style="left:55%;top:62%">
+            <div class="s4-circle sz-md cl-t"></div>
+            <span class="s4-cell-label">Т-лімфоцит</span>
+          </div>
+          <div class="s4-cell" style="left:85%;top:62%">
+            <div class="s4-circle sz-md cl-b"></div>
+            <span class="s4-cell-label">В-лімфоцит</span>
+          </div>
+          <div class="s4-cell" style="left:85%;top:88%">
+            <div class="s4-circle sz-md cl-plazm"></div>
+            <span class="s4-cell-label">Плазматична <br>клітина</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ Тести після Лімфоцитів — 1 ══ -->
+    <section class="slide">
+      <div class="quiz-wrap">
+        <div class="quiz-cols">
+          <div class="quiz-card" data-answer="Лімфоцити">
+            <p class="quiz-q"><span class="quiz-num">1</span>При обстеженні хворого, який зазнав дії іонізуючого випромінювання, виявлено <u>пошкодження білої пульпи селезінки</u>. Які клітини білої пульпи зазнають патологічних змін?</p>
+            <div class="quiz-opts">
+              <button class="qopt">Тканинні базофіли</button>
+              <button class="qopt">Базофільні лейкоцити</button>
+              <button class="qopt">Лімфоцити</button>
+              <button class="qopt">Нейтрофільні лейкоцити</button>
+              <button class="qopt">Моноцити</button>
+            </div>
+            <p class="quiz-result"></p>
+          </div>
+          <div class="quiz-card" data-answer="Т-лімфоцити">
+            <p class="quiz-q"><span class="quiz-num">2</span>У новонародженого виявлено <u>вроджену атрофію тимусу.</u> Які клітини імунної системи постраждають найбільше?</p>
+            <div class="quiz-opts">
+              <button class="qopt">Т-лімфоцити</button>
+              <button class="qopt">В-клітини пам'яті</button>
+              <button class="qopt">Антигенпредставляючі клітини</button>
+              <button class="qopt">Макрофаги</button>
+              <button class="qopt">В-лімфоцити</button>
+            </div>
+            <p class="quiz-result"></p>
+          </div>
+          <div class="quiz-card" data-answer="Т - лімфоцити">
+            <p class="quiz-q"><span class="quiz-num">3</span>Хворому з великими опіками зробили <u>пересадку донорської шкіри</u>. На 8-му добу трансплантат набряк і <u>почав відторгати</u>сь. Які клітини беруть у цьому участь?</p>
+            <div class="quiz-opts">
+              <button class="qopt">Еритроцити</button>
+              <button class="qopt">Т - лімфоцити</button>
+              <button class="qopt">Базофіли</button>
+              <button class="qopt">В - лімфоцити</button>
+              <button class="qopt">Еозинофіли</button>
+            </div>
+            <p class="quiz-result"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ Тести після Лімфоцитів — 2 ══ -->
+    <section class="slide">
+      <div class="quiz-wrap">
+        <div class="quiz-cols">
+          <div class="quiz-card" data-answer="В-лімфоцити">
+            <p class="quiz-q"><span class="quiz-num">4</span>У хлопчика практично <u>відсутні імуноглобуліни всіх класів</u>. Зниження функціональної активності якої клітинної популяції лежить в основі описаного синдрому?</p>
+            <div class="quiz-opts">
+              <button class="qopt">Нейтрофіли</button>
+              <button class="qopt">В-лімфоцити</button>
+              <button class="qopt">Макрофаги</button>
+              <button class="qopt">NK-лімфоцити</button>
+              <button class="qopt">Т-лімфоцити</button>
+            </div>
+            <p class="quiz-result"></p>
+          </div>
+          <div class="quiz-card" data-answer="Плазмоцитів">
+            <p class="quiz-q"><span class="quiz-num">5</span>У пацієнта 37 років виявлено <u>зниження вмісту у слині секреторного імуноглобуліну</u>. Функція яких клітин порушена?</p>
+            <div class="quiz-opts">
+              <button class="qopt">Плазмоцитів</button>
+              <button class="qopt">Макрофагів</button>
+              <button class="qopt">Мукоцитів</button>
+              <button class="qopt">Сероцитів</button>
+              <button class="qopt">Епітелію слизової</button>
+            </div>
+            <p class="quiz-result"></p>
+          </div>
+          <div class="quiz-card" data-answer="Плазмоцити">
+            <p class="quiz-q"><span class="quiz-num">6</span>На зрізі лімфатичного вузла виявлено клітини з <u>базофільною цитоплазмою, ексцентричним ядром і хроматином у вигляді «спиць у колесі»</u> — <u>продуценти антитіл</u>. Які це клітини?</p>
+            <div class="quiz-opts">
+              <button class="qopt">Макрофаги</button>
+              <button class="qopt">Тучні клітини</button>
+              <button class="qopt">Плазмоцити</button>
+              <button class="qopt">Фібробласти</button>
+              <button class="qopt">Адипоцити</button>
+            </div>
+            <p class="quiz-result"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
     <!-- ══ СЛАЙД 8 — Імунодефіцити ══ -->
     <section class="slide">
       <div class="id-wrap">
@@ -1564,7 +1574,7 @@
             <div class="id-item">
               <div class="id-item-name">Синдром Луї-Бар<br><small>атаксія-телеангіектазія</small></div>
               <div class="id-item-body">
-                Тимус у зародковому стані. Т-лімфоцити ↓, IgA відсутні, IgM — норма.<br>
+                Тимус у зародковому стані. Т-лімфоцити ↓, IgA відсутні.<br>
                 <b>Симптоми:</b> ластовиння, телеангіектазії, порушення ходи.
               </div>
             </div>
@@ -1588,7 +1598,7 @@
       <div class="quiz-wrap">
         <div class="quiz-cols">
           <div class="quiz-card" data-answer="Первинний імунодефіцит, синдром Ді-Джорджі">
-            <p class="quiz-q"><span class="quiz-num">1</span>У двомісячної дитини — судоми, рецидивуючі інфекції. Виявлено <u>гіпоплазію тимусу</u> та паращитовидних залоз, <u><u>лімфоцитопенія, зниження рівня та проліферативної відповіді Т-лімфоцитів</u>, нормальний рівень імуноглобулінів</u>. Який найімовірніший діагноз?</p>
+            <p class="quiz-q"><span class="quiz-num">1</span>У двомісячної дитини — судоми, рецидивуючі інфекції. Виявлено <u>гіпоплазію тимусу</u> та <u>паращитовидних залоз</u>, <u><u>лімфоцитопенія, зниження рівня та проліферативної відповіді Т-лімфоцитів</u>, нормальний рівень імуноглобулінів</u>. Який найімовірніший діагноз?</p>
             <div class="quiz-opts">
               <button class="qopt">Первинний імунодефіцит, синдром Ді-Джорджі</button>
               <button class="qopt">Загальний варіабельний імунодефіцит</button>
@@ -1715,7 +1725,7 @@
       <div class="quiz-wrap">
         <div class="quiz-cols">
           <div class="quiz-card" data-answer="IgM">
-            <p class="quiz-q"><span class="quiz-num">1</span>До інфекційного відділення шпиталізовано п'ятирічну дитину з діагнозом кір. У сироватці крові виявлено <u>специфічні антитіла</u>. Імуноглобуліни якого класу свідчать про <u>гостру стадію вірусної інфекції</u>?</p>
+            <p class="quiz-q"><span class="quiz-num">1</span>До інфекційного відділення шпиталізовано п'ятирічну дитину з діагнозом кір. У сироватці крові виявлено специфічні антитіла. Імуноглобуліни якого класу свідчать про <u>гостру стадію вірусної інфекції</u>?</p>
             <div class="quiz-opts">
               <button class="qopt">IgE</button>
               <button class="qopt">IgA</button>
@@ -1820,7 +1830,7 @@
         <div class="ar-block t1">
           <div class="ar-block-head">
             <span class="ar-type-badge">I тип</span>
-            <span class="ar-type-name">Негайного типу<br>(анафілактична, реагінова)</span>
+            <span class="ar-type-name">Негайного типу<br>(анафілактичний, реагіновий)</span>
           </div>
           <div class="ar-mech">Повʼязаний з виробленням антитіл IgE-класу та лежить в основі атопічних захворювань.</div>
           <div class="ar-diseases">
@@ -1838,7 +1848,7 @@
         <div class="ar-block t2">
           <div class="ar-block-head">
             <span class="ar-type-badge">II тип</span>
-            <span class="ar-type-name">Негайного типу<br>(цитотоксична, антитілозалежна)</span>
+            <span class="ar-type-name">Негайного типу<br>(цитотоксичний, антитілозалежний)</span>
           </div>
           <div class="ar-mech">Антиген є компонентом клітини. Реакція починається з активуючого впливу антитіл на компоненти комплементу з подальшим ушкодженням клітини.</div>
           <div class="ar-diseases">
@@ -1859,7 +1869,7 @@
         <div class="ar-block t3">
           <div class="ar-block-head">
             <span class="ar-type-badge">III тип</span>
-            <span class="ar-type-name">Негайного типу<br>(імунокомплексна)</span>
+            <span class="ar-type-name">Негайного типу<br>(імунокомплексний)</span>
           </div>
           <div class="ar-mech">Повʼязаний з утворенням комплексів алергенів та аутоалергенів з антитілами (IgM, IgG) і шкідливою дією цих комплексів на тканини організму.</div>
           <div class="ar-diseases">
@@ -1867,7 +1877,7 @@
             <span class="ar-dis-tag">СЧВ</span>
             <span class="ar-dis-tag">Ревматоїдний артрит</span>
             <span class="ar-dis-tag">Реактивний артрит</span>
-            <span class="ar-dis-tag">Гострий <u>гломерулонефрит</u></span>
+            <span class="ar-dis-tag">Гострий гломерулонефрит</span>
             <span class="ar-dis-tag">Вузелковий поліартеріїт</span>
           </div>
         </div>
@@ -1876,9 +1886,13 @@
         <div class="ar-block t4">
           <div class="ar-block-head">
             <span class="ar-type-badge">IV тип</span>
-            <span class="ar-type-name">Уповільненого типу<br>(клітинна цитотоксичність)</span>
+            <span class="ar-type-name">Уповільненого типу<br>(клітинно опосередкований)</span>
           </div>
-          <div class="ar-mech">Гіперчутливість уповільненого типу. Повʼязаний із утворенням сенсибілізованих Т-лімфоцитів.</div>
+          <div class="ar-mech">Гіперчутливість уповільненого типу. Повʼязаний із утворенням <button class="sens-btn" onclick="document.getElementById('sens-popup').classList.toggle('show')">сенсибілізованих Т-лімфоцитів</button>.</div>
+          <div class="sens-popup" id="sens-popup">
+            <button class="sens-close" onclick="document.getElementById('sens-popup').classList.remove('show')">×</button>
+            <p><strong>Сенсибілізовані Т-лімфоцити</strong> — це «навчені» або активовані імунні клітини, які вже зустрілися з конкретним чужорідним агентом (вірусом, бактерією, раковою клітиною) і стали специфічно налаштованими на його знищення. Вони є основою клітинного імунітету та циркулюють в організмі, розпізнаючи ворога за допомогою спеціальних рецепторів.</p>
+          </div>
           <div class="ar-diseases">
             <span class="ar-dis-tag">Контактний дерматит</span>
             <span class="ar-dis-tag">Туберкулінова реакція</span>
@@ -1893,22 +1907,7 @@
       </div>
     </section>
 
-    <!-- ══ СЛАЙД 14 — V тип ══ -->
-    <section class="slide">
-      <div class="v-wrap">
-        <div class="v-type5">
-          <div class="v-type5-label">V тип — Антирецепторний</div>
-          <div class="v-type5-sub">
-            Обумовлений антитілами до рецепторів клітинних мембран — ацетилхолінових, інсулінових та інших.
-          </div>
-          <div class="v-type5-tags">
-            <span class="v-type5-tag">Цукровий діабет</span>
-            <span class="v-type5-tag">Хвороба Грейвса</span>
-            <span class="v-type5-tag">Міастенія</span>
-          </div>
-        </div>
-      </div>
-    </section>
+
 
     <!-- ══ Тести після V типу — 1 ══ -->
     <section class="slide">
