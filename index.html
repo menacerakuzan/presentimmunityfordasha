@@ -377,31 +377,58 @@
     }
 
     /* попап при кліку */
-    .s3-popup {
-      position: absolute; z-index: 10;
-      background: rgba(255,255,255,0.97);
-      border: 2px solid rgba(42,73,199,0.28);
-      border-radius: 14px;
-      box-shadow: 0 8px 32px rgba(42,73,199,0.16);
-      padding: 16px 20px 14px;
-      font-family: "Nyght Serif", serif;
-      font-size: clamp(18px,1.45vw,22px);
-      color: #1b2865; line-height: 1.5;
-      max-width: 320px; min-width: 200px;
-      pointer-events: none;
-      opacity: 0; transform: translateY(-6px) scale(0.97);
-      transition: opacity 180ms ease, transform 180ms ease;
+    /* старі попапи — приховані, використовуємо тільки як data-store */
+    .s3-popup { display: none; }
+
+    /* модальне вікно органу */
+    .organ-modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 200;
+      background: rgba(10,20,60,0.45); backdrop-filter: blur(4px);
+      align-items: center; justify-content: center;
     }
-    .s3-popup.central { border-color: rgba(210,130,40,0.5); }
-    .s3-popup.show { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
-    .s3-popup-title { font-weight: 700; font-size: clamp(14px,1.1vw,20px); margin: 0 0 8px; color: var(--ink); }
-    .s3-popup-close {
-      position: absolute; top: 8px; right: 10px;
-      font-size: 18px; line-height: 1; cursor: pointer;
-      color: #aaa; background: none; border: none; padding: 0;
-      font-family: "Nyght Serif", serif;
+    .organ-modal-overlay.show { display: flex; }
+    .organ-modal {
+      background: #fff; border-radius: 22px;
+      box-shadow: 0 24px 80px rgba(20,40,120,0.28);
+      width: min(820px, 88vw); max-height: 82vh;
+      display: flex; overflow: hidden;
+      animation: modalIn 200ms ease;
     }
-    .s3-popup-close:hover { color: var(--ink); }
+    @keyframes modalIn {
+      from { opacity:0; transform: scale(0.95) translateY(12px); }
+      to   { opacity:1; transform: scale(1)    translateY(0); }
+    }
+    .organ-modal-img {
+      width: 42%; flex-shrink: 0; background: #eef0f6;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .organ-modal-img img {
+      width: 100%; height: 100%; object-fit: contain;
+    }
+    .organ-modal-body {
+      flex: 1; padding: clamp(24px,3vw,44px) clamp(20px,2.5vw,36px);
+      display: flex; flex-direction: column; justify-content: center;
+      overflow-y: auto;
+    }
+    .organ-modal-title {
+      font-family: "Nyght Serif", serif; font-weight: 700;
+      font-size: clamp(20px,2vw,32px); color: var(--accent);
+      margin: 0 0 16px;
+    }
+    .organ-modal-text {
+      font-family: "Nyght Serif", serif;
+      font-size: clamp(15px,1.3vw,20px); color: var(--ink);
+      line-height: 1.65; margin: 0;
+    }
+    .organ-modal-close {
+      position: absolute; top: 18px; right: 22px;
+      font-size: 26px; line-height: 1; cursor: pointer;
+      color: #aaa; background: none; border: none;
+      font-family: "Nyght Serif", serif; z-index: 1;
+    }
+    .organ-modal-close:hover { color: var(--ink); }
+    .organ-modal { position: relative; }
 
     /* ══════════════ СЛАЙДИ 4-5 — Тести ══════════════ */
     .quiz-wrap {
@@ -1238,36 +1265,42 @@
         <!-- Попапи -->
         <div class="s3-popup central" id="pop-thymus">
           <button class="s3-popup-close" data-close="pop-thymus">×</button>
+          <div class="s3-popup-img-wrap"><img class="s3-popup-img" src="./тимус.jpg" alt="Тимус"></div>
           <p class="s3-popup-title">Тимус</p>
           <p>• Місце дозрівання Т-лімфоцитів<br>• Забезпечує клітинний імунітет<br>• Виробляє тимозин та інші гормони</p>
         </div>
 
         <div class="s3-popup central" id="pop-bm">
           <button class="s3-popup-close" data-close="pop-bm">×</button>
+          <div class="s3-popup-img-wrap"><img class="s3-popup-img" src="./червоний кістковий мозок.jpg" alt="Червоний кістковий мозок"></div>
           <p class="s3-popup-title">Червоний кістковий мозок</p>
           <p>• Місце утворення та дозрівання В-лімфоцитів<br>• Джерело всіх клітин крові<br>• Центральний орган кровотворення</p>
         </div>
 
         <div class="s3-popup" id="pop-ln">
           <button class="s3-popup-close" data-close="pop-ln">×</button>
+          <div class="s3-popup-img-wrap"><img class="s3-popup-img" src="./лімфатичні вузли.jpg" alt="Лімфатичні вузли"></div>
           <p class="s3-popup-title">Лімфатичні вузли</p>
           <p>• Бар’єрно-фільтраційна роль<br>• Участь в утворенні лімфоцитів<br>• Утворення плазматичних клітин, які <u>виробляють антитіла</u></p>
         </div>
 
         <div class="s3-popup" id="pop-spl">
           <button class="s3-popup-close" data-close="pop-spl">×</button>
+          <div class="s3-popup-img-wrap"><img class="s3-popup-img" src="./селезінка.jpg" alt="Селезінка"></div>
           <p class="s3-popup-title">Селезінка</p>
           <p>• Диференціація В і Т-лімфоцитів<br>• Фільтрація крові<br>• Депо крові</p>
         </div>
 
         <div class="s3-popup" id="pop-ta">
           <button class="s3-popup-close" data-close="pop-ta">×</button>
+          <div class="s3-popup-img-wrap"><img class="s3-popup-img" src="./мигдалики.jpg" alt="Мигдалики і аденоїди"></div>
           <p class="s3-popup-title">Мигдалики і аденоїди</p>
           <p>• Бар’єрна роль для верхніх дихальних шляхів<br>• Постачання імунними клітинами<br>• Участь у формуванні мікробної флори</p>
         </div>
 
         <div class="s3-popup" id="pop-lt">
           <button class="s3-popup-close" data-close="pop-lt">×</button>
+          <div class="s3-popup-img-wrap"><img class="s3-popup-img" src="./лімфатична тканина.jpg" alt="Лімфоїдна тканина"></div>
           <p class="s3-popup-title">Лімфоїдна тканина</p>
           <p>• Забезпечує місцевий імунітет<br>• Присутня в повітроносних шляхах, кишечнику та сечостатевій системі</p>
         </div>
@@ -2109,52 +2142,38 @@
   tryNext(); requestAnimationFrame(orbit);
 
   /* ── Слайд 3: кліковані ноди → попап ── */
+
+  // ══ Модальне вікно органів ══
+  const organOverlay = document.getElementById("organ-modal-overlay");
+  const organModalImg = document.getElementById("organ-modal-img");
+  const organModalTitle = document.getElementById("organ-modal-title");
+  const organModalText = document.getElementById("organ-modal-text");
+
+  function openOrganModal(popId) {
+    const pop = document.getElementById(popId);
+    if (!pop) return;
+    const img = pop.querySelector("img");
+    const title = pop.querySelector(".s3-popup-title");
+    const text = pop.querySelector("p:not(.s3-popup-title)");
+    organModalImg.src = img ? img.src : "";
+    organModalTitle.textContent = title ? title.textContent : "";
+    organModalText.innerHTML = text ? text.innerHTML : "";
+    organOverlay.classList.add("show");
+  }
+
+  document.getElementById("organ-modal-close").addEventListener("click", () => {
+    organOverlay.classList.remove("show");
+  });
+  organOverlay.addEventListener("click", e => {
+    if (e.target === organOverlay) organOverlay.classList.remove("show");
+  });
+
   document.querySelectorAll(".s3-node.clickable").forEach(node => {
     node.addEventListener("click", e => {
       e.stopPropagation();
       const popId = node.dataset.popup;
-      if (!popId) return;
-      const pop = document.getElementById(popId);
-      if (!pop) return;
-
-      // закрити всі інші
-      document.querySelectorAll(".s3-popup.show").forEach(p => { if (p !== pop) p.classList.remove("show"); });
-
-      if (pop.classList.contains("show")) {
-        pop.classList.remove("show");
-        return;
-      }
-
-      // позиціонування попапу відносно ноди
-      const nr = node.getBoundingClientRect();
-      const wr = node.closest(".s3-wrap").getBoundingClientRect();
-      let left = (nr.left - wr.left) + nr.width / 2;
-      let top  = (nr.bottom - wr.top) + 8;
-
-      // зсув якщо виходить за правий край
-      const popW = 300;
-      if (left + popW / 2 > wr.width - 16) left = wr.width - popW - 16;
-      if (left - popW / 2 < 16) left = 16 + popW / 2;
-
-      pop.style.left = (left - popW / 2) + "px";
-      pop.style.top  = top + "px";
-      pop.style.width = popW + "px";
-      pop.classList.add("show");
+      if (popId) openOrganModal(popId);
     });
-  });
-
-  // закрити попап по кнопці ×
-  document.querySelectorAll(".s3-popup-close").forEach(btn => {
-    btn.addEventListener("click", e => {
-      e.stopPropagation();
-      const popId = btn.dataset.close;
-      document.getElementById(popId)?.classList.remove("show");
-    });
-  });
-
-  // закрити клік по фону
-  document.addEventListener("click", () => {
-    document.querySelectorAll(".s3-popup.show").forEach(p => p.classList.remove("show"));
   });
 
   /* ── Слайд 2: розкривні картки ── */
@@ -2193,5 +2212,19 @@
     });
   });
 </script>
+
+<!-- Модальне вікно органів імунної системи -->
+<div class="organ-modal-overlay" id="organ-modal-overlay">
+  <div class="organ-modal">
+    <button class="organ-modal-close" id="organ-modal-close">×</button>
+    <div class="organ-modal-img">
+      <img id="organ-modal-img" src="" alt="">
+    </div>
+    <div class="organ-modal-body">
+      <p class="organ-modal-title" id="organ-modal-title"></p>
+      <p class="organ-modal-text" id="organ-modal-text"></p>
+    </div>
+  </div>
+</div>
 </body>
 </html>
